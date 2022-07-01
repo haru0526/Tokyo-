@@ -48,6 +48,7 @@
             height: 1000px;
         }
     </style>
+    <!-- 地圖CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
@@ -276,21 +277,21 @@
         }
 
         //Map
-        // var map = L.map(
-        //     'map', {
-        //     center: [23.773, 120.959],
-        //     zoom: 8,
-        // });
-        // L.control.scale({
-        //     position: 'bottomleft'
-        // }).addTo(map);
+        var map = L.map(
+            'map', {
+            center: [23.773, 120.959],
+            zoom: 8,
+        });
+        L.control.scale({
+            position: 'bottomleft'
+        }).addTo(map);
 
-        // var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
-        // var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
-        //     hereApiKey, {
-        //     attribution: '© 2020 HERE',
-        //     subdomains: [1, 2, 3, 4]
-        // }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
+        var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
+        var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
+            hereApiKey, {
+            attribution: '© 2020 HERE',
+            subdomains: [1, 2, 3, 4]
+        }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
 
 
     </script>
