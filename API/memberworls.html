@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../_css/bootstrap.min.css">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <script src="../_js/bootstrap.min.js"></script>
+    <script src="../_js/jquery-3.6.0.js"></script>
+    <title>會員專屬功能</title>
+
+    <style>
+        header {
+            height: 300px;
+            background-color: #F9C0C0;
+        }
+
+        footer {
+            height: 300px;
+            background-color: #F9C0C0;
+        }
+
+        #travel {
+            width: 100%;
+            height: 100%;
+            border: 1px solid;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .card {
+            border: 1px solid;
+        }
+
+        #addmap {
+            /* position: absolute; */
+            bottom: 5px;
+        }
+
+        #map {
+            margin-top: 30px;
+            height: 1000px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin="">
+        </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center">Title</h1>
+    </header>
+
+
+    <div class="container">
+        <!-- 景點 -->
+        <div class="row" id="views">
+
+        </div>
+
+
+        <!-- 行程規劃 -->
+        <div class="bg-warning mt-5" style="height: 30px; width: 100%;">
+            <p>行程規劃</p>
+        </div>
+        <div class="" id="travel">
+            <div class="clearfix">
+                <div class="float-right mr-1 mt-1">
+                    <button type="button" id="addtravel">+</button>
+                </div>
+                <div class="float-right mt-1">新增景點</div>
+            </div>
+
+            <!-- 行程表單 -->
+            <!-- <div class="row mb-5 mt-2 d-flex align-items-end" id="travelSelect0">
+                <div class="col-md-1 text-center">
+                    <button type="button" onclick="deleteview(event)">-</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <label for="">到達時間</label>
+                    <input type="time" id="arriveTime">
+                </div>
+                <div class="col-md-2 text-center">
+                    <label for="">休息多久(分鐘)</label>
+                    <input type="text" id="restTime">
+                </div>
+                <div class="col-md-3 ml-5">
+                    <select class="custom-select custom-select-sm">
+                        <option selected>景點類別</option>
+                        <option value="1">美食</option>
+                        <option value="2">神社</option>
+                        <option value="3">景點</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="custom-select custom-select-sm">
+                        <option selected>景點名稱</option>
+                        <option value="1">銀座</option>
+                        <option value="2">東京鐵塔</option>
+                        <option value="3">晴空塔</option>
+                    </select>
+                </div>
+            </div>   -->
+        </div>
+
+        <!-- 加入地圖按鈕 -->
+        <div class="row justify-content-end mt-4">
+            <button id="addmap" class="btn btn-success mr-5">加入到地圖顯示</button>
+        </div>
+
+        <div id="map"></div>
+    </div>
+
+    <footer class="mt-5">
+        <h1 class="text-center">Footer</h1>
+    </footer>
+
+    <script>
+
+        var items = [];
+        var membetViewDataTag = [];
+        var username = "admin";
+
+        //後端來的資料
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/getViewData",
+            async: false,
+            success: function (data) {
+                items = JSON.parse(data);
+            }
+        })
+
+        // console.log(items[0].ViewName);
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/getMemberCollectViewDataTag/" + username,
+            async: false,
+            success: function (data) {
+                membetViewDataTag = JSON.parse(data);
+            }
+        })
+
+        
+
+
+        let content = '';
+
+        //景點card
+        items.forEach(p => {
+            content += `
+            <div id="keyBoard" class="col-md-4 mt-5">
+              <div class="card" style="width: 18rem;">
+                  <img src="${p.ViewImage}" class="card-img-top img-fluid" alt="keyboard">
+                  <div class="card-body">
+                      <h5 class="card-title text-center" id="itemName">${p.ViewName}</h5>
+                  </div>
+              </div>
+            </div>
+            `
+        });
+
+        document.querySelector("#views").innerHTML = content;
+
+        let selectTag = '';
+        let selectTagName = '';
+        let selectoption = '';
+
+        //景點TAG選項 暫定之後改成 SQL查詢後的資料
+        membetViewDataTag.forEach(p => {
+            selectTag += `
+            <option value="${p.ViewTag}">${p.ViewTag}</option>
+            `
+        })
+
+        var memberSelectTagViewData = [];
+
+        function renew(index,e) {
+            selectTagName = membetViewDataTag[index - 1].ViewTag;
+            // console.log(e.path[2].lastChild.previousElementSibling.children[0].innerHTML);
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/getMemberCollectViewDataTag/" + username + "/" + selectTagName,
+                async: false,
+                success: function (data) {
+                    selectoption = "";
+                    memberSelectTagViewData = JSON.parse(data);
+                    // console.log(memberSelectTagViewData);
+                    //景點名稱選項 改成SQL查詢後的資料
+                    memberSelectTagViewData.forEach(p => {
+                        selectoption += `
+                        <option value="${p.ViewName},${p.latitude},${p.longitude}">${p.ViewName}</option>
+                        `
+                        e.path[2].lastChild.previousElementSibling.children[0].innerHTML = selectoption;
+                    })
+                }
+                
+            })
+        }
+
+       
+    
+        //新增景點按鈕
+        var travelSelect = 0;
+        var travelSelectarray = [];
+        addtravel.onclick = function () {
+            // console.log(travelSelect);
+            $('#travel').append(
+                `
+                <div class="row mb-5 mt-2 d-flex align-items-end" id="travelSelect` + travelSelect + `">
+                <div class="col-md-1 text-center">
+                    <button type="button" onclick="deleteview(event)">-</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <label for="">到達時間</label>
+                    <input type="time" id="arriveTime">
+                </div>
+                <div class="col-md-2 text-center">
+                    <label for="">休息多久(分鐘)</label>
+                    <input type="text" id="restTime">
+                </div>
+                <div class="col-md-3 ml-5">
+                    <select class="custom-select custom-select-sm" onChange="renew(this.selectedIndex,event);">
+                        <option selected>景點類別</option>`
+                + selectTag +
+                `
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="custom-select custom-select-sm">
+                        <option selected>景點名稱</option>`
+                + selectoption +
+                `
+                    </select>
+                </div>
+                </div> 
+                `);
+                travelSelectarray.push(travelSelect);
+                travelSelect++;
+        }
+
+        function deleteview(e) {
+            travelSelectarray.splice((travelSelect - 1),1);
+            console.log(e.path[2].id);
+            $('#' + e.path[2].id).remove();
+        }
+
+        var result = "";     //結果Temp
+        var viewLatLng = ""; //景點經緯度
+        var restTime = "";   //休息時間
+        var arriveTime = ""; //到達時間
+        addmap.onclick = function () {
+            var resultarray = [];
+            travelSelectarray.forEach(index =>{
+                viewLatLng = document.querySelector('#travelSelect' + index + ' div:nth-child(5) select');
+                restTime = document.querySelector('#travelSelect' + index + ' div:nth-child(3) #restTime');
+                arriveTime = document.querySelector('#travelSelect' + index + ' #arriveTime');
+                result = viewLatLng.value + "," + (restTime.value * 60);
+                result = result.split(",");
+                resultarray.push(result);
+            })
+            console.log(resultarray);
+        }
+
+        //Map
+        // var map = L.map(
+        //     'map', {
+        //     center: [23.773, 120.959],
+        //     zoom: 8,
+        // });
+        // L.control.scale({
+        //     position: 'bottomleft'
+        // }).addTo(map);
+
+        // var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
+        // var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
+        //     hereApiKey, {
+        //     attribution: '© 2020 HERE',
+        //     subdomains: [1, 2, 3, 4]
+        // }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
+
+
+    </script>
+
+</body>
+
+</html>
