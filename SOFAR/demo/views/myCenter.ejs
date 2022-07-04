@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./all.css/shawnCSS/bootstrap.min.css">
+    <script src="./js/shawnJS/jquery.min.js"></script>
+    <script src="./js/shawnJS/popper.min.js"></script>
+    <script src="./js/shawnJS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./all.css/shawnCSS/mycenter.css" />
+
+    <title>Tokyoe</title>
+  </head>
+  <body>
+    <div class="container-fulid m-5">
+        <!-- left -->
+        <section class="row justify-content-center d-flex ">
+          <section class="col-6 col-sm-6 col-md-3 aa">
+            <div class="pt-5 mt-5 rounded mx-auto d-block  text-center">
+              <img class="bigHead" src="./images/google.png" alt="" />
+              <h3>SHAWN</h3>
+              <p>@acc0752001</p>
+            </div>
+        </section>
+
+        <!-- right -->
+        <section class="col-6 aa ">
+            <nav class="nav nav-pills flex-column flex-md-row justify-content-center">
+              <a data-toggle="tab" class="nav-link" href="#walk"> 會員資料</a>
+              <a data-toggle="tab" class="nav-link" href="#collect">我的收藏</a>
+            </nav>
+  
+            <div class="tab-content">
+  
+              <div id="walk" class="tab-pane in active p-3">
+                <h2 class="">會員資料</h2>
+                <h5>姓名: <span id="myName"> <%= userName %></span></h5>
+                <h5>年齡: <span id="myAge"> </span></h5>
+                <h5>信箱: <span id="myEmail"> <%= userEmail %></span></h5>
+                <!-- <h5>密碼: <span id="myPassword"> Shawn123</span></h5> -->
+              </div>
+  
+              <div id="collect" class="tab-pane  ">
+                  <h3>我的收藏</h3>
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+                  <img class="collectImg" src="./images/login.png" alt="">
+              </div>
+              
+             
+          </div>
+           
+        </section>
+
+        
+      </section>
+
+      
+    </div>
+
+
+    <script>
+
+      // 如果抓不到 jwt 就回首頁
+      // function parseCookie() {
+      //     var cookieObj = {};
+      //     var cookieAry = document.cookie.split(';');
+      //     var cookie;
+          
+      //     for (var i=0, l=cookieAry.length; i<l; ++i) {
+      //         cookie = jQuery.trim(cookieAry[i]);
+      //         cookie = cookie.split('=');
+      //         cookieObj[cookie[0]] = cookie[1];
+      //     }
+          
+      //     return cookieObj;
+      // }
+
+
+      // function getCookieByName(name) {
+      //     var value = parseCookie()[name];
+      //     if (value) {
+      //         value = decodeURIComponent(value);
+      //     }
+
+      //     return value;
+      // }
+      // console.log(getCookieByName('userRegistered'))
+      
+      // if(!getCookieByName("userRegistered") ){
+      //   // window.location = "http://127.0.0.1:3000/member/index.html";
+      //   console.log("nono")
+        
+      // }
+
+      
+      // $.get("/member/mycenter", (e) => {
+      //   myInfo = JSON.parse(e);
+      //   // console.log(e);
+      //   // console.log(e==='"notToday"');
+      //   if(e==='"notToday"'){
+      //     window.location = "http://127.0.0.1:3000/member/index.html";
+      //   }else{
+      //     //計算生日
+      //     let nowdayYear=new Date().toString().substring(11,16);
+      //     let myBirthday= myInfo.birthday.substring(0,4)
+      //     $("#myName").text(myInfo.name);
+      //     $("#myAge").text(Number(nowdayYear)-Number(myBirthday));
+      //     $("#myEmail").text(myInfo.email);
+      //     // $("#myPassword").text(myInfo.password);
+      //   }
+      // })
+    </script>
+   
+      
+   
+
+
+  </body>
+</html>

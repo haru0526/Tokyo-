@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食巡禮</title>
+    <!-- CSS連結 -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../_css/bootstrap.min.css"> -->
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <!-- <script src="../_js/bootstrap.min.js"></script> -->
+    <!-- JQ -->
+    <!-- <link rel="stylesheet" href="../../_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../_js/jquery-3.6.0.js"></script>
+    <script src="../../_jquery-ui-1.12.1/"></script> -->
+    <!-- Font Awesome 用來弄一些圖示icon用 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    
+*{
+    /* margin: 0 auto; */
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    
+    /* background-color: rgb(255, 255, 255); */
+}
+
+/* 第一區header 拿來放導覽列 */
+
+header{
+    font-size: 20px;
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(249, 192, 192);
+    box-shadow: 10px 1rem 1rem rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+header img{
+    width: 50px; height: 40px; padding-bottom: -10px; filter: saturate(8);
+}
+
+/* 導覽列 */
+header .menubar a{
+    font-size: 20px;
+    font-weight: normal;
+    color: black;
+    padding: 10px;
+}
+/* 導覽列特效 */
+header .menubar a:hover{
+    font-size: 28px;
+    font-weight: 100;
+    color: brown;
+    margin-left: 1px;
+    transition: 0.1s;
+    background-color:rgb(255, 229, 229);
+    padding: 2px 1px 2px 2px;
+}
+
+
+/* 左上角LOGO字 */
+header .logo {
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+}
+
+#logo1{
+    width: 25%;
+    height: 25%;
+}
+
+/* 右上角的漢堡 */
+#menu{
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid rgb(9, 152, 152);
+    padding: 8px;
+    display: none;
+}
+
+.title{
+    margin: 200px;
+    font-size: 40px;
+}
+
+.FoodTravel{
+    border: 1px solid red;
+    margin: 0 10%;
+}
+
+.FoodTravel .image{
+
+width:800px;
+height: 400px;
+/* float: left; */
+overflow:hidden;
+height: 600px;
+}
+
+.actcle h3{
+    font-size: 36px;
+    color: rgb(9, 152, 152);
+}
+
+p{
+    font-size: 20px;
+    color: rgb(9, 152, 152);
+}
+
+#menu123 {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 8em;
+  margin-top: -2.5em;
+}
+
+/* footer */
+.footer {
+    margin-top: 5%;
+    background-color: #814840;
+}
+.footer-group {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2%;
+    border-bottom: 2px solid #fff;
+}
+.footer-info {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+h4 {
+    font-size: 20px;
+    text-align: center;
+    padding: 1em;
+}
+.info p {
+    color: #000;
+    padding-bottom: 1em;
+}
+.info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-info img {
+    width: 50px;
+}
+
+.contact-info li {
+    padding-right: 3%;
+}
+
+@media(max-width:768px) {
+    .info p {
+        font-size: 12px;
+    }
+
+    .contact-info img {
+        width: 30px;
+    }
+}
+
+@media(max-width:568px) {
+    .info {
+        display: none;
+    }
+
+    .contact-info img {
+        padding-top: 0.5em;
+        width: 30px;
+    }
+    h4{
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .orange-line {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .footer-group {
+        border-bottom: 1px solid #fff;
+    }
+}
+
+@media(max-width:767px) and(min-width:568px) {
+    .info {
+        display: none;
+    }
+
+}
+
+</style>    
+
+
+
+
+
+</head>
+<body>
+    <!-- <header>
+        <a href="" class="logo"><img src="./images/page_01/logo01.png" id="logo1">東京漫遊</a>
+        RWD時候用的按鈕
+        <div id="menu" class="fas fa-bars"></div>           
+            <nav class="menubar">
+                <a href="./firstpage.html">首頁</a>
+                <a href="#">推薦行程</a>
+                <a href="#">分區景點</a>
+                <a href="#">會員專屬</a>
+                <a href="#">我的行程</a>
+                <a href="#"><img src="images/index/user-01.svg" alt=""></a>
+            </nav>
+
+        
+    </header> -->
+    <%- include('navbar.ejs') %>
+
+    <ul id=menu123>
+        <li><a href="/allPage/page_01_scape">風景巡禮</a>
+            <li><a href="/allPage/page_01_food">美食巡禮</a>
+            <li><a href="/allPage/page_01_culture">文化巡禮</a>
+            <li><a href="/allPage/page_01_anime">動漫巡禮</a>
+            <li><a href="/">回到首頁</a> 
+    </ul>
+    <section class="FoodTravel"  >
+        <div class="title">美食巡禮
+            <p>跟隨孤獨的美食家"五郎"的腳步探店</p>
+        </div>
+        <div class="actcle">
+            <!-- 景點名 -->
+            <h3>(10:00am)鳥椿 鶯谷朝顔通り店</h3>
+            <!-- 介紹 -->
+            <p>孤獨的美食家店家巡禮，這次是來一家在鶯谷駅的日式居酒屋
+                店名是「鳥椿 鶯谷朝顔通り店」，是在孤獨的美食家第三季第8話的出場店家
+                這家店是隱藏在鶯谷的風化區小巷子裡面的居酒屋。這家店是早上10點就開始營業的居酒屋，號稱讓你早上開始就可以買醉(不喝酒也完全沒問題，但一定要點杯飲料是日本居酒屋的基本禮儀喔)
+                店家很貼心的有準備"五郎's"套餐，只要加點一杯烏龍茶就可以完美重現!
+                <br><br>
+                本集五郎SET:ウーロン茶(五郎萬年飲料烏龍茶....)、油淋肝(有一點像我們的炸豬肝)、ハムカツ(炸火腿)、おろしポン酢(加了醋的蘿蔔泥料理)、ライス・(白飯)、アボカドメンチ(炸酪梨肉球)、「鳥鍋めし」(燉煮雞肉飯)
+                <br><br>
+                首推的就是這道炸火腿，如其名就是把火腿沾上薄薄的麵衣後拿去炸，火腿真的非常厚。五郎在日劇裡面有幫大家量過大蓋2.5cm厚，火腿吃起來很軟，不會油膩
+                因為很厚所以很有飽足感，麵衣因為跟火腿比起來真的是超級薄。而醬汁的部分醬油為主，除了雞肉之外，還有蒟蒻以及炸嫩豆腐
+
+                雞肉是一口的大小，非常好入口，而且不會柴，搭配一口飯非常剛好。如果睡太晚沒吃到飯店的早餐的話，不如來這裡喝一杯吧~
+            </p> 
+            <!-- 圖片 -->
+        </div><img src="../public/images/page_01/morning.jpg" alt="" class="image"><div>
+            <!-- 景點地址 -->
+            <p>Tsubaki (鳥椿):東京都 台東区 根岸 1-1-15 渡辺ビル１F(鶯谷車站南口步行3分鐘)，電話: 03-5808-9188 (+81-3-5808-9188)，營業時間:10:00-23:00</p>
+        </div>
+        
+        
+        
+        <br><br>
+        <hr>
+        <p>中間建議搭乘JR山手環狀線在"日暮里"站下車前往著名的貓街"谷中銀座"逛逛喔</p>
+        <hr>
+
+        <div class="actcle">
+            <h3>福丸饅頭</h3>
+            <p>谷中銀座是東京出了名的老街，也是貓迷口中的貓街，不過因為近年來觀光客大增，基本上現在要在這看到活生生的貓難度可是越來越高，除非是盡往小巷子裡鑽，另外在老商店街口的石梯，也是日本有名的夕陽階梯。在谷中銀座的散步中心有三種tabelog分數很高的甜點店，除了這篇要介紹的福丸饅頭(孤獨的美食家第一季第11話)外，TABELOG:3.79的ひみつ堂和3.77的和栗や也是谷中銀座附近前兩名人氣的店，至於第三名則是同樣每次去都看到長長人龍的「根津のたいやき」(3,73分)。
+                <br><br>
+                來到谷中銀座六十多年饅頭老店(創業於昭和30年(1955年))「福丸」。看倌可別被這個節目騙了，怎可能外面一個人也沒有...實際上是常常是人山人海啊。
+                <br><br>
+                了一般傳統的大福外，福丸真正有名的是用了日本傳統花林糖製作的「炸饅頭」(かりんとうまんじゅう)，節目播出後更成為該店的人氣商品，不曉得是不是問的人太多，店家乾脆把這個饅頭單獨拉出來賣，並給予特別的單獨包裝，單個售價80日幣，當然最多人買的還是整盒的禮盒和其他日本傳統點心當伴手禮。吃起來是酥脆帶有微甜的風味，建議買瓶綠茶搭配解膩喔，店內也有免費的熱茶提供。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/snake2.jpg" alt="" class="image">
+        <div>
+            <p>東京都 台東区 谷中 3-7-8，電話:+81-3-3823-0709，營業時間:10:30～18:00</p>
+        </div>
+        <hr>
+        <p>中間建議搭乘地鐵前往墨田區"兩國駅"下車</p>
+        <hr>
+        <br><br>
+        <div class="actcle">
+            <h3>(17:00pm)割烹ちゃんこ 大内(相撲鍋)</h3>
+            <p>両国国技館為東京著名的運動場館，主要以舉辦相撲比賽聞名，出了兩國站「東」口後立馬左轉，你就會看到一條馬路邊上有相撲銅像的街道，過了國技堂後會來到一個十字路口，往右轉一分鐘的下一個路口左轉後就會看到這個加油站，再右轉進巷內約1分鐘就可以看到「割烹ちゃんこ 大内」。店內旁邊放了許多曾來訪的相撲名士紀念章、照片、簽名板和紀念品等，這在兩國的很多食堂，尤其是相撲鍋店是很常見的。
+                <br><br>
+                想跟五郎一樣的話覺選相撲鍋（ちゃんこ鍋）2750日幣。不喜歡雞肉的話也有豬肉或是魚可以替換。
+                <br><br>
+                相撲鍋是日本鍋料理的一種，原本是為了培養相撲力士的相撲體格而開發出來的料理，現在亦成為大眾飲食之一。特色是份量大、內容豐富。所以食量不大的話兩人點一人份就OK了喔，除了雞肉丸和雞肉外，豆腐、大白菜、大蔥、香菇都是相撲鍋常見的配菜。吃相撲鍋最後一定要加麵或是飯，那是因為以前相撲力士食量大，怕他們吃不飽之舉。五郎劇中選的是烏龍麵，學著五郎加入蔥花和天ガス（天婦羅屑屑)更添美味，尤其是吸了湯汁的天ガス超好吃的。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/sianpu.jpg" alt="" class="image">
+        <div>
+            <p>割烹ちゃんこ 大内:東京都 墨田区 両国 2-9-6，電話:03-3635-5349，營業時間:11:30～13:30、7:00～22:00</p>
+        </div>
+        <hr>
+        <p>吃完逛逛相撲街別急著離開，吃個甜點再走吧</p>
+        <hr>
+        <br><br>
+        <div class="actcle">
+            <h3>國技堂(日式和果子專賣)</h3>
+            <p>出了兩國站「東」口後立馬左轉沿著相撲街走約1-2分鐘就會在左側發現這間(食べログ3.43)分數不低的和果子店-「國技堂」。一樓基本上是賣場，賣的都是當地的拌手禮和絕大部份和「相撲」有關的紀念品。樓上是帶點日式的用餐空間，小歸小不過挺有味道的。MENU方面以甜點為主，有冰的也有熱的，紅豆、麻吉和一些日式傳統茶屋都有的甜點。
+                <br><br>
+                這裡的五郎套餐是糰子三兄弟，搭配的是熱抹茶，原味灑上海苔、傳統醬油糰子、艾草糰子上則放了滿滿的紅豆泥(600日幣)。附上的茶杯每個都不一樣，前面是相撲選手的卡通臉，後面是它的生平和戰績，甚至連他的絕招也有寫。真不愧是在日本最有名的相撲聖地
+                <br><br>
+                醬油糰子甜比鹹多一點，微黏微滑的口感帶點像是化開的乳化效果和糰子耐嚼的Q度其實很搭。而兩技堂的醬油又更黏更纏也更甜，但咀嚼後烤出的香氣和糰子的甜度都非常的正點，超好吃的!草糰子的口感更加Q彈美味，搭上微甜的紅豆泥讓整體的味道像活過來似的，好吃的亂七八糟。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/snake3.jpg" alt="" class="image">
+        <div>
+            <p>「両国 國技堂」和菓子舖:東京都墨田區両国2-17-3(JR両国駅東口)，電話：03-3631-3856，營業時間：10:00～20:00</p>
+        </div>
+    </section>
+    <%- include('footer.ejs') %>
+
+    <!-- <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <ul class="footer-group d-flex">
+                    <li class="logo">
+                        <h1>
+                            <a href="#">LOGO</a>
+                        </h1>
+                    </li>
+                    <li class="info">
+                        <p>SHAWNSTUDIO CO.,LTD.</p>
+                        <p>407 TAICHUNG,</p>
+                        <p>SHAW-SLIN,FULUI-KEN</p>
+                        <p> 04-66661234</p>
+                        <p> TAIWAN</p>
+                        <p>TEL04-1234-5678</p>
+                    </li>
+                    <li class="info">
+                        <p><a href="#">各類資訊</a></p>
+                        <p><a href="#">最新消息</a></p>
+                        <p><a href="#">日本文化</a></p>
+                        <p><a href="#">探索旅程</a></p>
+                        <p><a href="#">旅行計劃</a></p>
+                        <p><a href="#">地圖路線</a></p>
+                    </li>
+                    <li>
+                        <h4>聯絡資訊</h4>
+                        <ul class="contact-info d-flex">
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/facebook.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/email.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/gmail.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/line.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/phone-call.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/profile-user.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+    
+</body>
+</html>

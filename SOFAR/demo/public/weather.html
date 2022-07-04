@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./all.css/shawnCSS/bootstrap.min.css">
+    <script src="./js/shawnJS/jquery.min.js"></script>
+    <script src="./js/shawnJS/popper.min.js"></script>
+    <script src="./js/shawnJS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./all.css/shawnCSS/weather.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div class="daybox row d-flex mx-auto my-3">
+        <div class="top night col-12 d-flex align-items-end">
+          <div class="sorm moon"></div>
+
+          <div class="textArea col-6">
+            <h1 class="temperature"></h1>
+            <h5 class="city">東京 Tokyo</h5>
+            <h5 class="thisDate"></h5>
+          </div>
+
+          <div class="weatherImg col-6">
+            <!-- <img src="../images/clouds.png" alt="" /> -->
+          </div>
+        </div>
+
+        <div class="bottom col-12 d-flex justify-content-center">
+          <!-- 一周天氣 -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // let api = "https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=14573ab9490c34326d2745c2f3a1c2d3";
+
+      let api =
+        'https://api.openweathermap.org/data/2.5/onecall?lat=35.652832&lon=139.839478&appid=14573ab9490c34326d2745c2f3a1c2d3&units=metric'; //7daily
+      // let api = "https://api.openweathermap.org/data/2.5/onecall?q=tokyo&appid=14573ab9490c34326d2745c2f3a1c2d3&units=metric";
+
+
+      let daytranslate = ["七","一","二","三","四","五","六"];
+      let weatherImg = {
+        Clouds: "../images/shawnIMAGES/clouds.png",
+        Rain: "../images/shawnIMAGES/raining.png",
+        Mist: "../images/shawnIMAGES/mist.png",
+        Clear: "../images/shawnIMAGES/sun.png",
+        Fog: "../images/shawnIMAGES/fog.png",
+        Snow: "../images/shawnIMAGES/snow.png",
+        Thunderstorm: "../images/shawnIMAGES/storm.png"
+
+
+      }
+
+      
+      fetch(api)
+      .then((response) => response.json())
+      .then((result) => {
+          console.log(result)
+          
+          
+          //top 現在溫度
+          let d = new Date(result.current.dt * 1000);
+          $('.temperature').append(`${Math.floor(result.current.temp)}℃`);
+          $('.thisDate').append(`${(new Date((result.current.dt * 1000)).toString().substring(4,15))} 星期${daytranslate[d.getDay()]}`);
+          $(".thisDay").append(d.getDay())
+          let tempPic = result.current.weather[0].main;//去JSON拿天氣的名字
+          $(".weatherImg").append(`<img src="${weatherImg[tempPic]}" alt="氣象圖片" />`)
+
+
+        console.log(result.current.weather[0].main);
+          //未來溫度
+          result.daily.shift()//因為daily[0]是現在,但我們要後面一周資料
+          $.each(result.daily, (index, value) => {
+            let futureDay= new Date((result.daily[index].dt * 1000));
+              $(".bottom").append(
+                `<div class="dayweather">
+                  <p class="fDay">${daytranslate[futureDay.getDay()]}</p>
+                <p class="fmonth">${`${futureDay.getMonth()+1}/${futureDay.getDate()}`}</p>
+                <img class="fpic" src="${weatherImg[value.weather[0].main]}" alt="氣象圖片" />
+                </div>`
+              )
+
+          });
+
+        });
+
+
+        let mors = new Date();
+        if(mors.getHours() >=0 && mors.getHours() <= 18){
+          $(".top").removeClass("night");
+          $(".top").addClass("morning");
+          
+          $(".sorm").removeClass("moon");
+          $(".sorm").addClass("sun");
+
+          $(".textArea").css("color", "rgb(20, 28, 65)")
+          
+          
+        }else if(mors.getHours() >=18 && mors.getHours() <= 0){
+          $(".top").removeClass("morning");
+          $(".top").addClass("night");
+          
+          $(".sorm").removeClass("sun");
+          $(".sorm").addClass("moon");
+
+          $(".textArea").css("color", "#fff")
+        }
+    </script>
+  </body>
+</html>

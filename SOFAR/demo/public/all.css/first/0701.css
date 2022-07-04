@@ -1,0 +1,78 @@
+.firstPage-header{
+    background-image: url(../../images/index/clay-banks-hwLAI5lRhdM-unsplash.jpg);
+    height: 500px;
+    background-position: center center;
+    background-size: cover;
+}
+.month-bg{
+    background-image: url(../../images/index/calender.bg.png);
+}
+.pic{
+    margin-right: 15px;
+    width: 16%;
+    overflow: hidden;
+    position: relative;
+}
+.pic img{
+   width: 100%;
+   height: 100%;
+}
+.carousel-control-prev{
+    width: 100px;
+    opacity: 1;
+}
+.carousel-control-next{
+    width: 100px;
+    opacity: 1;
+}
+.mask{
+    position: absolute;
+    background-color: rgb(0,0,0,0.4);
+    top: 0;
+    left: 0;
+    height: 100%;
+    text-align:center;
+    width: 100%;
+    opacity: 0;
+}
+.mask h1{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    padding-top: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.pic a:hover .mask{
+    opacity: 1;
+}
+ul{
+    padding: 0;
+}
+.locationList li {
+    max-width: 31%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-bottom: 10px;
+}
+.location-pic img{
+    height: 250px;
+}
+@media(max-width:768px){
+    .carousel-control-prev{
+        width: 50px;
+    }
+    .carousel-control-next{
+        width: 50px;
+    }
+}
+.offcanvas-body{
+    display: none;
+}
+@media(max-width:500px){
+    .offcanvas-body{
+        display: block;
+    }
+}

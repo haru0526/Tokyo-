@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="../public/js/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="../public/all.css/first/rest.css"> -->
+    <!-- <link rel="stylesheet" href="../public/all.css/first/style.css"> -->
+    <link rel="stylesheet" href="../public/all.css/first/0701.css">
+    <title>東京漫遊</title>
+</head>
+
+<body>
+    
+    <!-- <nav>
+        <div class="container flex">
+            <div class="logo">
+                <h1>
+                    <img src="../public/images/page_01/logo01.png" alt="">
+                    <a href="../public/images/page_01/logo01.png" style="color:black ;">Tokyo東京漫遊</a>
+                </h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./firstpage.html">首頁</a></li>
+                    <li><a href="./page_01.html">推薦行程</a></li>
+                    <li><a href="#">分區景點</a></li>
+                    <li><a href="#">會員專屬</a></li>
+                    <li><a href="#">我的行程</a></li>
+                    <li><a href="/member/login.html">登入</a></li>
+                    <li><a href="/member/logup.html">註冊</a></li>
+                    
+                    
+                    
+
+                    <li class="icon"><a href="/member/mycenter"><img src="../public/images/index/user-01.svg" alt=""></a></li>
+                    
+                </ul>
+            </div>
+            <a href="#" class="showmenu"></a>
+        </div>
+    </nav> -->
+    <%- include('navbar.ejs') %>
+    <div class="firstPage-header">
+    </div>
+    
+    <section>
+        <div class="month-bg">
+            <div class="container">
+                <div class="title mt-4 pt-3">
+                    <h2 class="text-white ">東京活動日曆</h2>
+                </div>
+
+                
+                <div class="month">
+                    <div id="carouselExampleIndicators" class="carousel slide pt-3 pb-5" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="caption d-flex slider1">
+                                    <!-- js動態產生 -->
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="caption d-flex slider2">
+                                    <!-- js動態產生 -->
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="title">
+                <h2 class="mt-3" style="color:#d86958 ;">東京地區</h2>
+            </div>
+            <div class="laction">
+                <ul class="locationList d-flex flex-wrap justify-content-evenly p-4 border
+                ">
+                </ul>
+            </div>
+        </div>
+    </section>
+    <%- include('footer.ejs') %>
+
+    <!-- <div class="footer mt-5">
+        <div class="container">
+            <ul class="d-flex justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <div class="border-top"></div>
+            <p class="text-center pt-3">© 2021 Company, Inc</p>
+        </div>
+        <div class="container-fluid p-3 bg-secondary"></div>
+    </div> -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="../public/js/first/0701.js"></script>
+</body>
+
+</html>

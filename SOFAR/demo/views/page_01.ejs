@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京漫遊</title>
+    <!-- CSS連結 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="../public/js/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="../public/all.css/first/rest.css">  -->
+     <!-- <link rel="stylesheet" href="../public/all.css/first/style.css"> -->
+    <link rel="stylesheet" href="../public/all.css/FC/zzzz.css">
+    
+    <!-- <link rel="stylesheet" href="../public/woocommerce-FlexSlider-690832b/flexslider.css" type="text/css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="../public/woocommerce-FlexSlider-690832b/jquery.flexslider.js"></script>
+
+
+<style>
+
+    .slides{
+        width:800px;
+        height: 600px;
+        float: left;
+        overflow:hidden;
+        height: 600px;
+    }
+</style>
+
+
+
+
+</head>
+
+
+<body>
+
+    
+    <%- include('navbar.ejs') %>
+    <!-- 第一區header 拿來放導覽列 -->
+    <!-- <header>
+        <a href="" class="logo"><img src="./images/page_01/logo01.png" id="logo1">東京漫遊</a>
+        RWD時候用的按鈕
+        <div id="menu" class="fas fa-bars"></div>           
+            <nav class="menubar">
+                <a href="./firstpage.html">首頁</a>
+                <a href="#">推薦行程</a>
+                <a href="#">分區景點</a>
+                <a href="#">會員專屬</a>
+                <a href="#">我的行程</a>
+                <a href="#"><img src="images/index/user-01.svg" alt=""></a>
+            </nav>
+
+        
+    </header> -->
+
+
+    <!-- 第二區 拿來放推薦行程底圖 -->
+    <section class="TokyoTravelHome">
+        <img src="../public/images/page_01/project2.jpg" alt="" style="margin: 0 1%;">  
+     
+        
+    </section>
+        
+    </section>
+
+    <!-- 第三區 4個推薦行程內容 -->
+    <section class="Category"  >
+        <div class="flexslider" >
+            <ul class="slides" >
+
+              <li>
+                <img src="../public/images/page_01/Shinjuku01.JPG" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/shonya1.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/shangun4.jpg" />
+              </li>
+            </ul>
+        </div>
+        <!-- <img src="../public/images/page_01/Shinjuku01.JPG" alt="" class="image"> -->
+        <div class="act">
+        
+            <h3>風景巡禮</h3>
+            <p>大都市的奇妙風景，無須上山下海便能領略東京之美</p> 
+            
+            <br><br>
+            <a href="/allPage/page_01_scape" class="btn">view more</a>
+        </div>
+        <div class="flexslider" >
+            <ul class="slides" >
+
+              <li>
+                <img src="../public/images/page_01/food1.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/snake3.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/sianpu.jpg" />
+              </li>
+            </ul>
+        </div>
+        <!-- <img src="../public/images/page_01/food1.jpg" alt="" class="image"> -->
+        <div class="act">
+        
+            <h3>美食巡禮</h3>
+            <p>跟隨著孤獨的美食家腳步，帶您深入東京庶民美食</p> 
+            
+            <br><br>
+            <a href="/allPage/page_01_food" class="btn">view more</a>
+        </div>
+
+        <div class="flexslider" >
+            <ul class="slides" >
+
+              <li>
+                <img src="../public/images/page_01/soup1.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/minji2.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/guchan2.jpg" />
+              </li>
+            </ul>
+        </div>
+        <!-- <img src="../public/images/page_01/soup1.jpg" alt="" class="image"> -->
+        <div class="act">
+        
+            <h3>文化巡禮</h3>
+            <p>昭和年代的東京江戶人日常，讓都市裡的錢湯洗去肩上的壓力</p> 
+            
+            <br><br>
+            <a href="/allPage/page_01_culture" class="btn">view more</a>
+        </div>
+        <div class="flexslider" >
+            <ul class="slides" >
+
+              <li>
+                <img src="../public/images/page_01/yourname1.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/yourname3.jpg" />
+              </li>
+              <li>
+                <img src="../public/images/page_01/word4.jpg" />
+              </li>
+            </ul>
+        </div>
+        <!-- <img src="../public/images/page_01/yourname1.jpg" alt="" class="image"> -->
+        <div class="act">
+        
+            <h3>動漫巡禮</h3>
+            <p>這部我看過! 帶您重現記憶中的場景</p> 
+            
+            <br><br>
+            <a href="/allPage/page_01_anime" class="btn">view more</a>
+        </div>
+
+    </section>    
+    <!-- 第四區 footer -->
+    <%- include('footer.ejs') %>
+        
+
+<!-- <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <ul class="footer-group d-flex">
+                    <li class="logo">
+                        <h1>
+                            <a href="#">LOGO</a>
+                        </h1>
+                    </li>
+                    <li class="info">
+                        <p>SHAWNSTUDIO CO.,LTD.</p>
+                        <p>407 TAICHUNG,</p>
+                        <p>SHAW-SLIN,FULUI-KEN</p>
+                        <p> 04-66661234</p>
+                        <p> TAIWAN</p>
+                        <p>TEL04-1234-5678</p>
+                    </li>
+                    <li class="info">
+                        <p><a href="#">各類資訊</a></p>
+                        <p><a href="#">最新消息</a></p>
+                        <p><a href="#">日本文化</a></p>
+                        <p><a href="#">探索旅程</a></p>
+                        <p><a href="#">旅行計劃</a></p>
+                        <p><a href="#">地圖路線</a></p>
+                    </li>
+                    <li>
+                        <h4>聯絡資訊</h4>
+                        <ul class="contact-info d-flex">
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/facebook.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/email.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/gmail.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/line.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/phone-call.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/profile-user.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+</body>    
+<!-- js用本地資料夾串接 -->
+<script>
+let menu = document.querySelector("#menu");
+let menubar = document.querySelector(".menubar");
+// 按下按鈕後的變化
+
+menu.onclick = function(){
+    menu.classList.toggle('fa-times');
+    menubar.classList.toggle('active');
+}
+
+$(window).load(function() {
+    $('.flexslider').flexslider();
+ 
+  });
+
+$(".flexslider").flexslider({
+    slideshow: true,               //載入頁面時，是否自動播放
+    slideshowSpeed: 5000,          //自動播放速度毫秒
+    animationDuration: 1000, 
+    itemWidth : 0,
+});
+</script>
+</html>

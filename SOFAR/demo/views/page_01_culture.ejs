@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化巡禮</title>
+    <!-- CSS連結 -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../_css/bootstrap.min.css"> -->
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <!-- <script src="../_js/bootstrap.min.js"></script> -->
+    <!-- JQ -->
+    <!-- <link rel="stylesheet" href="../../_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../_js/jquery-3.6.0.js"></script>
+    <script src="../../_jquery-ui-1.12.1/"></script> -->
+    <!-- Font Awesome 用來弄一些圖示icon用 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    
+*{
+    /* margin: 0 auto; */
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    
+    /* background-color: rgb(255, 255, 255); */
+}
+
+/* 第一區header 拿來放導覽列 */
+
+header{
+    font-size: 20px;
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(249, 192, 192);
+    box-shadow: 10px 1rem 1rem rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+header img{
+    width: 50px; height: 40px; padding-bottom: -10px; filter: saturate(8);
+}
+
+/* 導覽列 */
+header .menubar a{
+    font-size: 20px;
+    font-weight: normal;
+    color: black;
+    padding: 10px;
+}
+/* 導覽列特效 */
+header .menubar a:hover{
+    font-size: 28px;
+    font-weight: 100;
+    color: brown;
+    margin-left: 1px;
+    transition: 0.1s;
+    background-color:rgb(255, 229, 229);
+    padding: 2px 1px 2px 2px;
+}
+
+
+/* 左上角LOGO字 */
+header .logo {
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+}
+
+#logo1{
+    width: 25%;
+    height: 25%;
+}
+
+/* 右上角的漢堡 */
+#menu{
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid rgb(9, 152, 152);
+    padding: 8px;
+    display: none;
+}
+
+.title{
+    margin: 200px;
+    font-size: 40px;
+}
+
+.FoodTravel{
+    border: 1px solid red;
+    margin: 0 10%;
+}
+
+.FoodTravel .image{
+
+width:800px;
+height: 400px;
+/* float: left; */
+overflow:hidden;
+height: 600px;
+}
+
+.actcle h3{
+    font-size: 36px;
+    color: rgb(9, 152, 152);
+}
+
+p{
+    font-size: 20px;
+    color: rgb(9, 152, 152);
+}
+
+#menu123 {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 8em;
+  margin-top: -2.5em;
+}
+
+/* footer */
+.footer {
+    margin-top: 5%;
+    background-color: #814840;
+}
+.footer-group {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2%;
+    border-bottom: 2px solid #fff;
+}
+.footer-info {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+h4 {
+    font-size: 20px;
+    text-align: center;
+    padding: 1em;
+}
+.info p {
+    color: #000;
+    padding-bottom: 1em;
+}
+.info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-info img {
+    width: 50px;
+}
+
+.contact-info li {
+    padding-right: 3%;
+}
+
+@media(max-width:768px) {
+    .info p {
+        font-size: 12px;
+    }
+
+    .contact-info img {
+        width: 30px;
+    }
+}
+
+@media(max-width:568px) {
+    .info {
+        display: none;
+    }
+
+    .contact-info img {
+        padding-top: 0.5em;
+        width: 30px;
+    }
+    h4{
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .orange-line {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .footer-group {
+        border-bottom: 1px solid #fff;
+    }
+}
+
+@media(max-width:767px) and(min-width:568px) {
+    .info {
+        display: none;
+    }
+
+}
+
+</style>    
+
+
+
+
+
+</head>
+<body>
+    <!-- <header>
+        <a href="" class="logo"><img src="./images/page_01/logo01.png" id="logo1">東京漫遊</a>
+        RWD時候用的按鈕
+        <div id="menu" class="fas fa-bars"></div>           
+            <nav class="menubar">
+                <a href="./firstpage.html">首頁</a>
+                <a href="#">推薦行程</a>
+                <a href="#">分區景點</a>
+                <a href="#">會員專屬</a>
+                <a href="#">我的行程</a>
+                <a href="#"><img src="images/index/user-01.svg" alt=""></a>
+            </nav>
+
+        
+    </header> -->
+    <%- include('navbar.ejs') %>
+
+    <ul id=menu123>
+        <li><a href="/allPage/page_01_scape">風景巡禮</a>
+            <li><a href="/allPage/page_01_food">美食巡禮</a>
+            <li><a href="/allPage/page_01_culture">文化巡禮</a>
+            <li><a href="/allPage/page_01_anime">動漫巡禮</a>
+            <li><a href="/">回到首頁</a> 
+    </ul>
+    <section class="FoodTravel"  >
+        <div class="title">文化巡禮
+            <p>昭和年代的東京江戶人日常，帶你走進日本傳統文化與現代的融合</p>
+        </div>
+        <div class="actcle">
+            <!-- 景點名 -->
+            <h3>《明治神宮》都市裡的聖殿</h3>
+            <!-- 介紹 -->
+            <p>明治神宮位於東京 市中心，綠樹成蔭，供奉有現代日本第一任天皇和皇后明治天皇 (1852-1912) 和昭憲皇太后。
+                <br><br>
+                因為從通往神宮前門的幽靜步道，去往熱鬧繁華的澀谷或原宿都非常方便，因此，您可以把明治神宮作為東京之行的第一站。
+                明治神宮位於東京 市中心，綠樹成蔭，供奉有現代日本第一任天皇和皇后明治天皇 (1852-1912) 和昭憲皇太后。因為從通往神宮前門的幽靜步道，去往熱鬧繁華的澀谷或原宿都非常方便，因此，您可以把明治神宮作為東京之行的第一站。
+            </p> 
+            <!-- 圖片 -->
+        </div><img src="../public/images/page_01/minji3.jpg" alt="" class="image"><div>
+        </div><img src="../public/images/page_01/minji4.jpg" alt="" class="image"><div>
+            <p>走出原宿站，穿過蜿蜒的林間小道，就來到了神宮前門。從車站出口到神宮前門的這一小段路上，巨木參天，阻隔了外界的喧鬧和視線。
+
+                穿過鳥居，就標誌著開始進入神宮地界，這時，您會很難相信自己正行走在世界最繁華都市的中心地帶。神宮內有十萬多棵來自日本各地的各類樹木，形成了一片靜謐幽深的森林。
+                <br><br>
+                明治神宮位於這片都市綠地的中心。如果您剛到東京 ，這將是您首次參觀神社的最佳選擇，這裡有大量英文標識，説明您參與傳統的神社儀式，例如在主殿祭祀和祈福、在繪馬上寫下心願、購買開運符或護身符等。
+                除了主殿，還有許多其他重要的歷史建築可供遊覽，位於神宮北端的明治寶物殿就是其中之一。寶物殿于神宮竣工一年後開放，收藏著各類歷史文物以及天皇夫婦的私人物品。
+            </p> 
+        </div><img src="../public/images/page_01/minji3.jpg" alt="" class="image"><div>
+        </div><img src="../public/images/page_01/minji4.jpg" alt="" class="image"><div>
+            <!-- 景點地址 -->
+            <p>明治神宮位於原宿站和明治神宮前站旁。
+
+                可以乘坐 JR 山手線，到原宿站下車。如果搭乘地鐵，則可以乘坐千代田線或副都心線，在明治神宮前站下。從這兩個車站步行 10 分鐘即可到達明治神宮。開放時間：
+                09:00 ~ 16:00，公休日：
+                無休
+                </p>
+        </div>
+        
+        
+        
+        <br><br>
+
+
+        <div class="actcle">
+            <h3>上野公園(上野恩賜公園)</h3>
+            <p>上野公園是許多火車、地鐵和新幹線路線中心樞紐所在。
+            JR 的山手線環狀線會在上野停靠，距東京車站只有四站。如果您由成田機場 出發，可以搭乘成田空港線，以及日本北部和西海岸的新幹線列車到達上野站。上野站很大，但上野公園有一個專屬出口出口名為 JR 上野公園出口。這個出口很容易找，從這裡可以看到對面的公園。
+            <br><br>
+            上野公園以優質博物館、上野動物園 內的熊貓、不忍池，以及歷史悠久的東照宮為賣點，但最著名的當然是這裡的櫻花。對很多日本人來說，春天去上野公園是不容錯過的盛事。
+            公園的第一批櫻花樹，是由德川幕府的建立者德川家康（1543-1616 年）種植。雖然之後的 400 多年裡，這些櫻花樹均以不復存在，但是公園觀賞櫻花的傳統卻依然為後人傳承，更發展到了令人稱奇的程度。
+            每年到了春季櫻花盛開的季節，上野公園都會吸引超過 200 萬人次到訪。大部分遊人都會聚集在公園內，靠近上野動物園 入口的主要道路上。原是是單這個區域的櫻花，就佔去全公園櫻花總數的一半。在櫻花盛開的時節，遊人可謂舉步為艱，只能踮腳走在野餐的人群地墊的空隙之間。這裡就像個晝夜不停的戶外熱鬧派對，遊人紛紛在經典的粉色和白色花瓣下吃喝玩耍。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/shonya1.jpg" alt="" class="image">
+        <img src="../public/images/page_01/shonya2.jpg" alt="" class="image">
+
+        <div>
+            <p>地點：上野恩賜公園
+                交通：JR東京地鐵銀座線、日比谷線「上野站」下車，步行2分鐘，地圖
+                地址：東京都台東區上野公園池之端三丁目
+                開放時間：05:00-23:00
+                官網：https://www.tokyo-park.or.jp/park/format/index038.html</p>
+        </div>
+
+        <br><br>
+        <div class="actcle">
+            <p>「上野公園可以說是區內主要景點。理想的話，通常需要一天才可欣賞上野公園各處美景，但您也可以較快地參觀上野的其他景點。從上野公園步行一小段路就能到達阿美橫町 。這條街較為人所周知的名稱為阿美橫町商店街。這裡曾經是東京的糖果中心，現在仍然是物美價廉的購物天堂。在這裡，您會看到很多小型戶外用餐區，供應炸豬肉串、油炸肉和蔬菜串等美食。
+
+                沿著阿美橫町的方向往前走便會來到秋葉原 。作為東京的「電子城」，秋葉原曾經以電器聞名，現在已由最初的高科技市場轉型為動漫、漫畫、遊戲和流行文化的聖地。從上野公園出來穿過阿美橫町，來到秋葉原（總路程僅有約一公里），您可能無法相信自己依然身處同一個城市。東京之大和多樣性，由此可見一斑。
+
+                
+            </p> 
+        </div>
+        <img src="../public/images/page_01/shonya3.jpg" alt="" class="image">
+        <div>
+            <p> 地址：東京都台東区上野6-12-1 JR高架下 · 營業時間：星期一～五14:00~23:00，六12:00~21:00，日11:00~20:00.</p>
+        </div>
+        <hr>
+        <p>乘坐地鐵千代田線到根津站或千馱木站下車，可直達谷根千。
+
+            您也可以乘 JR 山手線，並在千馱木下車。</p>
+        <hr>
+        <br><br>
+        <div class="actcle">
+            <h3>谷根千（谷中/根津/千駄木）</h3>
+            <p>谷根千位於東京老城區內，也被稱為下町。歷史上東京大部分街區都被戰爭和災難摧毀，唯有這幾條街區卻倖免於難，挺立至今。這裡處處散發著祥和復古的氛圍，狹窄街道兩旁是林立的小店、酒吧和餐廳。谷根千和下町是東京人懷緬過去，或為了尋回更舒適和諧的生活步調的地方。
+                <br><br>
+                谷根千有很多值得遊覽的地方，但美食毫無疑問是感受下町的最佳方式。下町的美食讓人目不暇給、垂涎三尺，有像是日式吉列豬排、油炸海鮮和和蔬菜天婦羅蓋飯的美食。谷中銀座呈現了原汁原味的傳統下町風貌，當地特色料理自然也是體驗的重頭戲。
+                如果您是一個咖啡控，可以到吃茶店中坐坐。雖然名為吃茶，但更像是日本風格的咖啡廳，這樣的小店在谷根千的街頭巷尾都能找到。
+                <br><br>
+                這裡還有數不勝數的咖啡館和日式甜品店。甜品中以傳統的大福最常見，大福是類似紅豆餡麻糬，軟糯甜蜜的甜點。
+
+                飴細工則是另一種當地甜點。「飴細工」是糖藝的意思。製糖人會將融化的糖手工製成各種逼真的形態，比如小鳥、貓咪，甚至是哥吉拉。這種糖藝已有數百年歷史，祭典和各種節日時都能看見。位於谷根千的飴細工吉原店，每天也都會銷售現製的飴細工。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/guchan1.jpg" alt="" class="image">
+        <img src="../public/images/page_01/guchan2.jpg" alt="" class="image">
+        <div>
+            <p>在日暮里西口出來後徒步數分，或乘坐地鐵千代田線到根津站或千馱木站下車，可直達谷根千。您也可以乘 JR 山手線，並在千馱木下車。</p>
+        </div>
+    </section>
+
+    <%- include('footer.ejs') %>
+    <!-- <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <ul class="footer-group d-flex">
+                    <li class="logo">
+                        <h1>
+                            <a href="#">LOGO</a>
+                        </h1>
+                    </li>
+                    <li class="info">
+                        <p>SHAWNSTUDIO CO.,LTD.</p>
+                        <p>407 TAICHUNG,</p>
+                        <p>SHAW-SLIN,FULUI-KEN</p>
+                        <p> 04-66661234</p>
+                        <p> TAIWAN</p>
+                        <p>TEL04-1234-5678</p>
+                    </li>
+                    <li class="info">
+                        <p><a href="#">各類資訊</a></p>
+                        <p><a href="#">最新消息</a></p>
+                        <p><a href="#">日本文化</a></p>
+                        <p><a href="#">探索旅程</a></p>
+                        <p><a href="#">旅行計劃</a></p>
+                        <p><a href="#">地圖路線</a></p>
+                    </li>
+                    <li>
+                        <h4>聯絡資訊</h4>
+                        <ul class="contact-info d-flex">
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/facebook.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/email.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/gmail.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/line.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/phone-call.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/profile-user.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+    
+</body>
+</html>

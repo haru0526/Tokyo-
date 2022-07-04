@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./all.css/shawnCSS/bootstrap.min.css">
+    <script src="./js/shawnJS/jquery.min.js"></script>
+    <script src="./js/shawnJS/popper.min.js"></script>
+    <script src="./js/shawnJS/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./all.css/shawnCSS/style.css">    
+  
+
+  <title>Tokyoe</title>
+</head>
+
+<body >
+  <section class="container-fluid bgg">
+    <section class="  row justify-content-center  formadjust">
+      <section class=" col-12 col-sm-6 col-lg-3  ">
+
+        <form class="form-container p-4" method="post" action="/member/register">
+          
+          <div class="text-center">
+            <img class="logo rounded mx-auto d-block " src="./images/logo.png" alt="">
+            <h3>歡迎使用Tokyo</h3>
+          </div>
+
+          <!-- name -->
+          <div class="form-group">
+            <!-- <label for="name">姓名</label>
+            <input type="text"  class="form-control" id="name" name="name" required> -->
+            <label for="exampleInputEmail1">姓名</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+          </div>
+
+          <!-- email -->
+          <div class="form-group">
+            <label for="InputEmail">電子信箱</label>
+            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" required>
+          </div>
+   
+
+          <!-- passeord -->
+          <div class="form-group">
+            <label for="InputPassword">密碼</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          
+
+          <!-- confirmPassword -->
+          <div class="form-group">
+            <label for="confirmPassword">確認密碼</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+          </div>
+
+
+          <!-- age -->
+          <div class="form-group">
+            <label for="birthday">生日</label>
+            <input type="date" class="form-control" id="birthday" name="birthday">
+          </div>
+          
+
+
+          <div class=" text-center">
+            
+            <button id="regisButton" type="submit" class=" btn btn-primary btn-block">註冊</button>
+            <p>或</p>
+
+            <div class="googlebtn ">
+              <!-- <img class="googleicon" src="./images/google.png" alt=""> -->
+              <button type="submit" class="gtn btn btn-primary btn-block"> <i class="fa-brands fa-google "></i>透過GOOGLE 帳戶繼續操作</button>
+            </div>
+
+            <p>繼續使用代表你同意 Tokyoe 的 <a href="serve.html">《服務條款》</a>，並確認你已詳閱我們的<a href="privacy.html">《隱私權政策》</a></p>
+            <p>   已經有帳號了?<a href="./login.html">登入</a></p>
+          </div>
+
+      </section>
+    </section>
+  </section>
+
+
+  <script>
+
+    // $("#regisButton").on("click", async function(){
+    //   var dataToServer = {
+    //     name: $("#InputName").prop("value"),
+    //     email: $("#InputEmail").prop("value"),
+    //     password: $("#InputPassword").prop("value"),
+    //     confirmPassword: $("#confirmPassword").prop("value"),
+    //     // birthday: $("#InputName").prop("value"),
+    //   };
+    //   console.log(dataToServer)
+
+    //   var result = await $.ajax({
+    //     type: "post",
+    //     url: "/register",
+    //     data: dataToServer
+    //   });
+
+      // window.location = "/mycenter.html";
+
+
+    // })
+  </script>
+ 
+</body>
+</html>

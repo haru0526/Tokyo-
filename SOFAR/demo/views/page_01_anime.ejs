@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食巡禮</title>
+    <!-- CSS連結 -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../_css/bootstrap.min.css"> -->
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <!-- <script src="../_js/bootstrap.min.js"></script> -->
+    <!-- JQ -->
+    <!-- <link rel="stylesheet" href="../../_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../_js/jquery-3.6.0.js"></script>
+    <script src="../../_jquery-ui-1.12.1/"></script> -->
+    <!-- Font Awesome 用來弄一些圖示icon用 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    
+*{
+    /* margin: 0 auto; */
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    
+    /* background-color: rgb(255, 255, 255); */
+}
+
+/* 第一區header 拿來放導覽列 */
+
+header{
+    font-size: 20px;
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(249, 192, 192);
+    box-shadow: 10px 1rem 1rem rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+header img{
+    width: 50px; height: 40px; padding-bottom: -10px; filter: saturate(8);
+}
+
+/* 導覽列 */
+header .menubar a{
+    font-size: 20px;
+    font-weight: normal;
+    color: black;
+    padding: 10px;
+}
+/* 導覽列特效 */
+header .menubar a:hover{
+    font-size: 28px;
+    font-weight: 100;
+    color: brown;
+    margin-left: 1px;
+    transition: 0.1s;
+    background-color:rgb(255, 229, 229);
+    padding: 2px 1px 2px 2px;
+}
+
+
+/* 左上角LOGO字 */
+header .logo {
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+}
+
+#logo1{
+    width: 25%;
+    height: 25%;
+}
+
+/* 右上角的漢堡 */
+#menu{
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid rgb(9, 152, 152);
+    padding: 8px;
+    display: none;
+}
+
+.title{
+    margin: 200px;
+    font-size: 40px;
+}
+
+.FoodTravel{
+    border: 1px solid red;
+    margin: 0 10%;
+}
+
+.FoodTravel .image{
+
+width:800px;
+height: 400px;
+/* float: left; */
+overflow:hidden;
+height: 600px;
+}
+
+.actcle h3{
+    font-size: 36px;
+    color: rgb(9, 152, 152);
+}
+
+p{
+    font-size: 20px;
+    color: rgb(9, 152, 152);
+}
+
+#menu123 {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 8em;
+  margin-top: -2.5em;
+}
+
+/* footer */
+.footer {
+    margin-top: 5%;
+    background-color: #814840;
+}
+.footer-group {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2%;
+    border-bottom: 2px solid #fff;
+}
+.footer-info {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+h4 {
+    font-size: 20px;
+    text-align: center;
+    padding: 1em;
+}
+.info p {
+    color: #000;
+    padding-bottom: 1em;
+}
+.info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-info img {
+    width: 50px;
+}
+
+.contact-info li {
+    padding-right: 3%;
+}
+
+@media(max-width:768px) {
+    .info p {
+        font-size: 12px;
+    }
+
+    .contact-info img {
+        width: 30px;
+    }
+}
+
+@media(max-width:568px) {
+    .info {
+        display: none;
+    }
+
+    .contact-info img {
+        padding-top: 0.5em;
+        width: 30px;
+    }
+    h4{
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .orange-line {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .footer-group {
+        border-bottom: 1px solid #fff;
+    }
+}
+
+@media(max-width:767px) and(min-width:568px) {
+    .info {
+        display: none;
+    }
+
+}
+
+</style>    
+
+
+
+
+
+</head>
+<body>
+    <!-- <header>
+        <a href="" class="logo"><img src="./images/page_01/logo01.png" id="logo1">東京漫遊</a>
+        RWD時候用的按鈕
+        <div id="menu" class="fas fa-bars"></div>           
+            <nav class="menubar">
+                <a href="./firstpage.html">首頁</a>
+                <a href="#">推薦行程</a>
+                <a href="#">分區景點</a>
+                <a href="#">會員專屬</a>
+                <a href="#">我的行程</a>
+                <a href="#"><img src="images/index/user-01.svg" alt=""></a>
+            </nav>
+
+        
+    </header> -->
+    <%- include('navbar.ejs') %>
+
+    <ul id=menu123>
+        <li><a href="/allPage/page_01_scape">風景巡禮</a>
+            <li><a href="/allPage/page_01_food">美食巡禮</a>
+            <li><a href="/allPage/page_01_culture">文化巡禮</a>
+            <li><a href="/allPage/page_01_anime">動漫巡禮</a>
+            <li><a href="/">回到首頁</a> 
+    </ul>
+    <section class="FoodTravel"  >
+        <div class="title">動漫巡禮
+            <p>這部我看過!</p>
+        </div>
+        <div class="actcle">
+            <!-- 景點名 -->
+            <h3>《烏龍派出所》こちら葛飾区亀有公園前派出所</h3>
+            <!-- 介紹 -->
+            <p>首先，龜有站旁有龜有公園，但是龜有公園前沒有派出所喔！
+                「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。在龜有設置了15座角色銅像，除了主角阿兩，還有超級有錢人雙人組的中川與麗子、騎上機車立刻性格大變的本田、少年阿兩三人組等。而在龜有站南口前方的這座銅像，是唯一一座彩色銅像，也是唯一按人物設定，還原顏色等細節的雕像，而這彩色銅像是作家本人的心願呢。
+                
+            </p> 
+            <!-- 圖片 -->
+        </div><img src="../public/images/page_01/liyongin1.jpg" alt="" class="image"><div>
+        </div><img src="../public/images/page_01/liyongin2.jpg" alt="" class="image"><div>
+            <p>與阿兩拍完照就來吃早餐吧，在日本不像台灣很少有專門的早餐店，但早上7點半就開門的「吉田麵包 龜有本店」是一家內饀種類琳瑯滿目，從點心類到配菜內饀應有盡有的熱狗麵包專賣店，像是「巧克力鮮奶油」（チョコレートホイップ）內饀夾了帶點苦味的巧克力醬及濃郁奶油，「牛蒡沙拉」（ごぼうサラダ）牛蒡咬起來脆脆的口感，其美味令人無法抵抗。這裡可是許多美食節目爭相報導，總是大排長龍的超人氣名店。其內饀除了有經典的豆沙及果醬，還有蛋、炒麵等種類多達50種以上，由此可以排列組合超過2,500種的吃法，令人食指大動。而且熱狗麵包1個180日圓起，平價親民，不妨挑選多種口味，比比看哪一個最好吃。
+                
+            </p> 
+        </div><img src="../public/images/page_01/liyongin3.jpg" alt="" class="image"><div>
+            <!-- 景點地址 -->
+            <p>吉田麵包 龜有本店（吉田パン 亀有本店）
+                地址：東京都葛飾区亀有5-40-1
+                電話：03-5613-1180
+                營業時間：
+                ・週一 07:30～13:00
+                ・週二～週日、週一為國定假日時 07:30～17:30
+                ※商品售完即打烊
+                公休日：無
+                交通方式：JR「龜有站」北口徒歩約3分鐘
+                官網：http://yoshidapan.jp/
+                </p>
+        </div>
+        
+        
+        
+        <br><br>
+
+
+        <div class="actcle">
+            <h3>《你的名字》新宿區須賀神社/Cafe La Bohéme新宿御苑</h3>
+            <p>新宿區最多人來朝聖的地方就是須賀神社，男女主角長大後在樓梯上擦肩而過是動畫的最後一個鏡頭，壁紙般唯美的鏡頭讓須賀神社的樓梯成了《你的名字》朝聖旅的必到之地。新宿區出現在《你的名字》裡的地點。步道的上頭走，就能見到隱身在住宅社區中的須賀神社囉。電影中絕妙的取景角度，相信當地的居民看了也不禁讚嘆：我們這裡有這麼美麗嗎？四谷車站也是瀧和奧寺前輩約會時的會面點哦！
+            <br><br>
+            須賀神社內的繪馬也是新海誠老師畫風，讓人想起動畫場景，可以看到許多劇迷在繪馬上畫了男女主角的樣子，而神社的巫女頭髮也是綁的跟女主角三葉一樣的髮型喔！   
+            </p> 
+        </div>
+        <img src="../public/images/page_01/yourname3.jpg" alt="" class="image">
+        <img src="../public/images/page_01/yourname4.jpg" alt="" class="image">
+        <img src="../public/images/page_01/yourname5.jpg" alt="" class="image">
+        <img src="../public/images/page_01/yourname6.jpg" alt="" class="image">
+        <div>
+            <p>地址：〒160-0018 東京都新宿区須賀町５</p>
+        </div>
+        <hr>
+        <p>中間建議搭乘地鐵前往墨田區"兩國駅"下車</p>
+        <hr>
+        <br><br>
+        <div class="actcle">
+            <p>「你的名字」的主角，瀧君打工的餐廳是實際存在的，它是一間義大利餐廳，在日本有很多間分店，這間位於新宿御苑的分店本來就頗有人氣，因為電影的關係，週末更是大排長龍。
+                <br><br>
+                這間店是挑高的設計，2樓其實是廚房，服務生端菜需要從2樓端到1樓，所以電影才會有瀧君慌張從樓上端菜到樓下的畫面，而且很妙的是，我們點Pizza的時候，服務生送上了「牙籤」（有看電影的人應該會會心一笑吧）。新海誠把這間店完全還原，包括燈、服務生的制服都一模一樣，所以大家去這間店的時候，真的超有身歷其境的感覺哦！
+                <br><br>
+                
+            </p> 
+        </div>
+        <img src="../public/images/page_01/yourname7.jpg" alt="" class="image">
+        <div>
+            <p> 地點名稱	Cafe La Bohéme 新宿御苑（カフェ ラ・ボエム 新宿御苑）
+                地址	新宿区新宿1-1-7 コスモ新宿御苑ビル1F/2F
+                交通方式	東京地下鐵丸之內線「新宿御苑前站」徒步3分鐘
+                官網	https://boheme.jp/</p>
+        </div>
+        <hr>
+        <p>休息過後別急著離開，可以到附近的新宿御苑逛逛</p>
+        <hr>
+        <br><br>
+        <div class="actcle">
+            <h3>《言葉之庭》新宿御苑</h3>
+            <p>新海誠的《言葉之庭》，一片綠意盎然的畫面，久久未能忘懷。邂逅它，這想法，油然而生。跟著《言葉之庭》男主角孝雄的步調，從新宿站走了出來，遇過繁囂的交通，與無數忙碌的上班族擦身而過，最後來到了新宿御苑的售賣處及入閘口。不要看新宿御苑這麼現代化，實際上，它原是江戶時代信州的高遠藩藩主內藤家宅邸所在地，還在明治時代改設為農事試驗場。及後，就成為日本皇室的皇室庭園，並在二戰結束後開放給民眾參觀。從此，它就冠上了「御苑」二字，曾經的高貴的皇室用地，回歸平凡，化入日常之中。
+                <br><br>
+                要進入新宿御苑很簡單，只要往入口 (即新宿門旁) 的自動販票機，選擇人數並投入相應日圓，就能買到門票。大人是200日圓，而中小學生則50日圓。入園前，把票放到入閘機感應便可。園內綠意盎然，種有不同種類的植物，就連空氣也異常清新。在這裡還可以找到日式庭園、法式幾何庭園和英式風景庭園，當中，最讓人在意的還是日式庭園的部份，因為那是言葉之庭的取景地嘛！
+                <br><br>
+                《言葉之庭》，是一個關於雨與邂逅的故事，一首單純的短歌，造就了一段初澀的相遇，讓卻步的人鼓起勇氣，學會邁步。也因為它，令人不禁開始期待起雨天的到來，期待起每一個梅雨季節。所謂「言葉」，即是中文話語的意思，「庭」則是指故事發生的場所。在庭園之中，因為一場尋常的雨，讓陌生的二人相遇；因為一段無心的話語，讓二人在意起對方；因為一次偶爾的相遇，讓二人重新審視自己。還記得這個畫面嗎？
+                真的，要到過取景場地，才了解到新海誠的筆觸到底有多細膩，現實與動畫一再重疊，變化的就只有天氣。廖廖幾筆，他把這個男女主角一起避雨、聊天的場所，畫得細緻又真實，走到微坡上拍攝這個位置時，不禁令人驚嘆了一句：「嘩，真的跟動畫一模一樣。」看了這個畫面，真的，真的值回了票價。
+            </p> 
+        </div>
+        <img src="../public/images/page_01/word3.jpg" alt="" class="image">
+        <img src="../public/images/page_01/word4.jpg" alt="" class="image">
+        <div>
+            <p>新宿御苑
+                ・地址：東京都新宿区内藤町11
+                ・開放時間：2019/3/19起調整為9:00～18:00（最後入園時間17:30），夏季7/1～8/20為9:00～19:00（最後入館時間為18:30）
+                ・公休日：每週一及年末年始（12月29日～1月3日）定休，如週一遇上國定假日則隔日休園。春季與秋季特別開園期間無休
+                ・參觀費用：2019/3/19起調整為大人500日圓，學生及65歲以上銀髮族為250日圓，幼兒免費
+                ・交通方式：請參照上方
+                ・官方網站</p>
+        </div>
+    </section>
+
+    <%- include('footer.ejs') %>
+    <!-- <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <ul class="footer-group d-flex">
+                    <li class="logo">
+                        <h1>
+                            <a href="#">LOGO</a>
+                        </h1>
+                    </li>
+                    <li class="info">
+                        <p>SHAWNSTUDIO CO.,LTD.</p>
+                        <p>407 TAICHUNG,</p>
+                        <p>SHAW-SLIN,FULUI-KEN</p>
+                        <p> 04-66661234</p>
+                        <p> TAIWAN</p>
+                        <p>TEL04-1234-5678</p>
+                    </li>
+                    <li class="info">
+                        <p><a href="#">各類資訊</a></p>
+                        <p><a href="#">最新消息</a></p>
+                        <p><a href="#">日本文化</a></p>
+                        <p><a href="#">探索旅程</a></p>
+                        <p><a href="#">旅行計劃</a></p>
+                        <p><a href="#">地圖路線</a></p>
+                    </li>
+                    <li>
+                        <h4>聯絡資訊</h4>
+                        <ul class="contact-info d-flex">
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/facebook.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/email.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/gmail.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/line.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/phone-call.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/index/icon/profile-user.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+</body>
+</html>
