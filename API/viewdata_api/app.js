@@ -99,7 +99,7 @@ app.get('/getMemberCollectViewData/:name', function (req, res) {
 
 //取得會員收藏的特別景點資料
 ///getMemberCollectViewData/會員名稱
-app.get('/gespMemberCollectViewData/:name', function (req, res) {
+app.get('/getspMemberCollectViewData/:name', function (req, res) {
     res.set('Access-Control-Allow-Origin', '*');
     conn.query(
         "SELECT * FROM (`users` as u INNER JOIN spmemberview_details as mb on u.id = mb.UserID) INNER JOIN special_viewdata as v on v.ViewID = mb.ViewDataID where name = ? ORDER BY ViewTag DESC",

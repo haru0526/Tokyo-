@@ -47,7 +47,7 @@
 
     $.ajax({
             type: "GET",
-            url: "http://localhost:3000/gespMemberCollectViewData/" + userid,
+            url: "http://localhost:3000/getspMemberCollectViewData/" + userid,
             async: false,
             success: function (data) {
                 spitem = JSON.parse(data);
