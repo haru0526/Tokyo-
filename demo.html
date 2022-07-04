@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./API/_js/jquery.min.js"></script>
+    <script src="./API/_js/popper.min.js"></script>
+    <script src="./API/_js/jquery-3.6.0.js"></script>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/3654a6b910.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="card" style="width: 18rem;">
+        <img src="./API/pic/00000.jpg" class="card-img-top img-fluid" alt="keyboard">
+        <div class="card-body position-relative">
+            <span class="badge bg-success position-absolute top-0 start-0">賽馬</span>
+            <button class="fa-regular fa-heart position-absolute top-0 end-0" id="collectionstatus" onclick="collection()">收藏</button>
+            <h5 class="card-title text-center mt-2" id="itemName">東京都市賽馬場</h5>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    let userid = "admin";
+    var item = [];  //取得頁面的資料
+    var spitem = []; //取得會員收藏的資料
+
+    $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/getSpecialViewData/",
+            async: false,
+            success: function (data) {
+                item = JSON.parse(data);
+            }
+    })
+
+    $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/gespMemberCollectViewData/" + userid,
+            async: false,
+            success: function (data) {
+                spitem = JSON.parse(data);
+            }
+    })
+
+    console.log(item[0]);   //特別景點的資料
+    console.log(spitem); //會員收藏的資料
+
+
+    spitem.forEach(p => {
+        console.log(p.ViewName);
+        if(item[0].ViewName == p.ViewName) {
+            console.log("same");
+            $('#collectionstatus').removeClass("fa-regular");
+            $('#collectionstatus').addClass("fa-solid");
+        }
+    })
+
+</script>
+
+</html>

@@ -27,6 +27,19 @@ app.get('/getViewData', function (req, res) {
     )
 })
 
+///取得月曆資料
+app.get('/getMonthData/:month', function (req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    conn.query(
+        "select * from monthdata where month = ?",
+        [req.params.month],
+        function (err, data) {
+            res.set('Access-Control-Allow-Origin', '*');
+            res.send(JSON.stringify(data));
+        }
+    )
+})
+
 
 ///getViewData/地區
 app.get('/getViewData/:Area', function (req, res) {
@@ -74,7 +87,7 @@ app.get('/getViewDataByTag/:Tag', function (req, res) {
 app.get('/getMemberCollectViewData/:name', function (req, res) {
     res.set('Access-Control-Allow-Origin', '*');
     conn.query(
-        "SELECT * FROM (`users` as u INNER JOIN memberview_details as mb on u.id = mb.UserID) INNER JOIN viewdata as v on v.ViewID = mb.ViewDataID where name = ?",
+        "SELECT * FROM (`users` as u INNER JOIN memberview_details as mb on u.id = mb.UserID) INNER JOIN viewdata as v on v.ViewID = mb.ViewDataID where name = ? ORDER BY ViewTag DESC",
         [req.params.name],
         function (err, data) {
             console.log(err);
@@ -82,6 +95,22 @@ app.get('/getMemberCollectViewData/:name', function (req, res) {
         }
     )
 })
+
+
+//取得會員收藏的特別景點資料
+///getMemberCollectViewData/會員名稱
+app.get('/gespMemberCollectViewData/:name', function (req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    conn.query(
+        "SELECT * FROM (`users` as u INNER JOIN spmemberview_details as mb on u.id = mb.UserID) INNER JOIN special_viewdata as v on v.ViewID = mb.ViewDataID where name = ? ORDER BY ViewTag DESC",
+        [req.params.name],
+        function (err, data) {
+            console.log(err);
+            res.send(JSON.stringify(data));
+        }
+    )
+})
+
 
 
 //取得會員收藏的景點TAG
@@ -115,15 +144,29 @@ app.get('/getMemberCollectViewDataTag/:name/:Tag', function (req, res) {
 
 
 
-///全部資料
+///特景點的全部資料
 app.get('/getSpecialViewData', function (req, res) {
     res.set('Access-Control-Allow-Origin', '*');
     conn.query(
         "select * from special_viewdata",
         [],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
+            console.log(err);
             res.send(JSON.stringify(data));
+        }
+    )
+})
+
+///刪除會員收藏的景點
+// 需要傳入UserID跟ViewID
+app.post('/deletememberviewdata/:UserID/:ViewdataID', function (req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    conn.query(
+        "DELETE FROM memberview_details WHERE UserID = ? and ViewDataID = ?",
+        [req.params.UserID,req.params.ViewdataID],
+        function (err, data) {
+            res.set('Access-Control-Allow-Origin', '*');
+            res.send('Delete OK');
         }
     )
 })
