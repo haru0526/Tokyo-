@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.fa-solid{
+    color: red;
+}
+
+/* 主題選單 */
+.nav {
+    background-color: #F9C0C0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 主題輪播的圖片設定 */
+.carousel-inner img {
+    display: block;
+    width: 100%;
+    height: 400px;;
+    object-fit: cover;
+    overflow: hidden;
+}
+.card-img-top{
+    height: 300px;
+    width: auto;
+    object-fit:cover;
+}
+/* 會員首頁卡片下方色彩 */
+.card-body {
+    background-color: #F9C0C0;
+}
+
+/* 留言板設定 */
+#app {
+    height: 800px;
+    overflow: scroll;
+}
+
+.message {
+    /* width: 360px; */
+    text-align: center;
+    background-color: #F9C0C0;
+    border-radius: 10px;
+
+}
+
+.message div {
+    margin-bottom: 15px;
+}
+/* id跟留言內容 */
+.message span {
+    display: flex;
+    width: 100px;
+    vertical-align: top;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 1000;
+    background-color: #F9C0C0;
+}
+
+.message input,
+.message textarea {
+    position: relative;
+    /* right: 80px; */
+    width: 90%;
+    height: 30px;
+    padding: 5px 7px;
+    margin-top: 20px;
+    color: #913660;
+    border: 2px solid #913660;
+    border-radius: 5px;
+    cursor: text;
+    outline: none;
+
+}
+
+.message input:focus,
+.message textarea:focus {
+    border: 2px solid #3399ff;
+    border-radius: 15px;
+}
+
+
+.message textarea {
+    height: 50px;
+    padding: 5px 7px;
+}
+
+.message button {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #3399FF;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #3399FF;
+    cursor: pointer;
+    outline: none;
+}
+/* 下方列表 */
+.list {
+    background-color: #F9C0C0;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 10px;
+    /* width: 360px; */
+
+
+}
+
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #e3e8ee;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 留言id設計 */
+.list-item span {
+    display: block;
+    width: 90%;
+    float: left;
+    color: #913660;
+}
+
+/* 留言內容設計 */
+.list-msg {
+    display: block;
+    text-align: justify;
+    margin-left: 25px;
+}
+
+/* 回覆 刪除鈕 設計 */
+.list-msg a {
+    color: #777e86;
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    font-weight: 1000;
+}
+
+/* 回覆 刪除鈕點選顏色 */
+.list-msg a:hover {
+    color: #3399FF;
+}
+
+/* 回覆 刪除 位置 */
+.list-nothing {
+    text-align: center;
+    color: #9EA7B4;
+}
+
+

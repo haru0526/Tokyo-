@@ -3,10 +3,11 @@ var bp = require("body-parser");
 var cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-const authRouter = require("./routes").auth;
-const pageRoute = require("./routes").pageRoute;
 const cookie =require("cookie-parser");
 const session = require('express-session');
+const authRouter = require("./routes").auth;
+const pageRoute = require("./routes").pageRoute;
+const onlyMemberRoute = require("./routes").onlyMemberRoute;
 
 
 
@@ -26,6 +27,7 @@ app.use((req, res, next ) => {
 })
 app.use("/member",authRouter);
 app.use("/allPage",pageRoute);
+app.use("/onlyMember",onlyMemberRoute);
 
 
 app.get("/", (req, res) => {
