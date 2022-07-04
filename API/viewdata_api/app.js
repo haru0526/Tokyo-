@@ -157,6 +157,21 @@ app.get('/getSpecialViewData', function (req, res) {
     )
 })
 
+
+///新增會員收藏的特別景點
+// 需要傳入UserID跟ViewID
+app.post('/addspmemberviewdata/:UserID/:ViewdataID', function (req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    conn.query(
+        "INSERT INTO spmemberview_details VALUES (?,?)",
+        [req.params.UserID,req.params.ViewdataID],
+        function (err, data) {
+            res.set('Access-Control-Allow-Origin', '*');
+            res.send('Insert OK');
+        }
+    )
+})
+
 ///刪除會員收藏的景點
 // 需要傳入UserID跟ViewID
 app.post('/deletememberviewdata/:UserID/:ViewdataID', function (req, res) {
