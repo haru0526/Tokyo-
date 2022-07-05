@@ -1,10 +1,16 @@
 /* index首頁--------------- */
 
 body {
-    font-size: 100%;
+    /* font-size: 100%; */
 }
 
-.container {
+/* .container {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin: 0 auto;
+} */
+.containerNAV {
     max-width: 90%;
     margin-left: 5%;
     margin-right: 5%;
@@ -486,7 +492,7 @@ header img{
 
 /* 導覽列 */
 header .menubar a{
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: normal;
     color: black;
     padding: 10px;

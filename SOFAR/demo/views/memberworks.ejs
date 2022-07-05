@@ -75,12 +75,14 @@
 </head>
 
 <body>
-    <!-- <img src="../public/images/kent/pic/00000.jpg" alt=""> -->
-    <header>
-        <h1 class="text-center"><%= userSeeeionName%></h1>
-    </header>
+    <%- include('navbar.ejs') %>
 
-    <div id="username" display="none"><%= userSeeeionName%></div>
+    <!-- <img src="../public/images/kent/pic/00000.jpg" alt=""> -->
+    <!-- <header>
+        <h1 class="text-center"><%= userSeeeionName%></h1>
+    </header> -->
+
+    <div id="username" style="display:none"><%= userSeeeionName%></div>
     <div class="container">
         <!-- 景點 -->
         <div class="row" id="views">
@@ -141,9 +143,9 @@
         <div id="map"></div>
     </div>
 
-    <footer class="mt-5">
+    <!-- <footer class="mt-5">
         <h1 class="text-center">Footer</h1>
-    </footer>
+    </footer> -->
 
     <script>
 
@@ -353,25 +355,26 @@
             console.log(resultarray);
         }
 
-        //Map
-        // var map = L.map(
-        //     'map', {
-        //     center: [23.773, 120.959],
-        //     zoom: 8,
-        // });
-        // L.control.scale({
-        //     position: 'bottomleft'
-        // }).addTo(map);
+        // Map
+        var map = L.map(
+            'map', {
+            center: [23.773, 120.959],
+            zoom: 8,
+        });
+        L.control.scale({
+            position: 'bottomleft'
+        }).addTo(map);
 
-        // var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
-        // var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
-        //     hereApiKey, {
-        //     attribution: '© 2020 HERE',
-        //     subdomains: [1, 2, 3, 4]
-        // }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
+        var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
+        var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
+            hereApiKey, {
+            attribution: '© 2020 HERE',
+            subdomains: [1, 2, 3, 4]
+        }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
 
 
     </script>
+    <%- include('footer.ejs') %>
 
 </body>
 
