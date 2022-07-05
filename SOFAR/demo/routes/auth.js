@@ -458,7 +458,9 @@ router.get("/nightclub3",isLoggedIn, (req, res) => {
 
 
 router.get("/memberworks",isLoggedIn, (req, res) => {
-  res.render("memberworks.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('memberworks.ejs', { userSeeeionName, userEmail})
 })
 
 
