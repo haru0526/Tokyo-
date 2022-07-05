@@ -1,7 +1,7 @@
 開啟XAMPP的phpMyadmin
 先新增一個資料庫名稱: demo
 
-將demo.sql 複製到phpmyadmin的 SQL上執行
+將sql資料夾的demo.sql 複製到phpmyadmin的 SQL上執行
 
 右鍵點viewdata_api 開啟終端機  
 使用指令 node app.js  or  nodemon app.js

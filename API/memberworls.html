@@ -153,7 +153,7 @@
         //後端來的資料
         $.ajax({
             type: "GET",
-            url: "http://localhost:3000/getMemberCollectViewData/" + username,
+            url: "http://localhost:3000/getAllMemberCollectViewData/" + username,
             async: false,
             success: function (data) {
                 items = JSON.parse(data);
@@ -184,9 +184,10 @@
             <div id="keyBoard" class="col-md-4 mt-5">
               <div class="card" style="width: 18rem;">
                   <img src="${p.ViewImage}" class="card-img-top img-fluid" alt="keyboard">
-                  <div class="card-body position-relative">`
+                  <div class="card-body position-relative">
+                        <span class="badge bg-secondary position-absolute bottom-0 start-0">${p.Area}</span>`
                         + tagcontent +
-                      `<button class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}')">收藏</button>
+                      `<button class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">收藏</button>
                       <h5 class="card-title text-center mt-2" id="itemName">${p.ViewName}</h5>
                   </div>
               </div>
@@ -195,16 +196,28 @@
         });
 
         // 刪除收藏
-        function canclecollection(userid,viewdataid) {
+        function canclecollection(userid,viewdataid,viewtag) {
             if(confirm("確定要取消收藏嗎")) {
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/deletememberviewdata/" + userid + "/" + viewdataid,
-                    async: false,
-                    success: function (data) {
-                        console.log("Delete OK");
-                    }
-                })
+                if(viewtag == "賽馬" | viewtag == "夜店") {
+                    userid = "0" + userid;
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:3000/deletespmemberviewdata/" + userid + "/" + viewdataid,
+                        async: false,
+                        success: function (data) {
+                            console.log("Delete special data OK");
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:3000/deletememberviewdata/" + userid + "/" + viewdataid,
+                        async: false,
+                        success: function (data) {
+                            console.log("Delete OK");
+                        }
+                    })
+                }
             }
             location.reload();
         }
@@ -218,10 +231,16 @@
                     tagcontent = `<span class="badge bg-success position-absolute top-0 start-0">美食</span>`
                     break;
                 case "神社":
-                    tagcontent = `<span class="badge bg-danger position-absolute top-0 start-0">神社</span>`
+                    tagcontent = `<span class="badge bg-info position-absolute top-0 start-0">神社</span>`
                     break;
                 case "動畫、電影":
                     tagcontent = `<span class="badge bg-warning position-absolute top-0 start-0">動畫、電影</span>`
+                    break;
+                case "賽馬":
+                    tagcontent = `<span class="badge bg-danger position-absolute top-0 start-0">賽馬</span>`
+                    break;
+                case "夜店":
+                    tagcontent = `<span class="badge bg-dark position-absolute top-0 start-0">夜店</span>`
                     break;
             }
         }
@@ -285,7 +304,7 @@
                     <label for="">休息多久(分鐘)</label>
                     <input type="text" id="restTime">
                 </div>
-                <div class="col-md-3 ml-5">
+                <div class="col-md-3 text-center">
                     <select class="custom-select custom-select-sm" onChange="renew(this.selectedIndex,event);">
                         <option selected>景點類別</option>`
                 + selectTag +
