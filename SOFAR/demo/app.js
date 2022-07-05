@@ -25,9 +25,14 @@ app.use((req, res, next ) => {
   res.locals.isLogin = req.session.isLogin;
   next();
 })
+
+
+
+
+
 app.use("/member",authRouter);
 app.use("/allPage",pageRoute);
-app.use("/onlyMember",onlyMemberRoute);
+// app.use("/onlyMember",onlyMemberRoute);
 
 
 app.get("/", (req, res) => {

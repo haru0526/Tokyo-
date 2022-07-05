@@ -588,6 +588,9 @@ section{
 }
 
 .btn{
+    /* background-color: #e09797; */
+    /* background-color: #F9C0C0; */
+    background-color: #e09797;
 
     padding: 10px;
     border: 1px solid white;
@@ -597,10 +600,13 @@ section{
 }
 
 .btn:hover{
-    background-color: rgb(237, 237, 237);
+    background-color: #F9C0C0;
+
+
+    /* background-color: rgb(237, 237, 237); */
     color: white;
-    box-shadow: inset 200px 0 0 0 wheat;
-    transition: 1s all;
+    /* box-shadow: inset 200px 0 0 0 wheat; */
+    transition: 0.3s all;
 }
 
 /* 第三區 4個推薦行程內容 */
