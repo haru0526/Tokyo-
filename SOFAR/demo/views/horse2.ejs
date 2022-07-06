@@ -106,14 +106,12 @@
                         <h4>地圖</h4>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.4395798295914!2d139.73863095099532!3d35.592221880118004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861c5464d5577%3A0x811ba613aee0e815!2z5aSn5LqV6LO96aas5aC0!5e0!3m2!1szh-TW!2stw!4v1656146262216!5m2!1szh-TW!2stw"
-                            width="95%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            width="95%" height="250" loading="lazy"
+                            ></iframe>
                     </div>
 
                     <div class="container mx-auto" id="app">
                         <div class="message">
-                            <!--<v-input v-model="username"></v-input>-->
-                            <!-- <v-input v-model="username" ref="input-com"></v-input> -->
                             <v-textarea v-model="message"></v-textarea>
                             <button @click="handleSend">送出</button>
                         </div>
@@ -124,18 +122,11 @@
                         </div>
                     </div>
 
-                    <!-- <script type="text/template" id="v-input">
-                            <div>
-                                <span class="m-3">id:</span>
-                                <input type="text" :value="value" @input="$emit('input', $event.target.value)" 
-                                    ref="input-ref" placeholder="請輸入id">
-                            </div>
-                        </script> -->
                     <script type="text/template" id="v-textarea">
                             <div>
                                 <span class="m-3">留言内容：</span>
                                 <textarea :value="value" @input="$emit('input', $event.target.value)" 
-                                placeholder="請輸入留言內容"></textarea>
+                                placeholder="請輸入留言內容" onkeyup="this.value=this.value.replace(/\s+/g,'')"></textarea>
                             </div>
                         </script>
 
@@ -209,7 +200,7 @@
                                     message: '',
                                     ctime: new Date(),
                                     list: [
-                                        { name: "偶爾翹班的巡察長兩津", message: "好耶 今天大原所長不在", timer: "2020-09-18-13:31:05" },
+                                    { name: "馬腳下的馬蹄鐵", message: "該死 今天又猜錯了", timer: "2020-5-20-19:28:35" },
                                     ]
                                 }
                             },
@@ -230,16 +221,14 @@
                                     minute = minute < 10 ? '0' + minute : minute;
 
                                     var s = date.getSeconds()
+                                    s = s < 10 ? '0' + s : s;
                                     let totime = year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + s;
 
                                     return totime;
                                 },
                                 handleSend: function () {
-                                    // if (this.username === '') {
-                                    //     alert("請先輸入id");
-                                    //     return;
-                                    // }
-                                    if (this.message === '') {
+                         
+                                    if (this.message == '') {
                                         alert("請先輸入留言內容");
                                         return;
                                     }
