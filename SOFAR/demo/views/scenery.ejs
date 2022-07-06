@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/all.css/scenery/_css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/all.css/scenery/02.css">
+    <script src="../public/js/scenery/_js/jquery.min.js"></script>
+    <script src="../public/js/scenery/_js/popper.min.js"></script>
+    <script src="../public/js/scenery/_js/bootstrap.min.js"></script>
+    <script src="../public/js/scenery/_js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/js/scenery/_js/leaflet.css" />
+    <script src="../public/js/scenery/_js/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin="">
+        </script>
+</head>
+
+<body>
+    <%- include('navbar.ejs') %>
+
+    <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
+    <img src="../public/images/scenery/pic/55555.jpg" alt="" width="100%" height="300px">
+    <!-- 東京23區 -->
+    <div class="content1">
+        <div class="area">
+            <div onclick="asdasd(this)" class="aaaaa">足立區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">荒川區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">板橋區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">江戶川區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">大田區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">葛飾區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">北區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">江東區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">品川區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">澀谷區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">新宿區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">杉並區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">墨田區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">世田谷區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">台東區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">中央區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">千代田區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">豐島區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">中野區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">練馬區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">文京區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">港區</div>|
+            <div onclick="asdasd(this)" class="aaaaa">目黑區</div>|
+        </div>
+    </div>
+
+    <!-- 主頁面 -->
+    <div class="content2 ">
+        <!-- 分類  checkbox-->
+        <div class="sidebar_left">
+            <h5>
+                <p5 id="classification"> 分類 </p5>:<br>
+                <label><input type="checkbox" id="checkbox1" value="美食" onclick="sort(this)">美食</label><br>
+                <label><input type="checkbox" id="checkbox2" value="神社" onclick="sort(this)">神社</label><br>
+                <label><input type="checkbox" id="checkbox3" value="動畫、電影" onclick="sort(this)">動畫、電影</label><br>
+                <label><input type="checkbox" id="checkbox4" value="景點" onclick="sort(this)">景點</label>
+            </h5>
+        </div>
+        <!-- 景點 -->
+        <div class="index_right">
+            <div class="a" id="index_right1"> </div>
+            <div class="a" id="index_right2"> </div>
+            <div class="a" id="index_right3"> </div>
+            <div class="a" id="index_right4"> </div>
+            <div>
+                <button class="more" onclick="more()">load more</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈出式視窗 -->
+    <div class="modal" id="myModal"> </div>
+
+    <script>
+
+
+        // //卡片資料
+        // var travel = [
+        //     {
+        //         label: 'res', title: 'こちら葛飾区亀有公園前派出所', address: '日本東京都葛飾區龜有三丁目', map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12949.439147216914!2d139.8475334!3d35.7665375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x918cc0b2a56814ae!2z6b6c5pyJ!5e0!3m2!1szh-TW!2stw!4v1656400973178!5m2!1szh-TW!2stw',
+        //         picture: './pic/e168.png', latitude: '35.7665375,139.8475334', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。'
+        //     },
+        //     {
+        //         label: 'spa', title: '人中之龍', address: '歌舞伎町一丁目與歌舞伎町二丁目', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6480.493699549161!2d139.698772026149!3d35.6955426207637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd84e865c35%3A0x33418e00dfeefac!2z5pel5pys44CSMTYwLTAwMjEg5p2x5Lqs6YO95paw5a6_5Y2A5q2M6Iie5LyO55S6!5e0!3m2!1szh-TW!2stw!4v1656400903742!5m2!1szh-TW!2stw',
+        //         picture: './pic/Kabukicho.png', latitude: '35.6955426,139.698772', text: '在華燈初上之後，新宿歌舞伎町處處是電影院、酒吧、遊戲機中心等娛樂場所，可謂燈紅酒緣、夜夜笙歌，直到翌日太陽再次升起。有相信是《人中之龍》的粉絲留言，指歌舞伎町現在看起來，跟遊戲中虛構的神室町非常相似，甚至號召一眾粉絲到哪裡，仿照主角桐生一馬拍張照！'
+        //     },
+        //     {
+        //         label: 'tem', title: '黒子のバスケ', address: ' 東京都渋谷区千駄ケ谷１丁目１７−1', map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12963.555781227004!2d139.7124051!3d35.6797364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7eb392467dbf33f0!2z5p2x5Lqs6auU6IKy6aSo!5e0!3m2!1szh-TW!2stw!4v1656400818060!5m2!1szh-TW!2stw',
+        //         picture: './pic/news.jpg', latitude: '35.6797364,139.7124051', text: '東京體育館'
+        //     },
+        //     {
+        //         label: 'spa', title: '小杉湯（こすぎゆ）', address: '東京都杉並區高圓寺北3-32-2', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.7346727873623!2d139.6466510656125!3d35.70814633610212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f27e71b0d029%3A0xcac1c06748a11ee2!2z5bCP5p2J5rmv!5e0!3m2!1szh-TW!2stw!4v1656400685423!5m2!1szh-TW!2stw',
+        //         picture: './pic/0000174323.jpg', latitude: '35.7081463,139.6466511', text: '從新宿搭電車約15分鐘的高圓寺，是身受音樂家、插畫家等喜愛的街道。在這裡已有近90年歷史的「小杉湯」，是與次文化十分合適、滿滿創意的大眾澡堂。富士山的磁磚畫、以白色為基底具有清潔感的淋浴處、按摩浴缸，是間會讓人不禁說出「這才是日本澡堂！」的浴室。浴池有按摩浴缸跟冷湯。'
+        //     },
+        //     {
+        //         label: 'spa', title: '改良湯', address: '東京都渋谷区東2-19-9', map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12967.885757177966!2d139.7095256!3d35.6530753!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa7d967095dd3ce9e!2z5r6h5aCCIOaUueiJr-a5rw!5e0!3m2!1szh-TW!2stw!4v1656400420940!5m2!1szh-TW!2stw',
+        //         picture: './pic/9d38b26f43f10c8566f420ec999003d5.jpg', latitude: '35.6530753,139.7095256', text: '通常錢湯大浴場都是超明亮，讓不少人覺得害羞卻步，因為赤裸裸的身子被一覽無遺。但是改良湯的大浴場採用深色石材，就連天花板也是深色，燈光採取間接照明，大大降低浴場亮度，略帶昏暗的空間反而令人放心放鬆。'
+        //     },
+        //     {
+        //         label: 'res', title: '台場', address: '東京都港区台場1-6-1、東京都港区台場1-7-1等等...', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25946.881051005872!2d139.78018785!3d35.6188474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82c55d4cb%3A0x79fe8b211d2010b9!2z5pel5pys5p2x5Lqs6YO95b6h5Y-w5aC0!5e0!3m2!1szh-TW!2stw!4v1656400336923!5m2!1szh-TW!2stw',
+        //         picture: './pic/1561310598-1636874550.jpg', latitude: '35.6188474,139.7801879', text: '來到擁有許多休閒娛樂設施的「台場」，這個大人小孩都愛的東京景點，只有實際來過一次才能體會何以日劇浪漫拍攝場景都在此的絕美聖地，早上首衝現在全世界最流行的夢幻光影互動展「teamLab」，沈浸在科技打造的藝術中，接著來去AQUA CITY、Diver City Tokyo等商場逛逛，日劇迷 & 海賊王迷不要錯過可以買限定商品的富士電視台，或到Decks瘋玩室內遊樂設施、懷舊昭和商店街，台場真的太好玩啦！'
+        //     },
+        //     {
+        //         label: 'tem', title: '明治神宮', address: '東京都涉谷區代代木神園町1-1', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25929.386473426242!2d139.68898499969606!3d35.67273438254439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb79a4c26e5%3A0x8fca893849103f73!2z5piO5rK756We5a6u!5e0!3m2!1szh-TW!2stw!4v1656400242150!5m2!1szh-TW!2stw',
+        //         picture: './pic/20211107001960.jpg', latitude: '35.6727344,139.688985', text: '明治神宮是供奉明治天皇、昭憲皇太后的神社，有著佔地70萬平方公尺的森林綠地，是個適合散步放空的好地方，擁有日本最大木製鳥居，是東京人人皆知的經典必去景點。南參道、酒樽牆、明治神宮御苑、明治神宮御守 (開運木鈴尤其酷)，以及神社參拜流程都是重點'
+        //     },
+        //     {
+        //         label: 'mov', title: '竹下通、原宿', address: '東京都澀谷區神宮', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.242167262128!2d139.70298791525855!3d35.671038680196666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cbaf1de5995%3A0xc2becc88ea4e7eb5!2zVGFrZXNoaXRhIFN0LCAxLWNoxY1tZSBKaW5nxattYWUsIFNoaWJ1eWEgQ2l0eSwgVG9reW8gMTUwLTAwMDHml6XmnKw!5e0!3m2!1szh-TW!2stw!4v1656400002508!5m2!1szh-TW!2stw',
+        //         picture: './pic/harajuku_takeshita_20151007b1.jpg', latitude: '35.6710387,139.7029879', text: '而明治神宮所在的原宿，旁邊就是「竹下通」，一個可以感受東京年輕人活力的逛街區，在竹下通，你不用在意別人的眼光，穿上你想穿的服飾展現自己的個性，可以說是東京一個解脫自我的地方，原宿也是「卡哇伊（カワイイ）」文化發源地，這個東京國高中生流連的街區，在社群媒體當紅的時代，許多東京IG網紅打卡小吃都是從原宿、竹下通紅出來的呢！'
+        //     },
+        //     {
+        //         label: 'com', title: '六本木', address: '日本東京都港區', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12966.198383744619!2d139.73141895021462!3d35.66346707442805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b9d3c1c9187%3A0x48f9c248e9169cfe!2z5pel5pys44CSMTA2LTAwMzIg5p2x5Lqs6YO95riv5Y2A5YWt5pys5pyo!5e0!3m2!1szh-TW!2stw!4v1656399875785!5m2!1szh-TW!2stw',
+        //         picture: './pic/81_0154_1.jpg', latitude: '35.6634671,139.731419', text: '六本木位於東京港區，眾所皆知港區是東京有錢人住的地方，而六本木則是港區的娛樂地，尤其是晚上的娛樂！這裡很浪漫、很有文藝氣息、還有很多美食，聚集了美術館的六本木，無論是春天賞櫻，或是冬天看聖誕點燈都很美，其中六本木之丘最高的「森大樓」，從52樓的360度玻璃觀景台「六本木新城展望台」可以眺望新宿超高大樓群、東京鐵塔等東京重點區域，是東京數一數二的看夜景景點；另一頭的「Tokyo Midtown 東京中城」還有三得利美術館可以逛，喜歡日劇中都會男女場景的，一定要來六本木。'
+        //     },
+        //     {
+        //         label: 'tem', title: '愛宕神社', address: '東京都港区愛宕1-5-3', map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12965.990996174667!2d139.7484681!3d35.6647441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5756f46678a0b0d2!2z5oSb5a6V56We56S-!5e0!3m2!1szh-TW!2stw!4v1656399659470!5m2!1szh-TW!2stw',
+        //         picture: './pic/Torii_Atago-shrine_Kyoto.jpg', latitude: '35.6647441,139.7484681', text: '愛宕神社是東京23區中海拔最高的神社，位於東京都內少見的自然山丘上，四周鳥語花香、富有自然景觀。要到達本殿必須爬上一個計86段的「飛黃騰達的石階」（出世の石段）才能夠參拜。'
+        //     },
+        //     {
+        //         label: 'tem', title: '代代木八幡宮', address: '151-0053 東京都 澀谷區Yoyogi 代代木5-1-1', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2044961177576!2d139.68660361525855!3d35.67196638019643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f34a6001ce33%3A0xf6069a278abfefbd!2z5Luj5Luj5pyo5YWr5bmh5a6u!5e0!3m2!1szh-TW!2stw!4v1656400139753!5m2!1szh-TW!2stw',
+        //         picture: './pic/702_0454_1_1400x1100.jpg', latitude: '35.6719664,139.6866036', text: '祭祀的是応神天皇（八幡様），応神天皇自古以來就被朝廷以及武將們所崇敬，應而成為武將、到現在的政治官員們常參拜的神社，祈求成功、升遷…...等等。被譽為是東京都內數一數二的能量景點!'
+        //     },
+        //     {
+        //         label: 'tem', title: '日枝神社', address: '東京都千代田區永田町2-10-5', map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12964.379357225916!2d139.7399433!3d35.6746667!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xef431afda2747c8f!2sHie%20Shrine!5e0!3m2!1szh-TW!2stw!4v1656398210137!5m2!1szh-TW!2stw',
+        //         picture: './pic/下載.jpg', latitude: '35.6746667,139.7399433', text: '永田町是日本的政治中心，位於此地的日枝神社，常有政治人物來此參拜，祈求成功、蒸蒸日上。每年6月會在此舉辦「江戶三大祭」之一的「山王祭」。神社區域內還有「寶物殿」，收藏著國寶、重要文化財等諸多與德川將軍家有所淵源的物品。'
+        //     },
+
+
+
+        //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所1', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
+        //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所2', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
+        //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所3', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
+        //     { label: 'res', title: 'こちら', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' }
+
+        // ];
+        var area = '足立區', travel = [];
+
+        function start() {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/getViewData/" + area,
+                async: false,
+                success: function (data) {
+                    travel = JSON.parse(data);
+                }
+            })
+            all(travel);
+
+        }
+
+        start();
+
+        function asdasd(a) {
+
+            travel = [];
+            for (w = 1; w <= sss; w++) {
+                var ect = document.getElementById(`index_right${w}`);
+                ect.innerHTML = '';
+            }
+            area = a.innerHTML;
+
+            var classification = document.getElementById('classification');
+            classification.innerHTML = area;
+            output = [];
+            for (a = 1; a <= 4; a++) {
+                $(`#checkbox${a}`).prop("checked", false);
+            }
+            $(".more").remove();
+            $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
+            start();
+        };
+
+
+        //foreach每個卡片
+        function all(select_put) {
+            var q = 0, i = 0;
+            select_put.forEach(function (item) {
+                if (i % 3 == 0) {
+                    q++;
+                }
+                if (q >= 5) {
+                    return;
+                }
+                var obj = document.getElementById(`index_right${q}`);
+                // item.ViewImage.toString().substring(2)
+                obj.innerHTML += '<div class="card">' +
+                    '<img src = "../public/images/scenery' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                    ' <div class="card-body">' +
+                    ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
+                    ' <button onclick="doit(this)" id="" value="' + i + '">查看更多</div></button>' +
+                    '   <div class="card-footer"><a href="#"><i class="fa fa-heart-o">點擊加入最愛</i></a></div>'
+                '</div>';
+                i++;
+            })
+
+            // 我的最愛 愛心控制
+            love();
+        }
+
+
+        //勾選
+        let output = [];
+        function sort(sort0) {
+            //清空所有卡片
+            for (w = 1; w <= sss; w++) {
+                var ect = document.getElementById(`index_right${w}`);
+                ect.innerHTML = '';
+            }
+            //勾選分類
+            if (sort0.checked == true) {
+                var old = output.length;
+                travel.forEach((ttt) => {
+                    if (sort0.value == ttt.ViewTag) {
+                        output.push(ttt);
+                    }
+                })
+
+                if (output.length == old) {
+                    sort0.checked = false;
+                    alert('搜尋無果');
+                }
+
+                all(output);
+                $(".more").remove();
+                console.log(output);
+            } //取消勾選分類
+            else if (sort0.checked == false) {
+                output = output.filter((item) => item.ViewTag != sort0.value);
+                all(output);
+            }
+            //沒勾
+            if (output.length == 0) {
+                all(travel);
+                $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
+            }
+        }
+
+        //彈出式視窗
+        function doit(e) {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            if (output.length == 0) {
+                modal.innerHTML = '<div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<span class="close">&times;</span>' +
+                    '<h1 id="ti">' + travel[e.value].ViewName + '</h1></div>' +
+                    '  <div class="modal_heart"><a href="#"><i id="ggggg" class="fa fa-heart-o">點擊加入最愛</i></a></div>' +
+                    ' <img src="' + travel[e.value].ViewImage + '" style="width:60%">' +
+                    '<p>' + travel[e.value].ViewText + '</p>' +
+                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    '</div>';
+
+            }
+            else {
+                modal.innerHTML = '<div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<span class="close">&times;</span>' +
+                    '<h1 id="ti">' + output[e.value].ViewName + '</h1></div>' +
+                    ' <img src="' + output[e.value].ViewImage + '" style="width:60%">' +
+                    '  <div class="modal_heart"><a href="#"><i id="ggggg" class="fa fa-heart-o">點擊加入最愛</i></a></div>' +
+                    '<p>' + output[e.value].ViewText + '</p>' +
+                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    '</div>';
+            }
+
+            $("#ggggg").on("click", function () {
+
+                console.log(this);
+                if (this.className === 'fa fa-heart-o') {
+                    $(this).removeClass('fa fa-heart-o');
+                    $(this).addClass('fa fa-heart');
+                } else if (this.className === 'fa fa-heart') {
+                    $(this).removeClass('fa fa-heart');
+                    $(this).addClass('fa fa-heart-o');
+                }
+            })
+
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            // When the user clicks on the button, open the modal
+            modal.style.display = "block";
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        }
+
+        var sss = 4;
+        //load more按鈕 顯示更多
+        function more() {
+
+            if (travel.length > sss * 3) {
+                $(".more").before(`<div class="a" id="index_right${sss}"></div><hr>`);
+                // 沒勾 
+                var obj = document.getElementById(`index_right${sss}`);
+                let t = travel.length - sss * 3 + 3;
+                for (as = 0; as < t; as++) {
+                    obj.innerHTML += '<div class="card">' +
+                        '<img src = "' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                        ' <div class="card-body">' +
+                        ' <div class="card-text"><p>' + travel[sss * 3 - 3 + as].ViewName + '</p></div>' +
+                        ' <button onclick="doit(this)" id="" value="' + (sss * 3 - 3 + as) +
+                        '">查看更多</div></button>' +
+                        '   <div class="card-footer"><a href="#"><i class="fa fa-heart-o">點擊加入最愛</i></a></div>'
+                    '</div>';
+                    // console.log(travel[i]); 
+                    love();
+                }
+            } else if (travel.length <= sss * 3) { //沒有資料&不夠
+                $(".more").remove();
+            }
+            // else if (travel.length < sss * 3) {
+
+            // let t = travel.length - sss * 3 + 3;
+            // $(".more").before(`<div class="a" id="index_right${sss}"></div><hr>`);
+            // $(".more").remove();
+            // for (as = 0; as < t; as++) {
+            //     var obj = document.getElementById(`index_right${sss}`);
+            //     obj.innerHTML += '<div class="card">' +
+            //         '<img src = "' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+            //         ' <div class="card-body">' +
+            //         ' <div class="card-text"><p>' + travel[sss * 3 - 3 + as].ViewName + '</p></div>' +
+            //         ' <button onclick="doit(this)" id="" value="' + (sss * 3 - 3 + as) +
+            //         '">查看更多</div></button>' +
+            //         '   <div class="card-footer"><a href="#"><i class="fa fa-heart-o">點擊加入最愛</i></a></div>'
+            //     '</div>';
+            //     // console.log(travel[i]); 
+            //     love();
+            // }
+
+            //}
+            //有勾 直接不顯示
+        };
+
+
+        //愛心方程式
+        function love() {
+            $("i").on("click", function () {
+                if (this.className === 'fa fa-heart-o') {
+                    $(this).removeClass('fa fa-heart-o');
+                    $(this).addClass('fa fa-heart');
+                } else if (this.className === 'fa fa-heart') {
+                    $(this).removeClass('fa fa-heart');
+                    $(this).addClass('fa fa-heart-o');
+                }
+            })
+        }
+    </script>
+    
+    <%- include('footer.ejs') %>
+
+</body>
+
+</html>

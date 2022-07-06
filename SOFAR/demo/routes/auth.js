@@ -454,6 +454,9 @@ router.get("/nightclub2",isLoggedIn, (req, res) => {
 router.get("/nightclub3",isLoggedIn, (req, res) => {
   res.render("nightclub3.ejs");
 })
+router.get("/scenery", (req, res) => {
+  res.render("scenery.ejs");
+})
 
 
 
