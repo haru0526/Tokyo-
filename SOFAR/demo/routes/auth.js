@@ -437,22 +437,34 @@ router.get("/privacy", (req, res) => {
 
 //----------- Onlymember ----------
 router.get("/home",isLoggedIn, (req, res) => {
-  res.render("OM_Home.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('OM_Home.ejs', { userSeeeionName, userEmail})
 })
 router.get("/horse1",isLoggedIn, (req, res) => {
-  res.render("horse1.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('horse1.ejs', { userSeeeionName, userEmail})
 })
 router.get("/horse2",isLoggedIn, (req, res) => {
-  res.render("horse2.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('horse2.ejs', { userSeeeionName, userEmail})
 })
 router.get("/nightclub1",isLoggedIn, (req, res) => {
-  res.render("nightclub1.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('nightclub1.ejs', { userSeeeionName, userEmail})
 })
 router.get("/nightclub2",isLoggedIn, (req, res) => {
-  res.render("nightclub2.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('nightclub2.ejs', { userSeeeionName, userEmail})
 })
 router.get("/nightclub3",isLoggedIn, (req, res) => {
-  res.render("nightclub3.ejs");
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('nightclub3.ejs', { userSeeeionName, userEmail})
 })
 router.get("/scenery", (req, res) => {
   res.render("scenery.ejs");
