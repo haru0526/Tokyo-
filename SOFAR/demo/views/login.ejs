@@ -4,29 +4,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./all.css/shawnCSS/bootstrap.min.css">
+    <script src="./js/shawnJS/jquery.min.js"></script>
+    <script src="./js/shawnJS/popper.min.js"></script>
+    <script src="./js/shawnJS/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="./all.css/shawnCSS/style.css">    
+
+  <title>Tokyoe</title>
 </head>
-<body>
-  <% if(!isLogin){%>
-    <h4>123</h4>
-    <h1>signin</h1>
-<% } %>
-  <form method="post" action="/member/login">
 
-    <label for="email">Email</label>
-    <input type="text" placeholder="email" id="email" name="email" required>
+<body >
+  <%- include('navbar.ejs') %>
 
-    <label for="password">Password</label>
-    <input type="password" placeholder="password" id="password" name="password" required>
+  <section  class=" container-fluid ">
+    <section class="  row justify-content-center ">
+      <section class=" col-12 col-sm-7 col-md-3 ">
+
+        <form class="form-container p-4" method="post" action="/member/login">
+          
+          <div class="text-center">
+            <img class="SSSlogo rounded mx-auto d-block " src="../public/images/shawnIMAGES/logo.png" alt="">
+            <h3>歡迎使用Tokyo</h3>
+          </div>
+
+          <!-- email -->
+          <div class="form-group">
+            <label for="email">電子信箱</label>
+            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" required>
+          </div>
+
+          <!-- passeord -->
+          <div class="form-group">
+            <label for="password">密碼</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+
+            <small><a href="./forgotPassword.html"class=" form-text text-muted">忘記密碼?</a></small>
+          </div>
+         
 
 
-    <button type="submit">SUBMIT</button>
-    <br>
-    
+          <div class=" text-center">
+            
+            <button type="submit" class="SSSbtn btn btn-primary btn-block">登入</button>
+            <p>或</p>
+            <button type="submit" class="gtn SSSbtn btn btn-primary btn-block "><a href="/member/auth/google">透過GOOGLE 帳戶繼續操作</a></button>
+            <p>繼續使用代表你同意 Tokyoe 的 <a href="/member/serve">《服務條款》</a>，並確認你已詳閱我們的<a href="/member/privacy">《隱私權政策》</a></p>
+            <p>   您是新用戶嗎?<a href="/member/register">建立帳戶</a></p>
+          </div>
 
-
-
-
-  </form>
+        </form>
+      </section>
+    </section>
+  </section>
+  <%- include('footer.ejs') %>
+ 
 </body>
 </html>

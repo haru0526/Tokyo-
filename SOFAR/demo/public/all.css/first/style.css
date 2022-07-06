@@ -1,10 +1,16 @@
 /* index首頁--------------- */
 
 body {
-    font-size: 100%;
+    /* font-size: 100%; */
 }
 
-.container {
+/* .container {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin: 0 auto;
+} */
+.containerNAV {
     max-width: 90%;
     margin-left: 5%;
     margin-right: 5%;
@@ -486,7 +492,7 @@ header img{
 
 /* 導覽列 */
 header .menubar a{
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: normal;
     color: black;
     padding: 10px;
@@ -588,6 +594,9 @@ section{
 }
 
 .btn{
+    /* background-color: #e09797; */
+    /* background-color: #F9C0C0; */
+    background-color: #e09797;
 
     padding: 10px;
     border: 1px solid white;
@@ -597,10 +606,13 @@ section{
 }
 
 .btn:hover{
-    background-color: rgb(237, 237, 237);
+    background-color: #F9C0C0;
+
+
+    /* background-color: rgb(237, 237, 237); */
     color: white;
-    box-shadow: inset 200px 0 0 0 wheat;
-    transition: 1s all;
+    /* box-shadow: inset 200px 0 0 0 wheat; */
+    transition: 0.3s all;
 }
 
 /* 第三區 4個推薦行程內容 */

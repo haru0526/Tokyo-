@@ -20,6 +20,7 @@ dotenv.config();
 const session = require('express-session');
 const passport = require('passport');
 require('../passport');
+const {isLoggedIn} = require("../loggined");
 
 
 app.set('view engine', 'ejs');
@@ -57,17 +58,17 @@ router.use(passport.session());
 //   res.locals.isLogin = req.session.isLogin;
 //   next();
 // })
-function isLoggedIn(req, res, next) {
-  if (req.user || req.session.user) {
-    console.log('authenticated')
-    next()
-  } else {
-    console.log('not authenticated')
-    return res.sendStatus(401)
-  }
+// function isLoggedIn(req, res, next) {
+//   if (req.user || req.session.user) {
+//     console.log('authenticated')
+//     next()
+//   } else {
+//     console.log('not authenticated')
+//     return res.redirect("/");
+//   }
 
-  next()
-}
+//   next()
+// }
 
 
 // router.get("/", (req, res) => {
@@ -78,8 +79,7 @@ function isLoggedIn(req, res, next) {
 
 //----------- register ----------
 router.get("/register", (req, res) => {
-  // res.render("../public/logup");
-  // res.render("register.ejs", {});
+  res.render("register.ejs", {});
 })
 
 router.post("/register", (req, res) => {
@@ -181,7 +181,7 @@ router.get('/auth/google/callback',
 router.get('/success', isLoggedIn, (req, res) => {
   req.session.isLogin = true;
 
-  res.redirect("/member/mycenter");
+  res.redirect("/member/home");
 });
 
 router.get('/auth/google/failure', (req, res) => {
@@ -424,7 +424,47 @@ router.post('/update-password', function(req, res, next) {
 })
 
 
+//----------- serve and privicy ----------
+router.get("/serve", (req, res) => {
+  res.render("serve.ejs", {});
+})
+router.get("/privacy", (req, res) => {
+  res.render("privacy.ejs", {});
+})
 
+
+
+
+//----------- Onlymember ----------
+router.get("/home",isLoggedIn, (req, res) => {
+  res.render("OM_Home.ejs");
+})
+router.get("/horse1",isLoggedIn, (req, res) => {
+  res.render("horse1.ejs");
+})
+router.get("/horse2",isLoggedIn, (req, res) => {
+  res.render("horse2.ejs");
+})
+router.get("/nightclub1",isLoggedIn, (req, res) => {
+  res.render("nightclub1.ejs");
+})
+router.get("/nightclub2",isLoggedIn, (req, res) => {
+  res.render("nightclub2.ejs");
+})
+router.get("/nightclub3",isLoggedIn, (req, res) => {
+  res.render("nightclub3.ejs");
+})
+router.get("/scenery", (req, res) => {
+  res.render("scenery.ejs");
+})
+
+
+
+router.get("/memberworks",isLoggedIn, (req, res) => {
+  const userSeeeionName = req.session.user || req.user.displayName;
+  const userEmail = req.session.email || req.user.emails[0].value;
+  return res.render('memberworks.ejs', { userSeeeionName, userEmail})
+})
 
 
 

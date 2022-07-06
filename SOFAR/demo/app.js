@@ -23,8 +23,14 @@ app.use(session({ secret: 'cats',name: 'user', resave: true, saveUninitialized: 
 
 app.use((req, res, next ) => {
   res.locals.isLogin = req.session.isLogin;
+  res.locals.userName = req.session.user;
   next();
 })
+
+
+
+
+
 app.use("/member",authRouter);
 app.use("/allPage",pageRoute);
 app.use("/onlyMember",onlyMemberRoute);

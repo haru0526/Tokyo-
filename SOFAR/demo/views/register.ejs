@@ -4,29 +4,113 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../public/all.css/shawnCSS/bootstrap.min.css">
+    <script src="../public/js/shawnJS/jquery.min.js"></script>
+    <script src="../public/js/shawnJS/popper.min.js"></script>
+    <script src="../public/js/shawnJS/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../public/all.css/shawnCSS/style.css">    
+  
+
+  <title>Tokyoe</title>
 </head>
-<body>
-  <h1>register</h1>
-  <form method="post" action="/member/register">
-    <label for="name">Name</label>
-    <input type="text" placeholder="name" id="name" name="name" required>
 
-    <label for="birthday">Birthday</label>
-    <input type="date" id="birthday" name="birthday" >
+<%- include('navbar.ejs') %>
+<body >
 
-    <label for="email">Email</label>
-    <input type="text" placeholder="email" id="email" name="email" required>
+  <section class="container-fluid ">
+    <section class="  row justify-content-center ">
+      <section class=" col-12 col-sm-7 col-lg-3  ">
 
-    <label for="password">Password</label>
-    <input type="password" placeholder="password" id="password" name="password" required>
+        <form class="form-container p-4" method="post" action="/member/register">
+          
+          <div class="text-center">
+            <img class="SSSlogo rounded mx-auto d-block " src="../public/images/shawnIMAGES/logo.png" alt="">
+            <h3>歡迎使用Tokyo</h3>
+          </div>
 
-    <label for="confirmPassword">Confirm password</label>
-    <input type="password" placeholder="confirmPassword" id="confirmPassword" name="confirmPassword" required>
+          <!-- name -->
+          <div class="form-group">
+            <!-- <label for="name">姓名</label>
+            <input type="text"  class="form-control" id="name" name="name" required> -->
+            <label for="exampleInputEmail1">姓名</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+          </div>
 
-    <button type="submit">SUBMIT</button>
-    <br>
-    
-  </form>
+          <!-- email -->
+          <div class="form-group">
+            <label for="InputEmail">電子信箱</label>
+            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" required>
+          </div>
+   
+
+          <!-- passeord -->
+          <div class="form-group">
+            <label for="InputPassword">密碼</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          
+
+          <!-- confirmPassword -->
+          <div class="form-group">
+            <label for="confirmPassword">確認密碼</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+          </div>
+
+
+          <!-- age -->
+          <div class="form-group">
+            <label for="birthday">生日</label>
+            <input type="date" class="form-control" id="birthday" name="birthday">
+          </div>
+          
+
+
+          <div class=" text-center">
+            
+            <button id="regisButton" type="submit" class=" SSSbtn btn  btn-primary btn-block">註冊</button>
+            <p>或</p>
+
+            <div class="googlebtn ">
+              <!-- <img class="googleicon" src="./images/google.png" alt=""> -->
+              <button type="submit" class="gtn SSSbtn btn btn-primary btn-block"> <i class="fa-brands fa-google "></i>透過GOOGLE 帳戶繼續操作</button>
+            </div>
+
+            <p>繼續使用代表你同意 Tokyoe 的 <a href="/member/serve">《服務條款》</a>，並確認你已詳閱我們的<a href="/member/privacy">《隱私權政策》</a></p>
+            <p>   已經有帳號了?<a href="/member/login">登入</a></p>
+          </div>
+
+      </section>
+    </section>
+  </section>
+
+
+  <script>
+
+    // $("#regisButton").on("click", async function(){
+    //   var dataToServer = {
+    //     name: $("#InputName").prop("value"),
+    //     email: $("#InputEmail").prop("value"),
+    //     password: $("#InputPassword").prop("value"),
+    //     confirmPassword: $("#confirmPassword").prop("value"),
+    //     // birthday: $("#InputName").prop("value"),
+    //   };
+    //   console.log(dataToServer)
+
+    //   var result = await $.ajax({
+    //     type: "post",
+    //     url: "/register",
+    //     data: dataToServer
+    //   });
+
+      // window.location = "/mycenter.html";
+
+
+    // })
+  </script>
+    <%- include('footer.ejs') %>
+ 
 </body>
 </html>

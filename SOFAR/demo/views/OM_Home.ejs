@@ -98,6 +98,10 @@
         </div>
     </div>
     </div>
+
+    <%- include('footer.ejs') %>
+
+
     <script type="text/javascript">
         // 夜店輪播照片的資料 
         var nightClubImg = [
@@ -150,7 +154,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">${card[1]}</h4>
                                 <h5 class="card-text ">${card[2]}</h5>
-                                <a href="/onlyMember/${card[3]}" class="btn btn-outline-primary" id=${card[4]}>查看更多</a>
+                                <a href="/member/${card[3]}" class="btn btn-outline-primary 3" id=${card[4]}>查看更多</a>
                             </div>
                         </div>
                         <br>
@@ -172,7 +176,7 @@
                             <div class="card-body">
                                 <h4 class="card-title ">${card[1]}</h4>
                                 <h5 class="card-text">${card[2]}</h5>
-                                <a href="/onlyMember/${card[3]}" class="btn btn-outline-primary" id=${card[4]}>查看更多</a>
+                                <a href="/member/${card[3]}" class="btn btn-outline-primary -3" id=${card[4]}>查看更多</a>
                             </div>
                         </div>
                         <br>
