@@ -24,6 +24,7 @@ app.use(session({ secret: 'cats',name: 'user', resave: true, saveUninitialized: 
 app.use((req, res, next ) => {
   res.locals.isLogin = req.session.isLogin;
   res.locals.userName = req.session.user;
+  res.locals.userId = req.session.userId;
   next();
 })
 

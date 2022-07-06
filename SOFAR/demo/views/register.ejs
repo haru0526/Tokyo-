@@ -23,7 +23,7 @@
   <section class="container-fluid ">
     <section class="  row justify-content-center ">
       <section class=" col-12 col-sm-7 col-lg-3  ">
-
+        
         <form class="form-container p-4" method="post" action="/member/register">
           
           <div class="text-center">
@@ -36,41 +36,38 @@
             <!-- <label for="name">姓名</label>
             <input type="text"  class="form-control" id="name" name="name" required> -->
             <label for="exampleInputEmail1">姓名</label>
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+            <input type="text" class="form-control" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="name" name="name" required>
           </div>
 
           <!-- email -->
           <div class="form-group">
             <label for="InputEmail">電子信箱</label>
-            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" required>
+            <input type="email" class="form-control" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="email" name="email"  aria-describedby="emailHelp" required>
           </div>
    
 
           <!-- passeord -->
           <div class="form-group">
             <label for="InputPassword">密碼</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="password" name="password" required>
           </div>
           
 
           <!-- confirmPassword -->
           <div class="form-group">
             <label for="confirmPassword">確認密碼</label>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            <input type="password" class="form-control" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="confirmPassword" name="confirmPassword" required>
           </div>
-
 
           <!-- age -->
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="birthday">生日</label>
             <input type="date" class="form-control" id="birthday" name="birthday">
-          </div>
+          </div> -->
           
-
-
           <div class=" text-center">
             
-            <button id="regisButton" type="submit" class=" SSSbtn btn  btn-primary btn-block">註冊</button>
+            <button id="regisButton" type="submit"  class=" SSSbtn btn  btn-primary btn-block">註冊</button>
             <p>或</p>
 
             <div class="googlebtn ">
@@ -91,24 +88,48 @@
 
     // $("#regisButton").on("click", async function(){
     //   var dataToServer = {
-    //     name: $("#InputName").prop("value"),
-    //     email: $("#InputEmail").prop("value"),
-    //     password: $("#InputPassword").prop("value"),
+    //     name: $("#name").prop("value").trim(),
+    //     email: $("#email").prop("value"),
+    //     password: $("#password").prop("value"),
     //     confirmPassword: $("#confirmPassword").prop("value"),
-    //     // birthday: $("#InputName").prop("value"),
+    //     // birthday: $("#confirmPassword").prop("value"),
     //   };
-    //   console.log(dataToServer)
+    //   console.log(dataToServer[name]);
 
     //   var result = await $.ajax({
     //     type: "post",
-    //     url: "/register",
+    //     url: "/member/register",
     //     data: dataToServer
     //   });
 
-      // window.location = "/mycenter.html";
+    //   // window.location = "/mycenter.html";
 
 
     // })
+
+    // $(document).ready(function() {
+
+    // $('#regisButton').unbind( 'click').click( function() {
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/member/register",
+    //         data: {
+    //             // username: $("#username").val(),
+    //             // password: $("#password").val(),
+    //             name: $("#name").val().trim(),
+    //             email: $("#email").val().trim(),
+    //             password: $("#password").val().trim(),
+    //             confirmPassword: $("#confirmPassword").val().trim(),
+    //         },
+    //         success: function(data)
+    //         {
+    //            console.log("OK");
+    //         }
+    //     });
+    // });
+
+    // });
   </script>
     <%- include('footer.ejs') %>
  
