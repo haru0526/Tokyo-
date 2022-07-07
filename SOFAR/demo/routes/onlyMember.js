@@ -211,7 +211,6 @@ router.post('/deletememberviewdata/:UserID/:ViewdataID', function (req, res) {
 ///刪除會員收藏的特別景點(賽馬場夜店)
 // 需要傳入UserID跟ViewID
 router.post('/deletespmemberviewdata/:UserID/:ViewdataID', function (req, res) {
-    res.set('Access-Control-Allow-Origin', '*');
     conn.query(
         "DELETE FROM spmemberview_details WHERE UserID = ? and ViewDataID = ?",
         [req.params.UserID,req.params.ViewdataID],
@@ -228,6 +227,19 @@ router.get('/getMessage', function (req, res) {
     conn.query(
         "select * from message",
         [],
+        function (err, data) {
+            res.send(JSON.stringify(data));
+        }
+    )
+})
+
+
+// 取得留言板資料
+///全部資料
+router.get('/getMessage/:UserName', function (req, res) {
+    conn.query(
+        "select * from message where UserName = ?",
+        [req.params.UserName],
         function (err, data) {
             res.send(JSON.stringify(data));
         }
