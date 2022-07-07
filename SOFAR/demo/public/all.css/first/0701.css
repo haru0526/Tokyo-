@@ -1,6 +1,6 @@
 .firstPage-header{
     background-image: url(../../images/index/clay-banks-hwLAI5lRhdM-unsplash.jpg);
-    height: 500px;
+    height: 100vh;
     background-position: center center;
     background-size: cover;
 }
@@ -35,7 +35,7 @@
     width: 100%;
     opacity: 0;
 }
-.mask h1{
+/* .mask h1{
     text-align: center;
     color: #fff;
     position: absolute;
@@ -44,7 +44,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-}
+} */
 .pic a:hover .mask{
     opacity: 1;
 }
@@ -75,4 +75,86 @@ ul{
     .offcanvas-body{
         display: block;
     }
+}
+.month3-bg{
+    background-image: url(../../images/index/bg/march_1.jpeg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.area-banner{
+    background-image: url(../../images/youyu/分頁/58_0138_3.jpeg);
+    width: 100%;
+    height: 550px;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+.shibyua-banner{
+    background-image: url(../../images/youyu/澀谷區/area031_1013_51澀谷banner.jpeg);
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    position: relative;
+}
+.northern-banner{
+    background-image: url(../../images/youyu/東京北部/Jyorenji_hondo.jpeg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.south-banner{
+    background-image: url(../../images/youyu/東京南部/IkekamiHonmonTemple_1.jpeg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.east-banner{
+    background-image: url(../../images/youyu/東京東部/ebbf63ca-7cbd-48e1-826d-0e65833a7a3d.jpeg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.water-banner{
+    background-image: url(../../images/youyu/waterpage/5146_1_1400x1100.jpeg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.transportation{
+    max-width: 900px;
+    background-color: rgb(169, 169, 169,0.7);
+}
+.transportation p{
+    font-size: 18px;
+    line-height: 2em;
+    padding: 1em;
+}
+.title{
+    max-width: 900px;
+}
+.list-title{
+    color: #fff;
+}
+.black{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgb(0,0,0,0.4);
 }

@@ -40,6 +40,27 @@ app.use("/onlyMember",onlyMemberRoute);
 app.get("/", (req, res) => {
   res.render("index.ejs",{});
 })
+app.get("/monthThree", (req, res) => {
+  res.render("month3.ejs",{});
+})
+app.get("/waterpage", (req, res) => {
+  res.render("waterpage.ejs",{});
+})
+app.get("/area", (req, res) => {
+  res.render("area.ejs",{});
+})
+app.get("/east", (req, res) => {
+  res.render("east.ejs",{});
+})
+app.get("/northern", (req, res) => {
+  res.render("northern.ejs",{});
+})
+app.get("/shibuya", (req, res) => {
+  res.render("shibuya.ejs",{});
+})
+app.get("/south", (req, res) => {
+  res.render("south.ejs",{});
+})
 
 
 
