@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/all.css/scenery/_css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/all.css/scenery/02.css">
-    <script src="../public/js/scenery/_js/jquery.min.js"></script>
-    <script src="../public/js/scenery/_js/popper.min.js"></script>
-    <script src="../public/js/scenery/_js/bootstrap.min.js"></script>
-    <script src="../public/js/scenery/_js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../_css/bootstrap.min.css">
+    <link rel="stylesheet" href="02.css">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <script src="../_js/bootstrap.min.js"></script>
+    <script src="../_js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/js/scenery/_js/leaflet.css" />
-    <script src="../public/js/scenery/_js/leaflet.js"></script>
+    <link rel="stylesheet" href="/_js/leaflet.css" />
+    <script src="_js/leaflet.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -24,39 +24,38 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin="">
         </script>
+    <%- include('navbar.ejs') %>
 </head>
 
 <body>
-    <%- include('navbar.ejs') %>
-
     <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
-    <img src="../public/images/scenery/pic/55555.jpg" alt="" width="100%" height="300px">
+    <img src="/pic/55555.jpg" alt="" width="100%" height="300px">
     <!-- 東京23區 -->
     <div class="content1">
         <div class="area">
-            <div onclick="asdasd(this)" class="aaaaa">足立區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">荒川區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">板橋區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">江戶川區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">大田區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">葛飾區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">北區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">江東區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">品川區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">澀谷區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">新宿區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">杉並區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">墨田區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">世田谷區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">台東區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">中央區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">千代田區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">豐島區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">中野區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">練馬區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">文京區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">港區</div>|
-            <div onclick="asdasd(this)" class="aaaaa">目黑區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">足立區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">荒川區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">板橋區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">江戶川區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">大田區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">葛飾區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">北區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">江東區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">品川區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">澀谷區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">新宿區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">杉並區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">墨田區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">世田谷區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">台東區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">中央區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">千代田區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">豐島區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">中野區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">練馬區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">文京區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">港區</div>|
+            <div onclick="choose_area(this)" class="aaaaa">目黑區</div>|
         </div>
     </div>
 
@@ -88,8 +87,6 @@
     <div class="modal" id="myModal"> </div>
 
     <script>
-
-
         // //卡片資料
         // var travel = [
         //     {
@@ -141,16 +138,13 @@
         //         picture: './pic/下載.jpg', latitude: '35.6746667,139.7399433', text: '永田町是日本的政治中心，位於此地的日枝神社，常有政治人物來此參拜，祈求成功、蒸蒸日上。每年6月會在此舉辦「江戶三大祭」之一的「山王祭」。神社區域內還有「寶物殿」，收藏著國寶、重要文化財等諸多與德川將軍家有所淵源的物品。'
         //     },
 
-
-
         //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所1', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
         //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所2', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
         //     { label: 'res', title: 'こちら葛飾区亀有公園前派出所3', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' },
         //     { label: 'res', title: 'こちら', picture: './pic/e168.png', text: '「龜有公園前派出所」是作者虛構的存在，但是在龜有站的北口有一個派出所，聽說問裡面的警察：請問阿兩在嗎？他們會回答說：阿兩出去巡邏囉。' }
-
         // ];
-        var area = '足立區', travel = [];
-
+        var area = '足立區', travel = [], member_favorite = [], sss = 4; username = 'admin'//寫死;
+        //取得一般景點資料
         function start() {
             $.ajax({
                 type: "GET",
@@ -161,20 +155,36 @@
                 }
             })
             all(travel);
-
+            //依圖片的位置改變
+            // for (temp = 0; temp < travel.length; temp++) {
+            //     travel[temp].ViewImage = travel[temp].ViewImage.toString().substring(2);
+            // }
         }
-
+        //取得會員收藏的一般景點資料
+        function favorite() {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/getMemberCollectViewData/" + username,
+                async: false,
+                success: function (data) {
+                    member_favorite = JSON.parse(data);
+                }
+            })
+        }
+        //執行
         start();
+        favorite();
 
-        function asdasd(a) {
-
+        console.log(member_favorite);
+        //選擇地區
+        function choose_area(a) {
             travel = [];
             for (w = 1; w <= sss; w++) {
                 var ect = document.getElementById(`index_right${w}`);
                 ect.innerHTML = '';
             }
             area = a.innerHTML;
-
+            //分類欄改變
             var classification = document.getElementById('classification');
             classification.innerHTML = area;
             output = [];
@@ -189,7 +199,7 @@
 
         //foreach每個卡片
         function all(select_put) {
-            var q = 0, i = 0;
+            var q = 0, i = 0, count = 0;
             select_put.forEach(function (item) {
                 if (i % 3 == 0) {
                     q++;
@@ -198,21 +208,33 @@
                     return;
                 }
                 var obj = document.getElementById(`index_right${q}`);
-                // item.ViewImage.toString().substring(2)
-                obj.innerHTML += '<div class="card">' +
-                    '<img src = "../public/images/scenery' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
-                    ' <div class="card-body">' +
-                    ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
-                    ' <button onclick="doit(this)" id="" value="' + i + '">查看更多</div></button>' +
-                    '   <div class="card-footer"><a href="#"><i class="fa fa-heart-o">點擊加入最愛</i></a></div>'
-                '</div>';
+                favorite();
+                member_favorite.forEach(function (scenery1) {
+                    if (item.ViewName == scenery1.ViewName) {
+                        obj.innerHTML += '<div class="card">' +
+                            '<img src = "' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                            ' <div class="card-body">' +
+                            ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
+                            ' <button onclick="doit(this)" value="' + i + '">查看更多</button>' +
+                            ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button>'
+                        '</div>';
+                        count = 1;
+                    }
+                })
+                if (count == 0) {
+                    obj.innerHTML += '<div class="card">' +
+                        '<img src = "' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                        ' <div class="card-body">' +
+                        ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
+                        ' <button onclick="doit(this)" value="' + i + '">查看更多</button>' +
+                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + item.ViewID + '" >點擊加入最愛</button>'
+                    '</div>';
+                }
                 i++;
+                count = 0;
+
             })
-
-            // 我的最愛 愛心控制
-            love();
         }
-
 
         //勾選
         let output = [];
@@ -230,15 +252,13 @@
                         output.push(ttt);
                     }
                 })
-
                 if (output.length == old) {
                     sort0.checked = false;
                     alert('搜尋無果');
                 }
-
                 all(output);
                 $(".more").remove();
-                console.log(output);
+                // console.log(output);
             } //取消勾選分類
             else if (sort0.checked == false) {
                 output = output.filter((item) => item.ViewTag != sort0.value);
@@ -253,6 +273,18 @@
 
         //彈出式視窗
         function doit(e) {
+            //比對會員收藏
+            favorite();
+            let comeon = 'fa fa-heart-o', textcolor = '';
+            member_favorite.forEach(function (scenery1) {
+                if (scenery1.ViewName == travel[e.value].ViewName || scenery1.ViewName == output[e.value].ViewName) {
+                    // console.log(scenery1.ViewName);
+                    comeon = 'fa fa-heart';
+                    textcolor = 'style="color:red"'
+                }
+            })
+
+
             // Get the modal
             var modal = document.getElementById("myModal");
             if (output.length == 0) {
@@ -260,7 +292,7 @@
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + travel[e.value].ViewName + '</h1></div>' +
-                    '  <div class="modal_heart"><a href="#"><i id="ggggg" class="fa fa-heart-o">點擊加入最愛</i></a></div>' +
+                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + travel[e.value].ViewID + '" >點擊加入最愛</button>' +
                     ' <img src="' + travel[e.value].ViewImage + '" style="width:60%">' +
                     '<p>' + travel[e.value].ViewText + '</p>' +
                     ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
@@ -272,25 +304,12 @@
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + output[e.value].ViewName + '</h1></div>' +
+                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + output[e.value].ViewID + '" >點擊加入最愛</button>' +
                     ' <img src="' + output[e.value].ViewImage + '" style="width:60%">' +
-                    '  <div class="modal_heart"><a href="#"><i id="ggggg" class="fa fa-heart-o">點擊加入最愛</i></a></div>' +
                     '<p>' + output[e.value].ViewText + '</p>' +
-                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + output[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
                     '</div>';
             }
-
-            $("#ggggg").on("click", function () {
-
-                console.log(this);
-                if (this.className === 'fa fa-heart-o') {
-                    $(this).removeClass('fa fa-heart-o');
-                    $(this).addClass('fa fa-heart');
-                } else if (this.className === 'fa fa-heart') {
-                    $(this).removeClass('fa fa-heart');
-                    $(this).addClass('fa fa-heart-o');
-                }
-            })
-
 
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
@@ -300,22 +319,20 @@
             span.onclick = function () {
                 modal.style.display = "none";
             }
-
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
             }
-
         }
 
-        var sss = 4;
+
         //load more按鈕 顯示更多
         function more() {
-
             if (travel.length > sss * 3) {
                 $(".more").before(`<div class="a" id="index_right${sss}"></div><hr>`);
+                //愛心可能要寫
                 // 沒勾 
                 var obj = document.getElementById(`index_right${sss}`);
                 let t = travel.length - sss * 3 + 3;
@@ -331,11 +348,10 @@
                     // console.log(travel[i]); 
                     love();
                 }
-            } else if (travel.length <= sss * 3) { //沒有資料&不夠
+            } else if (travel.length <= sss * 3) { //沒有資料||不夠
                 $(".more").remove();
             }
             // else if (travel.length < sss * 3) {
-
             // let t = travel.length - sss * 3 + 3;
             // $(".more").before(`<div class="a" id="index_right${sss}"></div><hr>`);
             // $(".more").remove();
@@ -357,23 +373,59 @@
             //有勾 直接不顯示
         };
 
-
+        var UserID = 01;//寫死
         //愛心方程式
-        function love() {
-            $("i").on("click", function () {
-                if (this.className === 'fa fa-heart-o') {
-                    $(this).removeClass('fa fa-heart-o');
-                    $(this).addClass('fa fa-heart');
-                } else if (this.className === 'fa fa-heart') {
-                    $(this).removeClass('fa fa-heart');
-                    $(this).addClass('fa fa-heart-o');
+        function love(viewID) {
+            // console.log(viewID);
+            favorite();
+
+            member_favorite.forEach(function (scenery1) {
+                if (viewID.value == scenery1.ViewID) {
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:3000/deletememberviewdata/" + UserID + "/" + viewID.value,
+                        async: false
+                    })
                 }
             })
+
+            if (viewID.className === 'fa fa-heart-o') {
+                $(viewID).removeClass('fa fa-heart-o');
+                $(viewID).addClass('fa fa-heart');
+                $(viewID).css('color', 'red');
+                // console.log(viewID.value);
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:3000/addmemberviewdata/" + UserID + "/" + viewID.value,
+                    async: false,
+                    success: function (data) {
+                        alert('新增成功');
+                    },
+                    error: function () {
+                        alert('新增失敗');
+                    }
+                })
+            } else if (viewID.className === 'fa fa-heart') {
+                $(viewID).removeClass('fa fa-heart');
+                $(viewID).addClass('fa fa-heart-o');
+                $(viewID).css('color', 'black');
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:3000/deletememberviewdata/" + UserID + "/" + viewID.value,
+                    async: false,
+
+                    success: function (data) {
+                        alert('刪除成功');
+                    },
+                    error: function () {
+                        alert('刪除失敗');
+                    }
+                })
+            }
+
         }
     </script>
-    
     <%- include('footer.ejs') %>
-
 </body>
 
 </html>
