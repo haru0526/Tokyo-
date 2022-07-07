@@ -235,7 +235,7 @@ router.get('/getMessage', function (req, res) {
 
 
 // 取得留言板資料
-///全部資料
+///依照名稱
 router.get('/getMessage/:UserName', function (req, res) {
     conn.query(
         "select * from message where UserName = ?",
