@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="../public/js/EllisJS/_js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../public/all.css/first/rest.css">
+    <link rel="stylesheet" href="../public/all.css/first/style.css">
+    <link rel="stylesheet" href="../public/all.css/first/0701.css">
+</head>
+
+<body>
+    <%- include('navbar.ejs') %>
+
+    <div class="wrap">
+        <div class="area-banner">
+            <div class="black"> 
+            </div>
+            <div class="position-absolute top-50 start-50 translate-middles">
+                <h1 class="text-white text-center animate__animated animate__backInDown animate__delay-1s">東京都中心</h1>
+            </div>
+            <!-- <nav class="area-nav">
+                <div class="container flex">
+                    <div class="logo">
+                        <h1>
+                            <a href="#">LOGO</a>
+                        </h1>
+                    </div>
+                    <div class="menu area-menu">
+                        <ul>
+                            <li><a href="#">最新消息</a></li>
+                            <li><a href="#">日本文化</a></li>
+                            <li><a href="#">探索行程</a></li>
+                            <li><a href="#">旅行計劃</a></li>
+                            <li><a href="#">地圖路線</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="showmenu"></a>
+                </div>
+            </nav>-->
+        </div>
+        <div class="content">
+            <section>
+                <div class="container">
+                    <div class="title">
+                        <p class="h3 pb-4">大企業聚集的東京都中心居然也有傳統老街、廣闊綠地以及全世界最具活力的魚市場</p>
+                        <p>東京都中心涵蓋東京站及皇居周邊，長久以來一直都是政治與經濟的中心，除了百貨公司林立的銀座，也有曾經作為花街柳巷而繁盛一時的神樂坂，洋溢著沉穩高雅的氛圍。</p>
+                    </div>
+                    <div class="transportation mt-4">
+                        <p>東京都內公共交通十分發達！基本上坐電車或地下鐵就可前往大多數的景點。當然，根據目的地，還可利用巴士和計程車，節省旅遊時間，便利旅遊！</p>
+                    </div>
+                    <ul class="list flex area-landmark p-0 ">
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/hong-feng-MHA4g-FjqKg-unsplash.jpg" alt="">
+                                    <div class="mask">
+                                        <h1>秋葉原</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/ginza-chuo-dori-s1424623889銀座.webp" alt="">
+                                    <div class="mask">
+                                        <h1>銀座</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/atl_20190415104711_216 東京車站.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>東京車站-丸之內</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/Nihonbashi_12日本橋.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>日本橋</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/14-79541築地.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>築地</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/jimbo_book_1c(1)神田.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>神田 神保町</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/165235392585471_P14774017東京巨蛋.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>東京巨蛋周邊</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/IMG_7795_800x560神樂阪.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>神樂阪</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/IMG_7795_800x560神樂阪.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>赤阪</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/34_0116_5.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>汐留新橋
+                                        </h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/hamast2 松濱町.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>濱松町</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="area-pic">
+                                    <img src="../public/images/youyu/分頁景點-東京都/images晴空塔.jpeg" alt="">
+                                    <div class="mask">
+                                        <h1>晴空塔</h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <!-- <div class="footer">
+            <div class="container">
+                <div class="footer-info">
+                    <ul class="footer-group d-flex">
+                        <li class="logo">
+                            <h1>
+                                <a href="#">LOGO</a>
+                            </h1>
+                        </li>
+                        <li class="info">
+                            <p>SHAWNSTUDIO CO.,LTD.</p>
+                            <p>407 TAICHUNG,</p>
+                            <p>SHAW-SLIN,FULUI-KEN</p>
+                            <p> 04-66661234</p>
+                            <p> TAIWAN</p>
+                            <p>TEL04-1234-5678</p>
+                        </li>
+                        <li class="info">
+                            <p><a href="#">各類資訊</a></p>
+                            <p><a href="#">最新消息</a></p>
+                            <p><a href="#">日本文化</a></p>
+                            <p><a href="#">探索旅程</a></p>
+                            <p><a href="#">旅行計劃</a></p>
+                            <p><a href="#">地圖路線</a></p>
+                        </li>
+                        <li>
+                            <h4>聯絡資訊</h4>
+                            <ul class="contact-info d-flex">
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/facebook.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/email.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/gmail.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/line.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/phone-call.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../public/images/youyu/icon/profile-user.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <%- include('footer.ejs') %>
+
+</body>
+
+</html>

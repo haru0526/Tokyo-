@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="../public/js/EllisJS/_js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="../public/all.css/first/rest.css">
     <link rel="stylesheet" href="../public/all.css/first/style.css">
@@ -15,7 +20,7 @@
 </head>
 
 <body>
-    
+
     <!-- <nav>
         <div class="container flex">
             <div class="logo">
@@ -45,48 +50,75 @@
         </div>
     </nav> -->
     <%- include('navbar.ejs') %>
-    <div class="firstPage-header">
-    </div>
-    
-    <section>
-        <div class="month-bg">
-            <div class="container">
-                <div class="title mt-4 pt-3">
-                    <h2 class="text-white ">東京活動日曆</h2>
-                </div>
+        <div class="firstPage-header position-relative">
+            <div class="black"> 
+            </div>
+            <div class="position-absolute top-50 start-50 animate__animated animate__backInDown animate__delay-1s ">
+                <h1 class="text-white text-center translate-middle mb-2">不知道要去東京市區哪個景點嗎?</h1>
+                <h1 class="text-white text-center translate-middle">我們已經幫您整理好東京必去的最佳景點!</h1>
+            </div>
+        </div>
 
-                
-                <div class="month">
-                    <div id="carouselExampleIndicators" class="carousel slide pt-3 pb-5" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="caption d-flex slider1">
-                                    <!-- js動態產生 -->
+        <section class="animate__animated animate__fadeIn animate__delay-2s">
+
+            <div class="month-bg">
+                <div class="container">
+                    <div class="title mt-4 pt-3">
+                        <h2 class="text-white ">東京活動日曆</h2>
+                    </div>
+
+
+                    <div class="month">
+                        <div id="carouselExampleIndicators" class="carousel slide pt-3 pb-5" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="caption d-flex slider1">
+                                        <!-- js動態產生 -->
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="caption d-flex slider2">
+                                        <!-- js動態產生 -->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="caption d-flex slider2">
-                                    <!-- js動態產生 -->
-                                </div>
-                            </div>
+                            <button style="width: 5%;" class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button style="width: 5%;" class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
+        </section>
+        <section>
+            <div class="area">
+                <div class="container">
+                    <div class="title">
+                        <h1>地區劃分</h1>
+                    </div>
+                    <ul class="list flex">
+                        <!-- js動態產生 -->
+                    </ul>
+                </div>
+            </div>
+            <div class="play">
+                <div class="container">
+                    <div class="title">
+                        <h1>玩樂東京</h1>
+                    </div>
+                    <ul class="play-list list flex">
+                        <!-- js動態產生 -->
+                    </ul>
+                </div>
+            </div>
+                <!-- <div class="container">
             <div class="title">
                 <h2 class="mt-3" style="color:#d86958 ;">東京地區</h2>
             </div>
@@ -95,11 +127,11 @@
                 ">
                 </ul>
             </div>
-        </div>
-    </section>
-    <%- include('footer.ejs') %>
+        </div> -->
+        </section>
+        <%- include('footer.ejs') %>
 
-    <!-- <div class="footer mt-5">
+            <!-- <div class="footer mt-5">
         <div class="container">
             <ul class="d-flex justify-content-center">
                 <li class="nav-item">
@@ -117,11 +149,12 @@
         </div>
         <div class="container-fluid p-3 bg-secondary"></div>
     </div> -->
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
-    <script src="../public/js/first/0701.js"></script>
+            <!-- JavaScript Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+                crossorigin="anonymous"></script>
+            <!-- <script src="../public/js/first/0701.js"></script> -->
+            <script src="../public/js/first/demo.js"></script>
 </body>
 
 </html>
