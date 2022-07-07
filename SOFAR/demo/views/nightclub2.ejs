@@ -72,7 +72,7 @@
                                 </a>
                                 <a class="carousel-control-next" href="#carouselExampleFade" role="button"
                                     data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="carousel-control-next-icon" aria-hidden="none"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
@@ -108,7 +108,7 @@
                         <h4>地圖</h4>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5402457032474!2d139.73180081525828!3d35.663697380198485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b9d2dc1f8a7%3A0x3a5ffd8ab67f6188!2sTantra%20Tokyo!5e0!3m2!1szh-TW!2stw!4v1656165537297!5m2!1szh-TW!2stw"
-                            width="95%" height="250" loading="lazy"></iframe>
+                            width="98%" height="250"></iframe>
                     </div>
 
                     <div class="container mx-auto" id="app">
@@ -125,9 +125,9 @@
 
                     <script type="text/template" id="v-textarea">
                             <div>
-                                <span class="m-3">留言内容：</span>
+                                <h4>留言內容 : </h4>
                                 <textarea :value="value" @input="$emit('input', $event.target.value)" 
-                                placeholder="請輸入留言內容" onkeyup="this.value=this.value.replace(/\s+/g,'')"></textarea>
+                                placeholder="請輸入留言內容" ></textarea>
                             </div>
                         </script>
 
@@ -146,21 +146,6 @@
                             </div>
                         </script>
                     <script>
-                        Vue.component('v-input', {
-                            template: "#v-input",
-                            props: {
-                                value: {
-                                    type: String,
-                                    default: ''
-                                }
-                            },
-                            methods: {
-                                fouceEvent: function () {
-                                    this.$refs['input-ref'].focus();
-                                }
-                            }
-                        });
-
                         Vue.component('v-textarea', {
                             template: '#v-textarea',
                             props: {
@@ -206,7 +191,7 @@
                                 }
                             },
                             methods: {
-                                gettime: () => {
+                                getTime: () => {
                                     var date = new Date()
                                     var year = date.getFullYear()
                                     var month = date.getMonth() + 1
@@ -235,7 +220,7 @@
                                     this.list.push({
                                         name: this.username,
                                         message: this.message,
-                                        timer: this.gettime()
+                                        timer: this.getTime()
 
                                     });
                                     this.message = '';
@@ -358,7 +343,6 @@
                                     }
                                 });
                             }
-
                         });
 
                     </script>
