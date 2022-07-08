@@ -66,53 +66,53 @@ let playdata = [
 ];
 let slider1data = [
     {
-        img: "april_2.jpeg",
+        img: "january_1.jpeg",
         month: "1"
     },
     {
-        img: "august_1.jpeg",
+        img: "feb_1.jpeg",
         month: "2"
     },
     {
-        img: "december_1.jpeg",
+        img: "march_1.jpeg",
         month: "3"
     },
     {
-        img: "feb_1.jpeg",
+        img: "april_2.jpeg",
         month: "4"
     },
     {
-        img: "january_1.jpeg",
+        img: "may_2.jpeg",
         month: "5"
     },
     {
-        img: "july_1.jpeg",
+        img: "june_1.jpeg",
         month: "6"
     }
 ];
 let slider2data = [
     {
-        img: "june_1.jpeg",
+        img: "july_1.jpeg",
         month: "7"
     },
     {
-        img: "march_1.jpeg",
+        img: "august_1.jpeg",
         month: "8"
     },
     {
-        img: "may_2.jpeg",
+        img: "september_1.jpeg",
         month: "9"
     },
     {
-        img: "november_1.jpeg",
+        img: "october_1.jpeg",
         month: "10"
     },
     {
-        img: "october_1.jpeg",
+        img: "november_1.jpeg",
         month: "11"
     },
     {
-        img: "september_1.jpeg",
+        img: "december_1.jpeg",
         month: "12"
     }
 ];
