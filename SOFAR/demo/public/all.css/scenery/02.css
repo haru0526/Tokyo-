@@ -39,7 +39,7 @@
 .content2 {
     width: 800px;
     margin: 20px auto;
-    flex-grow: 1;
+    min-height:250px;
 }
 
 /* 分類 */
