@@ -1,391 +1,314 @@
-`   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>風景巡禮</title>
-    <!-- CSS連結 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="../public/js/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../public/all.css/rest.css">
-    <link rel="stylesheet" href="../public/all.css/style.css">
-    <link rel="stylesheet" href="../public/js/woocommerce-FlexSlider-690832b-20220701T083529Z-001/woocommerce-FlexSlider-690832b/flexslider.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="../public/js/woocommerce-FlexSlider-690832b-20220701T083529Z-001/woocommerce-FlexSlider-690832b/jquery.flexslider.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<style>
     
-*{
-    /* margin: 0 auto; */
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    /* font-size: 20px; */
-    
-    /* background-color: rgb(255, 255, 255); */
-}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-/* 第一區header 拿來放導覽列 */
+    <style>
+        html {
+            height: 100%;
+        }
 
-header{
-    font-size: 20px;
-    position: fixed;
-    top:0; left:0; right:0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: rgb(249, 192, 192);
-    box-shadow: 10px 1rem 1rem rgba(0, 0, 0, 0.1);
-    opacity: 0.9;
-}
-
-header img{
-    width: 50px; height: 40px; padding-bottom: -10px; filter: saturate(8);
-}
-
-/* 導覽列 */
-header .menubar a{
-    font-size: 20px;
-    font-weight: normal;
-    color: black;
-    padding: 10px;
-}
-/* 導覽列特效 */
-header .menubar a:hover{
-    font-size: 28px;
-    font-weight: 100;
-    color: brown;
-    margin-left: 1px;
-    transition: 0.1s;
-    background-color:rgb(255, 229, 229);
-    padding: 2px 1px 2px 2px;
-}
+        /* .TokyoTravelHome {
+            background-image: url('./page01/文化巡禮橫幅.jpg');
+            max-width: 100%;
+            height: 485px;
+            min-width: 50%;
+            min-height: 485px;
 
 
-/* 左上角LOGO字 */
-header .logo {
-    font-size: 22px;
-    font-weight: normal;
-    color: black;
-}
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            border: 1px solid red;
+        } */
 
-#logo1{
-    width: 25%;
-    height: 25%;
-}
+        .TokyoTravelHomeImg {
+            max-width: 100%;
+            max-height: auto;
+            min-width: 50%;
+            min-height: auto;
 
-/* 右上角的漢堡 */
-#menu{
-    font-size: 25px;
-    cursor: pointer;
-    color: black;
-    border: 1px solid rgb(9, 152, 152);
-    padding: 8px;
-    display: none;
-}
+        }
 
-.title{
-    margin: 200px;
-    font-size: 40px;
-    font-size: 48px;
-    color: rgb(9, 152, 152);
-}
 
-.FoodTravel{
-    border: 1px solid red;
-    margin: 0 10%;
-}
 
-.FoodTravel .image{
+        .row .col-md-8 {
+            height: 450px;
+            /* margin: 0 5px; */
+            /* flex: 1 1 30px; */
+            /* margin-top: 60px; */
+            padding: 25px;
+            color: rgb(8, 8, 8);
+            /* background-image: url(./page01/背景花4.jpg); */
 
-width:800px;
-height: 400px;
-/* float: left; */
-overflow:hidden;
-height: 600px;
-}
 
-.actcle h3{
-    font-size: 36px;
-    color: rgb(9, 152, 152);
-}
+            /* background: rgb(249, 192, 192); */
+        }
 
-p{
-    font-size: 20px;
-    color: rgb(9, 152, 152);
-}
 
-#menu123 {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  width: 8em;
-  margin-top: -2.5em;
-}
+        #backgrand2 {
+            background-color: rgb(243, 241, 241);
+            /* background-image: url(./page01/便條紙去背2.png);
+            background-size: cover; */
+        }
 
-/* footer */
-.footer {
-    margin-top: 5%;
-    background-color: #814840;
-}
-.footer-group {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 2%;
-    border-bottom: 2px solid #fff;
-}
-.footer-info {
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-h4 {
-    font-size: 20px;
-    text-align: center;
-    padding: 1em;
-}
-.info p {
-    color: #000;
-    padding-bottom: 1em;
-}
-.info a {
-    text-decoration: none;
-    color: #000;
-}
+        .row .col-md-4 img {
+            width: 100%;
+            height: 400px;
 
-.contact-info img {
-    width: 50px;
-}
+            max-width: 1000px;
+            max-height: 800px;
 
-.contact-info li {
-    padding-right: 3%;
-}
+            min-width: 50%;
+            min-height: 50%;
 
-@media(max-width:768px) {
-    .info p {
-        font-size: 12px;
-    }
+        }
 
-    .contact-info img {
-        width: 30px;
-    }
-}
 
-@media(max-width:568px) {
-    .info {
-        display: none;
-    }
+        .row .col-md-8 h3 {
+            text-align: center;
+            /* font-size: 50px; */
+            /* flex: 1 1 30px; */
+            font-weight: bold;
 
-    .contact-info img {
-        padding-top: 0.5em;
-        width: 30px;
-    }
-    h4{
-        font-size: 14px;
-        padding: 5px;
-    }
 
-    .orange-line {
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
 
-    .footer-group {
-        border-bottom: 1px solid #fff;
-    }
-}
-
-@media(max-width:767px) and(min-width:568px) {
-    .info {
-        display: none;
-    }
-
-}
-
-</style>    
+        }
+        
+        .col-md-9 img{
+            margin: 0 100px 0 100px;
+            width: 80%;
+            height: auto;
+        }
 
 
 
 
 
+
+
+        /* 文章 */
+
+
+        #menu123 a {
+            margin: 50px;
+            color: black;
+        }
+
+        #menu123 a:hover {
+            margin: 50px;
+            color: rgb(161, 56, 56);
+        }
+
+        #act666 {
+            background-color: rgb(239, 239, 239);
+        }
+
+        .row .col-md-6 {
+
+            /* margin: 0 5px; */
+
+            /* margin-top: 60px; */
+            /* padding: 50px; */
+            color: rgb(8, 8, 8);
+            background-image: url(./page01/4.jpg);
+
+
+            /* background: rgb(249, 192, 192); */
+        }
+
+        .row .col-md-6 p {
+            padding: 25px;
+        }
+
+
+
+
+        .row .col-md-6 img {
+            width: 800px;
+            height: 700px;
+
+            max-width: 1000px;
+            max-height: 800px;
+
+            min-width: 50%;
+            min-height: 50%;
+
+        }
+
+        .row .col-md-6 h3 {
+            text-align: center;
+            /* font-size: 50px; */
+
+            font-weight: bold;
+
+        }
+        p{
+            margin: 0 50px 0 50px;
+        }
+
+        #scape_h3 {
+            color: black;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <!-- <header>
-        <a href="" class="logo"><img src="./images/page_01/logo01.png" id="logo1">東京漫遊</a>
-        RWD時候用的按鈕
-        <div id="menu" class="fas fa-bars"></div>           
-            <nav class="menubar">
-                <a href="./firstpage.html">首頁</a>
-                <a href="#">推薦行程</a>
-                <a href="#">分區景點</a>
-                <a href="#">會員專屬</a>
-                <a href="#">我的行程</a>
-                <a href="#"><img src="images/index/user-01.svg" alt=""></a>
-            </nav>
-
-        
-    </header> -->
     <%- include('navbar.ejs') %>
+    <!-- <ul id=menu123>
+        <li><a href="./page_01_food.html">美食巡禮</a>
+        <li><a href="./travel1.html">文化巡禮</a>
+        <li><a href="./travel3.html">風景巡禮</a>
+        <li><a href="./travel2.html">動漫巡禮</a>
+    </ul> -->
+    <div class="TokyoTravelHome">
+        <img src="../public/images/page_01/風景巡禮橫幅.jpg" alt="" class="TokyoTravelHomeImg">
+        <!-- <img src="./page01/project2.jpg" alt="" class="back1" >   -->
+    </div>
+    <hr>
+    <div style="text-align: center;font-size: 30px; background-image: url(./page01/背景花.jpg); " id=menu123>
+        <a href="/allPage/page_01_food">美食巡禮</a>
+        <a href="/allPage/page_01_culture">文化巡禮</a>
+        <a href="/allPage/page_01_scape">風景巡禮</a>
+        <a href="">動漫巡禮</a>
+    </div>
 
-    <ul id=menu123 class="list-unstyled ">
-        <li><a class="text-decoration-none" href="/allPage/page_01_scape">風景巡禮</a>
-            <li><a class="text-decoration-none" href="/allPage/page_01_food">美食巡禮</a>
-            <li><a class="text-decoration-none" href="/allPage/page_01_culture">文化巡禮</a>
-            <li><a class="text-decoration-none" href="/allPage/page_01_anime">動漫巡禮</a>
-            <li><a class="text-decoration-none" href="/">回到首頁</a> 
-    </ul>
-    <section class="FoodTravel"  >
-        <div class="title">風景巡禮
-            <p>東京近郊的旅遊勝地：箱根，離開大城市，沉浸在箱根的溫泉美景與大自然</p>
-        </div>
-        <div class="actcle">
-            <!-- 景點名 -->
-            <h3>東京近郊的旅遊勝地：箱根</h3>
-            <!-- 介紹 -->
-            <p>數百年來，箱根一直是東京與京都之間的休息驛站，讓疲憊的旅人在遠離城市喧囂的自然中，獲得片刻的寧靜以及溫泉的療癒。
-                <br><br>
-                若您想要遠離擁擠街道與高樓大廈，箱根是東京與京都之間絕佳的休息站。天然溫泉在東京十分罕見，不妨在箱根的日式溫泉旅館住個一、兩晚，好好在浴池放鬆，為旅程注入滿滿活力。造訪露天博物館與可愛咖啡廳，或搭觀光火車或空中纜車到山上走走。一邊欣賞富士山景致，一邊沉浸在讓人放鬆的浴池裡，或搭船在水上悠遊巡航。
-                在箱根地區一帶觀光旅遊，可以有許多不同方式。箱根周遊券 能讓您不限次數，搭乘任何由小田急電鐵經營的火車、巴士、纜車或觀光船；目前推出兩天與三天的周遊券，還包括一些當地景點的優惠券。
-                <br><br>
-                若從東京出發，可以預約「浪漫特快」，享受真正獨一無二的鐵道之旅。只要使用箱根周遊券，就能用優惠價格搭乘這個限定升級版的特快列車。
-                箱根登山線是日本景色最優美的鐵道路線之一，將帶您一路沿著陡峭的山坡前進，欣賞各站之間綠意盎然的河谷。箱根登山鐵道旁茂密的森林和崇山峻嶺從列車旁呼嘯而過，蔚為壯觀。從夏季紅色的繡球花，到秋季慢慢轉變成黃色，每個季節都有著不同的美。
-            </p> 
-            <!-- 圖片 -->
-        </div><img src="../public/images/page_01/shangun3.jpg" alt="" class="image"><div>
-            <h3>江之浦測候所</h3>
-            <p>在小田原 的江之浦測候所，將相模灣盡收眼底。由攝影師杉本博司成立的小田原藝術基金會於 2017 年建立了江之浦測候所，打造此建築群的目的是為了向遊客展現日本文化的精髓。此景點非常適合熱愛藝術與建築的遊客造訪。
-                <br><br>
-                江之浦測候所的寬闊建築群中，設有舉辦季節性展覽的藝廊、茶道室、專為破曉時捕捉太陽的 100 公尺藝廊、經修復的室町時代 (1338 – 1573) 明月門，以及一個適合散步的美麗庭園等。在此地，您將能發現從中世紀到當代的多樣化日式建築風格。
-            </p> 
-        </div><img src="../public/images/page_01/shangun4.jpg" alt="" class="image"><div>
-        </div><img src="../public/images/page_01/shangun5.jpg" alt="" class="image"><div>
-            <!-- 景點地址 -->
-            <p>從小田原車站搭乘 JR 東海道本線，到達根府川站（約 7 分鐘）。請在根府川車站搭乘免費接駁巴士，前往江之浦測候所（約 10 分鐘）。
-                </p>
-        </div>
-        
-        
-        
-        <br><br>
+    <hr>
 
+    <div class="row" id="backgrand1">
+        <div class="col-md-8">
+            <h3 class="fs-3"  id="scape_h3">風景旅遊名勝-箱根</h3>
+            <br>
 
-        <div class="actcle">
-            <h3>箱根小湧園溫泉樂園</h3>
-            <p>箱根小湧園溫泉樂園 Yunessun 是位於箱根 中心地帶的一處溫泉休閒設施。作為著名的溫泉主題公園，Yunessun 為您提供多種獨特的浴池，供您與親朋好友共用。Yunessun 設有可穿衣區和裸身區，對於尚未準備好在陌生人面前赤身裸體的人來說，這裡是泡溫泉的理想場所。
+            <p class="fs-5">在早期的日劇或電影中最常出現的旅遊抽獎獎品就是箱根了，箱根作為連接東京與京都的重要位置，相當繁榮。在那個年代就以溫泉街治癒了眾多旅途中疲憊的旅客，包括從各國遠道而來的貴賓與在地居民。
+            </p>
             <br><br>
-            如果您正在尋找更傳統的日本溫泉體驗，不妨考慮前往森之湯地區。這一裸身區擁有箱根著名的高品質溫泉水，可觀賞周圍群山的壯麗景色。在 Yunessun 遊玩了一天后，森之湯地區是放鬆身心的理想場所。想體驗新奇特色的話，Yunessun還加入了您最喜歡的一些飲料和天然泉水，其中一種便是咖啡溫泉。員工每天數次將自製的咖啡倒入該浴池，池內還設有一個小型按摩浴缸，可提供含咖啡因的按摩。
-            </p> 
-        </div>
-        <img src="../public/images/page_01/shangun6.jpg" alt="" class="image">
-        <img src="../public/images/page_01/shangun7.jpg" alt="" class="image">
+            <h3 class="fs-3" id="scape_h3"">交通方式?</h3>
+            <br><br>
+            <p class="fs-5">
+                從新宿到箱根的時候，利用小田急浪漫特快（Romance car）最方便又最快約75分鐘，中途不需轉車，全車對號座位。其他從東京車站，羽田機場，成田機場，橫濱站也都有電車往箱根
+            </p>
 
-        <div>
-            <p>	9:00-18:00（19:00閉館，因季節期間而異），11-次年2月營業至17:00（18:00閉館），森之湯11:00-20:00（21:00閉館）</p>
         </div>
 
-        <br><br>
-       
-        <hr>
-        <p>從箱根湯本站乘坐電車或纜車即可前往大湧谷。
-
-從箱根湯本站乘坐箱根登山鐵道前往強羅站，然後換乘箱根纜車到早雲山站。接著在這裡乘坐箱根空中纜車到大湧谷站（十分鐘）。</p>
-        <hr>
-        <br><br>
-        <div class="actcle">
-            <h3>大湧谷</h3>
-            <p>三千年前，火山爆發形成了大湧谷，並在這個火山谷形成了硫磺噴口和溫泉。火山活動和令人歎為觀止的景色讓這裡成為箱根最美的旅遊景點之一。天氣晴朗時，您還可以在這裡眺望富士山的壯麗風景。由於濃密的火山蒸氣，這裡有時會關閉，所以出遊前請先查看是否對外開放。
-                
-                <br><br>
-                從纜車站走上一小段路就是主要火山區，您可以在這裡看到噴湧的蒸氣和泉水。還可以購買用硫磺泉水煮熟的雞蛋，雞蛋殼因為硫磺而變成黑色，據說吃一顆黑雞蛋可以多活七年。儘管蛋殼是黑色的，但裡面還是正常的熟蛋。
-            </p> 
+        <div class="col-md-4">
+            <div>
+                <img src="../public/images/page_01/箱根1.jpeg" alt="" class="ActImg">
+            </div>
+            <!-- <img class="img-fluid" src="./page01/鳥椿1.jpg" alt="主圖"> -->
         </div>
-        <img src="../public/images/page_01/shangun8.jpg" alt="" class="image">
-        <img src="../public/images/page_01/shangun9.jpg" alt="" class="image">
-        <div>
-            <p>注意事項，
-                由於火山活動會散發有毒氣體，所以這裡經常關閉。建議下列人士不要前往大湧谷：
-                
-                患有哮喘、支氣管炎或心臟病的人、裝有心律調節器的人、孕婦</p>
-        </div>
-    </section>
+    </div>
 
-    <%- include('footer.ejs') %>
-    <!-- <div class="footer">
-        <div class="container">
-            <div class="footer-info">
-                <ul class="footer-group d-flex">
-                    <li class="logo">
-                        <h1>
-                            <a href="#">LOGO</a>
-                        </h1>
-                    </li>
-                    <li class="info">
-                        <p>SHAWNSTUDIO CO.,LTD.</p>
-                        <p>407 TAICHUNG,</p>
-                        <p>SHAW-SLIN,FULUI-KEN</p>
-                        <p> 04-66661234</p>
-                        <p> TAIWAN</p>
-                        <p>TEL04-1234-5678</p>
-                    </li>
-                    <li class="info">
-                        <p><a href="#">各類資訊</a></p>
-                        <p><a href="#">最新消息</a></p>
-                        <p><a href="#">日本文化</a></p>
-                        <p><a href="#">探索旅程</a></p>
-                        <p><a href="#">旅行計劃</a></p>
-                        <p><a href="#">地圖路線</a></p>
-                    </li>
-                    <li>
-                        <h4>聯絡資訊</h4>
-                        <ul class="contact-info d-flex">
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/facebook.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/email.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/gmail.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/line.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/phone-call.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/index/icon/profile-user.png" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+
+    <!--  -->
+
+    <div class="row" id="backgrand2">
+        <div class="col-md-6" ">
+            <h3 class=" fs-3" id="scape_h3">老舖名菓別錯過！湯もち（麻糬）</h3>
+            <br>
+
+            <p class="fs-5">抵達箱根湯本站可先別急著走!這裡可說是箱根旅遊的起點站，伴手禮土產店鱗次櫛，周邊還有40多家溫泉旅館所聚集的溫泉街，非常熱鬧。
+            </p>
+            <br>
+            <p class="fs-5">
+                箱根湯本街上有幢厚重感十足的洋風建物，裡面是60年和菓子名店「ちもと」。這裡最有名的是用竹葉包著，名為「湯もち」（湯麻糬）的點心。與一般包著紅豆的日式麻糬不同，湯もち裡面包的是切成丁的紅豆羊羹，國產糯米製作，柔軟細緻的麻糬則帶有柚子與柑橘的清香。
+            </p>
+
+
+            <p class="fs-5">
+                店家旁設有內用甘味處「茶のちもと」，在這也可以享用到湯麻糬，以及因應季節更換的和菓子、抹茶、與刨冰。
+            </p>
+
+        </div>
+
+        <div class="col-md-6" style="text-align: center;">
+            <img src="../public/images/page_01/箱根店家.jpg" alt="">
+
+
+
+
+        </div>
+    </div>
+    <br>
+
+
+    <!--  -->
+
+
+
+    <div class="row" id="backgrand1">
+        <div class="col-md-8">
+            <h3 class="fs-3" id="scape_h3">享受箱根登山纜車的登山樂趣</h3>
+            <br><br>
+
+            <p class="fs-5">到達箱根湯本站想開始風景之旅的，那就坐箱根登山電車吧。採用了スイッチバック（Z字形行駛道路）的電車，從箱根湯本站到強羅站一路曲曲折折到山上。
+            </p>
+            <!-- <br><br> -->
+            <!-- <div class="fs-3" id="backgrand1">享受箱根登山纜車的登山樂趣</div> -->
+            <br><br>
+            <p class="fs-5">
+                透過車窗，盡情享受箱根四季的風情萬種也是此路線的魅力之一。箱根登山電車是連接了強羅站與早雲山站的電車。在有著200m以上高低差的山道上，不慌不忙，按照自己的節奏慢慢上升。雖然也可以親自徒步爬山，但是想要省力氣的話還是利用它比較好。從強羅站到早雲山站，需要420日圓(9分鐘)。
+            </p>
+
+        </div>
+
+        <div class="col-md-4">
+            <div>
+                <img src="../public/images/page_01/箱根登山.jpg" alt="" class="ActImg">
+            </div>
+            <!-- <img class="img-fluid" src="./page01/鳥椿1.jpg" alt="主圖"> -->
+        </div>
+    </div>
+    
+
+    <div class="row" id="backgrand1">
+        <div class="col-md-9">
+            <h3 class="fs-3" id="scape_h3">令人驚豔的大湧谷景色</h3>
+            <br>
+            <br>
+            <p class="fs-5">，在早雲山站(OH62)下車並換乘箱根空中纜車(右下照片)前往大湧谷(OH63)。隨著海拔升高，氣溫逐漸下降。由於箱根空中纜車的車廂為360度玻璃設計，能夠眺望美景。秋季可以欣賞鮮豔的紅葉，天氣晴朗的日子還能像上面照片中一樣看到富士山。如果想欣賞富士山雄姿的遊客，請記得選擇靠門的座位哦！
+            </p>
+            <br>
+            <img src="../public/images/page_01/大湧谷4.jpeg" alt="">
+            
+            <br><br>
+            <p class="fs-5">
+                大湧谷是約3000年前因火山噴發而形成的景觀，周圍的火山至今仍煙氣騰騰。
+
+晴朗的碧空與黃色的火山濃煙形成鮮明對比，蔚為壯觀。飄散的硫磺氣息，讓你真切感受到火山的活動。既然來到這裡，一定不要錯過名產黑雞蛋！這是利用火山的地熱製作而成的煮雞蛋，看起來黑漆漆的，據說吃1個能延壽7年。
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 400px;">
+                <img src="../public/images/page_01/大湧谷2.jpeg" class="card-img-top" alt="...">
+                <div class="card-body" style="text-align: center;">
+                    <p class="card-text">黑雞蛋可以在立有黑雞蛋雕像的“黑蛋館”購買(5個雞蛋含稅500日圓)。</p>
+                    <a href="https://www.hakonenavi.jp/international/tw/spot/77" >黑蛋館</a>
+                </div>
+            </div>
+            <div class="card" style="width: 400px;">
+                <img src="../public/images/page_01/大湧谷3.jpeg" class="card-img-top" alt="...">
+                <div class="card-body" style="text-align: center;">
+                    <p class="card-text">大涌谷 驛站(禮品店):以黑雞蛋為主題的點心、做成富士山形狀的巧克力等，種類豐富的伴手禮琳琅滿目。</p>
+                    <a href="https://www.hakonenavi.jp/international/tw/spot/387">大涌谷 驛站</a>
+                </div>
             </div>
         </div>
-    </div> -->
-</div>
-    
+    </div>
+
+    <%- include('footer.ejs') %>
 </body>
 
-<script>
-
-    $("a[href='#top']").click(function() {
-       $("html, body").animate({ scrollTop: 0 }, "slow");
-       return false;
-    });
-</script>
 </html>
