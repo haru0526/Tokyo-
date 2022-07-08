@@ -383,6 +383,10 @@
                 position: 'bottomleft'
             }).addTo(map);
 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
             for (let index = 0; index < resultarray.length; index++) {
                 const element = resultarray[index];
                 console.log(element);
