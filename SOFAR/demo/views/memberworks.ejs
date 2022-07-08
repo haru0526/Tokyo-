@@ -64,6 +64,13 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin="">
     </script>
+    
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <!-- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script> -->
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="../public/js/config.js"></script>
+    <script src="../public/js/Control.Geocoder.js"></script>
 
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -348,7 +355,7 @@
                 viewLatLng = document.querySelector('#travelSelect' + index + ' div:nth-child(5) select');
                 restTime = document.querySelector('#travelSelect' + index + ' div:nth-child(3) #restTime');
                 arriveTime = document.querySelector('#travelSelect' + index + ' #arriveTime');
-                result = viewLatLng.value + "," + (restTime.value * 60);
+                result = arriveTime.value + "," + viewLatLng.value + "," + (restTime.value * 60);
                 result = result.split(",");
                 resultarray.push(result);
             })
@@ -358,12 +365,33 @@
         // Map
         var map = L.map(
             'map', {
-            center: [23.773, 120.959],
+            center: [35.655673, 139.6976067],
             zoom: 8,
         });
         L.control.scale({
             position: 'bottomleft'
         }).addTo(map);
+
+        var control = L.Routing.control(L.extend(window.lrmConfig, {
+            waypoints: [
+                L.latLng(35.7926759, 139.7899791),
+                L.latLng(35.655673, 139.6976067),
+                L.latLng(35.6184708, 139.7354776)
+            ],
+            geocoder: L.Control.Geocoder.nominatim(),
+            routeWhileDragging: true,
+            reverseWaypoints: true,
+            showAlternatives: true,
+            altLineOptions: {
+                styles: [
+                    {color: 'black', opacity: 0.15, weight: 9},
+                    {color: 'white', opacity: 0.8, weight: 6},
+                    {color: 'blue', opacity: 0.5, weight: 2}
+                ]
+            }
+        })).addTo(map);
+
+        L.Routing.errorControl(control).addTo(map);
 
         var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
         var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +

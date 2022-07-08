@@ -4,8 +4,8 @@ const express = require("express");
 const router = require("express").Router();
 
 // 允許跨域使用本服務
-// var cors = require("cors");
-// router.use(cors());
+var cors = require("cors");
+router.use(cors());
 
 // router.listen(3001);
 
@@ -28,7 +28,6 @@ router.get('/getViewData', function (req, res) {
         "select * from viewdata",
         [],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
             res.send(JSON.stringify(data));
         }
     )
@@ -40,7 +39,6 @@ router.get('/getMonthData/:month', function (req, res) {
         "select * from monthdata where month = ?",
         [req.params.month],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
             res.send(JSON.stringify(data));
         }
     )
@@ -213,12 +211,37 @@ router.post('/deletememberviewdata/:UserID/:ViewdataID', function (req, res) {
 ///刪除會員收藏的特別景點(賽馬場夜店)
 // 需要傳入UserID跟ViewID
 router.post('/deletespmemberviewdata/:UserID/:ViewdataID', function (req, res) {
-    res.set('Access-Control-Allow-Origin', '*');
     conn.query(
         "DELETE FROM spmemberview_details WHERE UserID = ? and ViewDataID = ?",
         [req.params.UserID,req.params.ViewdataID],
         function (err, data) {
             res.send('Delete OK');
+        }
+    )
+})
+
+
+// 取得留言板資料
+///全部資料
+router.get('/getMessage', function (req, res) {
+    conn.query(
+        "select * from message",
+        [],
+        function (err, data) {
+            res.send(JSON.stringify(data));
+        }
+    )
+})
+
+
+// 取得留言板資料
+///依照名稱
+router.get('/getMessage/:UserName', function (req, res) {
+    conn.query(
+        "select * from message where UserName = ?",
+        [req.params.UserName],
+        function (err, data) {
+            res.send(JSON.stringify(data));
         }
     )
 })
