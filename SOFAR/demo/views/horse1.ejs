@@ -133,7 +133,7 @@
 
                     <script type="text/template" id="v-list">
                             <div>
-                                <div class="list-item" v-for="(item, index) in itemlist">
+                                <div class="list-item" v-for="(item, index) in list">
                                     <span>{{ item.name }}</span>
                                     <div class="list-msg">
                                         <p>{{ item.message }}</p>
@@ -146,8 +146,6 @@
                             </div>
                         </script>
                     <script>
-                        var list = [];
-
                         Vue.component('v-textarea', {
                             template: '#v-textarea',
                             props: {
@@ -188,11 +186,7 @@
                                     message: "",
                                     ctime: new Date(),
                                     list: [
-
-                                        // { No: 1, name: 'ellis', message: '還不錯(燦笑\r\n', timer: '2022-05-20-13:31:20\r\n' }
-
-                                        //放在這裡
-                                        // { name: "偶爾翹班的巡察長兩津", message: "好耶 今天大原所長不在", timer: "2020-09-18-13:31:05" },
+                                    // {No: 1, name: 'ellis', message: '還不錯(燦笑\r\n', timer: '2022-05-20-13:31:20\r\n'}
                                     ],
                                 }
                             },
@@ -221,6 +215,7 @@
                                     return totime;
                                 },
                                 handleSend: function () {
+                                    
                                     onkeyup = "value=value.replace(/\s+/g,'')"
                                     if (this.message === '') {
                                         alert("請先輸入留言內容");
@@ -243,32 +238,21 @@
                                 },
                                 handleDelete: function (index) {
                                     this.list.splice(index, 1);
-                                }
-                            },
-                            mounted: () => {
+                                },
+                            getInfo(){
                                 axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
                                     .then((response) => {
-                                        // console.log(response.data); //response.data有我要的資料 該如何印出來
-                                        console.log('8888888');
-                                        listDemo = response.data
-                                        console.log(listDemo)
-                                        var array = listDemo
-                                        for (i = 0; i < array.length; i++) {
-                                            list = array[i];
-                                            console.log(i, list);
-                                        }
-                                        // this.list.push({
-                                        //     name: this.username,
-                                        //     message: this.message,
-                                        //     timer: this.getTime()
-
-                                        // });
-
-                                        console.log("yusu")
+                                        this.list=response.data
+                                        console.log(this.list, 'list')                         
+                                        console.log("拿到資料庫資料")
                                     })
                                     .catch((error) => {
-                                        console.log("chiayu")
+                                        console.log("沒拿到資料")
                                     })
+                            }
+                            },
+                            created () {
+                                this.getInfo ()
                             }
                         })
 
