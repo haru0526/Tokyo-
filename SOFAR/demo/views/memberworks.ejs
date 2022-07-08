@@ -48,11 +48,19 @@
 
         #map {
             margin-top: 30px;
-            height: 1000px;
+            /* height: 1000px; */
         }
 
         .fa-solid{
             color: rgb(255, 0, 0);
+        }
+
+        .leaflet-routing-alt  h3 {
+            color:  red;
+        }
+
+        body {
+            background-image: url("../public/images/kent/pic/backgroundimage.jpg");
         }
     </style>
     <!-- 地圖CDN -->
@@ -147,7 +155,7 @@
             <button id="addmap" type="button" class="btn btn-success">加入到地圖顯示</button>
         </div>
 
-        <div id="map"></div>
+        <div id="mapdiv"></div>
     </div>
 
     <!-- <footer class="mt-5">
@@ -349,7 +357,10 @@
         var viewLatLng = ""; //景點經緯度
         var restTime = "";   //休息時間
         var arriveTime = ""; //到達時間
+        
         addmap.onclick = function () {
+            var point = [];
+            document.getElementById("mapdiv").innerHTML = "<div id='map' style='width: 100%; height: 800px;'></div>";
             var resultarray = [];
             travelSelectarray.forEach(index =>{
                 viewLatLng = document.querySelector('#travelSelect' + index + ' div:nth-child(5) select');
@@ -360,46 +371,51 @@
                 resultarray.push(result);
             })
             console.log(resultarray);
-        }
+            
+            // Map
+            var map = L.map(
+                'map', {
+                center: [resultarray[0][2], resultarray[0][3]],
+                zoom: 8,
+            });
 
-        // Map
-        var map = L.map(
-            'map', {
-            center: [35.655673, 139.6976067],
-            zoom: 8,
-        });
-        L.control.scale({
-            position: 'bottomleft'
-        }).addTo(map);
+            L.control.scale({
+                position: 'bottomleft'
+            }).addTo(map);
 
-        var control = L.Routing.control(L.extend(window.lrmConfig, {
-            waypoints: [
-                L.latLng(35.7926759, 139.7899791),
-                L.latLng(35.655673, 139.6976067),
-                L.latLng(35.6184708, 139.7354776)
-            ],
-            geocoder: L.Control.Geocoder.nominatim(),
-            routeWhileDragging: true,
-            reverseWaypoints: true,
-            showAlternatives: true,
-            altLineOptions: {
-                styles: [
-                    {color: 'black', opacity: 0.15, weight: 9},
-                    {color: 'white', opacity: 0.8, weight: 6},
-                    {color: 'blue', opacity: 0.5, weight: 2}
-                ]
+            for (let index = 0; index < resultarray.length; index++) {
+                const element = resultarray[index];
+                console.log(element);
+                point.push(L.latLng(element[2],element[3]));
+                console.log(point.toString());
+                L.marker([element[2],element[3]]).addTo(map).bindPopup(element[1] + "<br>到達時間" + element[0] + "<br>休息時間" + element[4]/60 + "分鐘");
             }
-        })).addTo(map);
 
-        L.Routing.errorControl(control).addTo(map);
+            var control = L.Routing.control(L.extend(window.lrmConfig, {
+                waypoints: point,
+                geocoder: L.Control.Geocoder.nominatim(),
+                routeWhileDragging: true,
+                reverseWaypoints: true,
+                showAlternatives: true,
+                createMarker: function() { return null; },
+                altLineOptions: {
+                    styles: [
+                        {color: 'black', opacity: 0.15, weight: 9},
+                        {color: 'white', opacity: 0.8, weight: 6},
+                        {color: 'blue', opacity: 0.5, weight: 2}
+                    ]
+                }
+            })).addTo(map);
 
-        var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
-        var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
-            hereApiKey, {
-            attribution: '© 2020 HERE',
-            subdomains: [1, 2, 3, 4]
-        }).addTo(map); // Leaflet JS 預設使用 256px 大小的圖磚
+            L.Routing.errorControl(control).addTo(map);
 
+            var hereApiKey = 'AOn4FYUI0VW6Cy6Ndc9eKijoa-0C982Sr-Fcx1InXKk';
+            // var hereNormal = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=cht&ppi=72&pois&apiKey=' +
+            //     hereApiKey, {
+            //     attribution: '© 2020 HERE',
+            //     subdomains: [1, 2, 3, 4]
+            // }).addTo(map);
+        }
 
     </script>
     <%- include('footer.ejs') %>
