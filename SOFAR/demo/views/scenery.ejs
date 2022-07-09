@@ -21,7 +21,7 @@
 
 <body>
     <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
-    <img src="../public/images/scenery/pic/55555.jpg" alt="" width="100%" height="200px">
+    <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px">
 
     <div id="username" style="display:none">
         <%= userSeeeionName%>
@@ -212,7 +212,7 @@
             var num = Math.ceil(travel.length / 3);
             if (num > 4) { num = 4 };
             // console.log(num);
-            $('.content2').css('min-height', `${num * 250}px`);
+            $('.content2').css('min-height', `${num * 280}px`);
         };
 
 
@@ -231,7 +231,7 @@
                 member_favorite.forEach(function (scenery1) {
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:250px; height:130px">' +
                             ' <div class="card-body">' +
                             ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button>' +
@@ -242,7 +242,7 @@
                 })
                 if (count == 0) {
                     obj.innerHTML += '<div class="card">' +
-                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:250px; height:130px">' +
                         ' <div class="card-body">' +
                         ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                         ' <button onclick="doit(this)" value="' + i + '">查看更多</button>' +
@@ -281,25 +281,27 @@
                 var num = Math.ceil(output.length / 3);
                 if (num > 4) { num = 4 };
                 // console.log(num);
-                $('.content2').css('min-height', `${num * 250}px`);
-            } //取消勾選分類
+                $('.content2').css('min-height', `${num * 280}px`);
+            }
+            //取消勾選分類
             else if (sort0.checked == false) {
                 output = output.filter((item) => item.ViewTag != sort0.value);
                 all(output);
                 var num = Math.ceil(output.length / 3);
                 if (num > 4) { num = 4 };
                 // console.log(num);
-                $('.content2').css('min-height', `${num * 250}px`);
+                $('.content2').css('min-height', `${num * 280}px`);
             }
             //沒勾
             if (output.length == 0) {
                 all(travel);
                 $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
-            }
-            var num = Math.ceil(output.length / 3);
+                var num = Math.ceil(travel.length / 3);
                 if (num > 4) { num = 4 };
                 // console.log(num);
-                $('.content2').css('min-height', `${num * 250}px`);
+                $('.content2').css('min-height', `${num * 280}px`);
+            }
+
         }
 
         //彈出式視窗
@@ -377,7 +379,7 @@
                 let t = travel.length - sss * 3 + 3;
                 for (as = 0; as < t; as++) {
                     obj.innerHTML += '<div class="card">' +
-                        '<img src = "../public/images/scenery/' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+                        '<img src = "../public/images/scenery/' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:250px; height:130px">' +
                         ' <div class="card-body">' +
                         ' <div class="card-text"><p>' + travel[sss * 3 - 3 + as].ViewName + '</p></div>' +
                         ' <button onclick="doit(this)" id="" value="' + (sss * 3 - 3 + as) +
@@ -397,7 +399,7 @@
             // for (as = 0; as < t; as++) {
             //     var obj = document.getElementById(`index_right${sss}`);
             //     obj.innerHTML += '<div class="card">' +
-            //         '<img src = "../public/images/scenery/' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:150px; height:100px">' +
+            //         '<img src = "../public/images/scenery/' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:250px; height:130px">' +
             //         ' <div class="card-body">' +
             //         ' <div class="card-text"><p>' + travel[sss * 3 - 3 + as].ViewName + '</p></div>' +
             //         ' <button onclick="doit(this)" id="" value="' + (sss * 3 - 3 + as) +
