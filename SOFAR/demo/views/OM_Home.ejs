@@ -23,6 +23,14 @@
 <body style="background-image: url(../public/images/EllisImages/page03/背景花4.jpeg);">
     
     <%- include('navbar.ejs') %>
+  
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="../public/images/EllisImages/page03/721855.jpeg" class="d-block w-100 img-fluid backdrop-invert " id="shibusky"alt="...">
+          </div>
+        </div>
+      </div>
 
     <div class="continer">
         <nav class="nav nav-pills flex-column flex-md-row justify-content-center">
@@ -45,7 +53,7 @@
                             </ol>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleFade1" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleFade1" role="button" data-slide="next">
@@ -55,7 +63,7 @@
                     </div>
                     <div class="container">
                         <div id="cardclub"
-                            class="card col-10 col-md-12 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3">
+                            class="card col-10 col-md-10 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3">
                             <!-- 挖掉寫卡片 -->
                         </div>
                     </div>
@@ -80,7 +88,7 @@
                         </ol>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleFade1" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                         <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleFade1" role="button" data-slide="next">
@@ -90,7 +98,7 @@
                 </div>
                 <div class="container">
                     <div id="cardhorse"
-                        class="card col-10 col-md-12 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3 ">
+                        class="card col-10 col-md-10 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3 ">
                         <!-- 挖掉寫卡片 -->
                     </div>
                 </div>
@@ -122,13 +130,13 @@
         // 因為第一個輪播圖片的class要加上active才會動  bootstrap 規定 
         $("#nightClub > div:nth-child(1)").addClass("active");
 
-        // 柏青哥輪播照片的資料   
+        // 賽馬輪播照片的資料   
         var ballBroImg = [
             ["賽馬導覽3.jpg"],
             ["賽馬導覽1.jpeg"],
             ["賽馬導覽2.jpg"],
         ]
-        // 柏青哥輪播照片 每次都放入資料到 src="../public/images/EllisImages/page03/${img}" 裡面 
+        // 賽馬輪播照片 每次都放入資料到 src="../public/images/EllisImages/page03/${img}" 裡面 
         ballBroImg.forEach((img, index) => {
             $("#horseRace").prepend(
                 `
@@ -166,7 +174,7 @@
         //賽馬場卡片
         var homeCard2 = [
             ["大井.png", "東京都市賽馬場", "東京23區內唯一賽馬場", "horse1", "4"],
-            ["東京競馬場.png", "東京競馬場", "東京23區內唯一賽馬場", "horse2", "5"],
+            ["東京競馬場.png", "東京競馬場", "東京唯一國際級賽馬場", "horse2", "5"],
 
         ]
         homeCard2.forEach((card, index) => {
