@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     <title>東京都市賽馬場</title>
 
 
@@ -29,10 +29,10 @@
     <%- include('navbar.ejs') %>
 
 
-        <div id="username" style="display:none">
+        <div id="username" style="display: none">
             <%= userSeeeionName%>
         </div>
-        <div id="userid" style="display:none">
+        <div id="userid" style="display: none">
             <%= userId%>
         </div>
 
@@ -181,6 +181,7 @@
                                 }
                             }
                         });
+
                         var app = new Vue({
                             el: "#app",
                             data: function () {
@@ -189,7 +190,7 @@
                                     message: "",
                                     ctime: new Date(),
                                     list: [
-                                    // {No: 1, name: 'ellis', message: '還不錯(燦笑\r\n', timer: '2022-05-20-13:31:20\r\n'}
+                                        // {No: 1, name: 'ellis', message: '還不錯(燦笑\r\n', timer: '2022-05-20-13:31:20\r\n'}
                                     ],
                                 }
                             },
@@ -218,21 +219,36 @@
                                     return totime;
                                 },
                                 handleSend: function () {
-                                    
+
                                     onkeyup = "value=value.replace(/\s+/g,'')"
                                     if (this.message === '') {
                                         alert("請先輸入留言內容");
                                         return;
                                     }
+
                                     this.list.push({
+
                                         name: this.username,
                                         message: this.message,
                                         timer: this.getTime()
 
                                     });
-                                    this.message = '';
-                                    this.username = $("#username").text();
-                                    this.timer = '';
+                                    // this.message = '';
+                                    // this.username = $("#username").text();
+                                    // this.timer = '';
+
+                                    var adname = this.username;
+                                    var admessage = this.message;
+                                    var adtimer = this.getTime();
+
+                                    axios.post("http://localhost:3000/onlyMember/AddMessage" + "/" + adname + "/" + admessage + "/" + adtimer,
+                                        {
+                                            name: this.username,
+                                            message: this.message,
+                                            timer: this.getTime()
+                                        }
+                                    )
+                                      window.location.reload();
                                 },
                                 handleReply: function (index) {
                                     var name = this.list[index].name;
@@ -240,22 +256,30 @@
                                     this.$refs['input-com'].fouceEvent();
                                 },
                                 handleDelete: function (index) {
-                                    this.list.splice(index, 1);
+                                    this.list.splice(index, 1); //畫面上的
+
+                                    var adno = this.list[index].No
+                                    axios.post("http://localhost:3000/onlyMember/DeleteMessage" + "/" + adno,
+                                        {
+                                            no: this.list[index].No
+                                        }
+                                    )
                                 },
-                            getInfo(){
-                                axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
-                                    .then((response) => {
-                                        this.list=response.data
-                                        console.log(this.list, 'list')                         
-                                        console.log("拿到資料庫資料")
-                                    })
-                                    .catch((error) => {
-                                        console.log("沒拿到資料")
-                                    })
-                            }
+                                getInfo() {
+                                    axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
+                                        .then((response) => {
+                                            this.list = response.data
+                                            console.log(this.list, 'list')
+                                            console.log("拿到資料庫資料")
+                                            console.log(this.list[0].No + "666")
+                                        })
+                                        .catch((error) => {
+                                            console.log("沒拿到資料")
+                                        })
+                                }
                             },
-                            created () {
-                                this.getInfo ()
+                            created() {
+                                this.getInfo()
                             }
                         })
 

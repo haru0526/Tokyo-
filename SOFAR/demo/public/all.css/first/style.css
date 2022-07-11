@@ -21,25 +21,27 @@ img {
     width: 100%;
     height: 100%;
 }
+
 .flex {
     display: flex;
     justify-content: space-between;
 }
 
 /* nav選單 */
-nav .container flex{
+nav .container flex {
     height: 61px;
     background-color: #fff;
     border-bottom: 1px solid #000;
 
 }
-.menu a:hover{
+
+.menu a:hover {
     font-size: 24px;
     font-weight: 100;
     color: rgb(130, 109, 223);
     margin-left: 1px;
     transition: 0.1s;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     padding: 1px 0px 0px 0px;
 }
 
@@ -63,11 +65,12 @@ nav .container flex{
     color: red;
 }
 
-.logo h1 img{
-    width: 50px; 
+.logo h1 img {
+    width: 50px;
     height: 44px;
 }
-.shawn-logo{
+
+.shawn-logo {
     display: flex;
     align-items: center;
 }
@@ -142,7 +145,7 @@ nav .container flex{
         background-color: #d86958;
         color: #000;
     }
-    
+
 
     .showmenu {
         background-image: url(../images/index/menu-01.svg);
@@ -248,156 +251,198 @@ input[type=search] {
     background-image: url(../images/index/calender.bg.png);
     height: 500px;
 }
+<<<<<<< HEAD
 /* h3 {
+=======
+
+h3 {
+>>>>>>> a37c2ebb0b049d8625381a51827e5220612f1a19
     font-size: 2em;
     color: #fff;
     border-bottom: 3px solid #fff;
     display: inline-block;
+<<<<<<< HEAD
 } */
+=======
+}
+
+>>>>>>> a37c2ebb0b049d8625381a51827e5220612f1a19
 .calendar span {
     font-size: 26px;
     color: #fff;
 }
+
 .title {
     padding-top: 30px;
 }
+
 .month {
     padding-top: 30px;
     display: flex;
     overflow: hidden;
 }
+
 .month img {
     width: 202px;
 }
+
 .calendar_left {
     position: absolute;
     top: 45%;
     width: 40px;
     left: 15px;
 }
+
 .calendar_right {
     position: absolute;
     top: 45%;
     width: 40px;
     right: 15px;
 }
-.images{
+
+.images {
     position: relative;
     margin-right: 10px;
 }
-.images a:hover .mask{
+
+.images a:hover .mask {
     opacity: 1;
 }
-@media(max-width:569px){
-    h3{
+
+@media(max-width:569px) {
+    h3 {
         font-size: 18px;
     }
-    .title span{
+
+    .title span {
         font-size: 12px;
     }
 }
-.title h1{
+
+.title h1 {
     font-size: 26px;
     color: #d86958;
 }
-.list{
+
+.list {
     margin-top: 2%;
     margin-top: 2%;
     flex-wrap: wrap;
 }
-.list li{
+
+.list li {
     max-width: 31%;
     margin-bottom: 2%;
     position: relative;
 }
-.area-pic{
+
+.area-pic {
     height: 100%;
 }
-.mask{
+
+.mask {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    text-align:center;
+    text-align: center;
     width: 100%;
-    background-color: rgb(0,0,0,0.4);
+    background-color: rgb(0, 0, 0, 0.4);
     opacity: 0;
 }
-.list li a:hover .mask{
+
+.list li a:hover .mask {
     opacity: 1;
 }
-.mask h1{
+
+.mask h1 {
     font-weight: bold;
     font-size: 24px;
     text-align: center;
     color: #fff;
     margin-top: 35%;
 }
-.play-list li{
+
+.play-list li {
     max-width: 23%;
 }
-.list-title{
+
+.list-title {
     position: absolute;
     top: 50%;
     right: 0;
     left: 0;
     text-align: center;
 }
-.list-title h1{
+
+.list-title h1 {
     font-size: 24px;
 }
-.play-list li a:hover .list-title h1{
+
+.play-list li a:hover .list-title h1 {
     color: red;
 }
-@media(max-width:960px){
-    .mask{
-        background-color: rgb(0,0,0,0);
+
+@media(max-width:960px) {
+    .mask {
+        background-color: rgb(0, 0, 0, 0);
         opacity: 1;
     }
-    .mask h1{
+
+    .mask h1 {
         font-size: 18px;
-        background-color:rgb(0,0,0,0.5) ;
+        background-color: rgb(0, 0, 0, 0.5);
         padding: 1em;
         margin-top: 25%;
-        
+
     }
-    .list-title h1{
+
+    .list-title h1 {
         font-size: 18px;
     }
 }
-@media(max-width:569px){
-    .mask h1{
+
+@media(max-width:569px) {
+    .mask h1 {
         font-size: 12px;
     }
-    .list-title h1{
+
+    .list-title h1 {
         font-size: 12px;
     }
-    .title h1{
+
+    .title h1 {
         font-size: 18px;
     }
 }
+
 /* footer */
 .footer {
     margin-top: 5%;
     background-color: #814840;
 }
+
 .footer-group {
     display: flex;
     justify-content: space-around;
     padding-bottom: 2%;
     border-bottom: 2px solid #fff;
 }
+
 .footer-info {
     padding-top: 5%;
     padding-bottom: 5%;
 }
-.footer-logo{
+
+.footer-logo {
     width: 20%;
 }
-.contact{
+
+.contact {
     color: #fff;
 }
-.contact img{
+
+.contact img {
     color: #fff;
     border-left-color: #fff;
     transform: scale(50px);
@@ -408,10 +453,12 @@ h4 {
     text-align: center;
     padding: 1em;
 }
+
 .info p {
     color: rgb(255, 255, 255);
     padding-bottom: 1em;
 }
+
 .info a {
     text-decoration: none;
     color: #fff;
@@ -444,7 +491,8 @@ h4 {
         padding-top: 0.5em;
         width: 30px;
     }
-    h4{
+
+    h4 {
         font-size: 14px;
         padding: 5px;
     }
@@ -472,10 +520,12 @@ h4 {
 
 /* 第一區header 拿來放導覽列 */
 
-header{
+header {
     font-size: 20px;
     position: fixed;
-    top:0; left:0; right:0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -486,26 +536,30 @@ header{
     opacity: 0.9;
 }
 
-header img{
-    width: 50px; height: 40px; padding-bottom: -10px; filter: saturate(8);
+header img {
+    width: 50px;
+    height: 40px;
+    padding-bottom: -10px;
+    filter: saturate(8);
 }
 
 /* 導覽列 */
-header .menubar a{
+header .menubar a {
     /* font-size: 20px; */
     font-weight: normal;
     color: black;
     padding: 10px;
-    
+
 }
+
 /* 導覽列特效 */
-header .menubar a:hover{
+header .menubar a:hover {
     font-size: 28px;
     font-weight: 100;
     color: brown;
     margin-left: 1px;
     transition: 0.1s;
-    background-color:rgb(255, 229, 229);
+    background-color: rgb(255, 229, 229);
     padding: 2px 1px 2px 2px;
 }
 
@@ -517,13 +571,13 @@ header .logo {
     color: black;
 }
 
-#logo1{
+#logo1 {
     width: 25%;
     height: 25%;
 }
 
 /* 右上角的漢堡 */
-#menu{
+#menu {
     font-size: 25px;
     cursor: pointer;
     color: black;
@@ -538,16 +592,16 @@ header .logo {
 /* TokyoTravelHome */
 /* content_01 */
 
-section{
+section {
     padding: 10px;
-    
+
 }
 
 /* 整體 */
-.TokyoTravelHome{
+.TokyoTravelHome {
     display: flex;
-    
-   
+
+
     /* gap: 10px; */
     /* min-height: 500px; */
     align-items: center;
@@ -559,41 +613,41 @@ section{
 }
 
 /* 圖片 */
-.TokyoTravelHome .image{
+.TokyoTravelHome .image {
     /* flex:1 1 30px; */
     margin: 0 10%;
-    max-width:600px;
+    max-width: 600px;
     /* height:inherit; */
-    
-    overflow:hidden;
+
+    overflow: hidden;
     height: 600px;
 }
 
 /* 文字內容 */
-.TokyoTravelHome .content_01{
+.TokyoTravelHome .content_01 {
     margin: 0 10%;
     flex: 1 1 30px;
     margin-top: 60px;
     padding: 100px;
-    color:white;
+    color: white;
     /* background-color: blue; */
 
     /* background: rgb(249, 192, 192); */
 }
 
 
-.TokyoTravelHome .content_01 h3{
+.TokyoTravelHome .content_01 h3 {
     font-size: 30px;
 }
 
-.TokyoTravelHome .content_01 p{
+.TokyoTravelHome .content_01 p {
     font-size: 20px;
     padding: 10px;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-.btn{
+.btn {
     /* background-color: #e09797; */
     /* background-color: #F9C0C0; */
     background-color: #e09797;
@@ -605,7 +659,7 @@ section{
     z-index: 0;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #F9C0C0;
 
 
@@ -618,88 +672,93 @@ section{
 /* 第三區 4個推薦行程內容 */
 
 /* 推薦行程總體 */
-.Category{
+.Category {
     display: flex;
     flex-wrap: wrap;
     row-gap: 100px;
     /* justify-content: center;  */
     /* align-items: center;  */
     align-items: center;
-    
+
     border: 1px solid red;
     margin: 0 10%;
     background-color: white;
-    
+
 }
 
 /* 推薦行程圖片 */
-.Category .image{
+.Category .image {
 
-width:800px;
-height: 600px;
-float: left;
-overflow:hidden;
-height: 600px;
+    width: 800px;
+    height: 600px;
+    float: left;
+    overflow: hidden;
+    height: 600px;
 }
 
 /* 文章的CSS */
-.Category .act{
+.Category .act {
 
-/* margin: 0 5px; */
-flex: 1 1 30px;
-margin-top: 60px;
-padding: 70px;
-color:rgb(141, 90, 109);
-background-color: rgb(249, 192, 192);;
+    /* margin: 0 5px; */
+    flex: 1 1 30px;
+    margin-top: 60px;
+    padding: 70px;
+    color: rgb(141, 90, 109);
+    background-color: rgb(249, 192, 192);
+    ;
 
-/* background: rgb(249, 192, 192); */
+    /* background: rgb(249, 192, 192); */
 }
 
 
-.Category .act h3{
-font-size: 30px;
+.Category .act h3 {
+    font-size: 30px;
 }
 
-.Category .act p{
-font-size: 20px;
-padding: 10px;
-margin-bottom: 20px;
-font-weight: bold;
+.Category .act p {
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 
 /* 第四區 footer */
 
 /* RWD手機版 */
-@media(max-width:600px){
-    #menu{
+@media(max-width:600px) {
+    #menu {
         display: initial;
         position: absolute;
         right: 10px;
         top: 20px;
     }
-    header .menubar{
+
+    header .menubar {
         position: absolute;
-        top: 80px; left: 0; right: 0;
+        top: 80px;
+        left: 0;
+        right: 0;
         background-color: rgb(255, 229, 229);
         border-top: 3px solid gray;
         /* 隱藏下拉是選單 */
-        clip-path: polygon(0 0,100% 0,100% 0,0 0);
-     }
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
 
-    header .menubar a{
+    header .menubar a {
         display: block;
         font-size: 22px;
         font-weight: normal;
         color: black;
-        margin: 10px;padding: 6px;
+        margin: 10px;
+        padding: 6px;
         border-left: 3px solid gray;
         background-color: rgb(255, 229, 229);
 
     }
 
-    header .menubar.active{
-        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    header .menubar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         padding: 10px;
     }
 }

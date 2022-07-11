@@ -146,13 +146,15 @@
 
         var ww = $('#username').text();
         var www = $('#userid').text();
-        console.log(www);
-        //username=ww;
+
+
         //分辨有無登入，沒有就不佳最愛
 
 
         var area = '足立區', travel = [], member_favorite = [], sss = 4;
-        var UserID = www, username = ww;
+        var UserID = www.trim(), username = ww.trim();
+        console.log(UserID);
+
         //取得一般景點資料
         function start() {
             $.ajax({
@@ -182,14 +184,31 @@
                 async: false,
                 success: function (data) {
                     member_favorite = JSON.parse(data);
+                    console.log('ok');
+                },
+                error: function (data) {
+                    console.log('error');
                 }
             })
+            for (i = member_favorite.length - 1; i >= 0; i--) {
+                if (member_favorite[i].id != UserID) {
+                    member_favorite.splice(i, 1);
+                }
+            }
+        }
+
+        function high(changi) {
+            var num = Math.ceil(changi / 3);
+            if (num > 4) { num = 4 };
+            // console.log(num);
+            $('.content2').css('min-height', `${num * 280}px`);
         }
         //執行
         start();
         favorite();
+        // console.log(member_favorite);
 
-        console.log(member_favorite);
+        // console.log(member_favorite);
         //選擇地區
         function choose_area(a) {
             travel = [];
@@ -210,10 +229,7 @@
             $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
             start();
             //調整葉寬
-            var num = Math.ceil(travel.length / 3);
-            if (num > 4) { num = 4 };
-            // console.log(num);
-            $('.content2').css('min-height', `${num * 280}px`);
+            high(travel.length);
         };
 
 
@@ -229,6 +245,7 @@
                 }
                 var obj = document.getElementById(`index_right${q}`);
                 favorite();
+
                 member_favorite.forEach(function (scenery1) {
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
@@ -279,28 +296,20 @@
                 all(output);
                 $(".more").remove();
                 // console.log(output);
-                var num = Math.ceil(output.length / 3);
-                if (num > 4) { num = 4 };
-                // console.log(num);
-                $('.content2').css('min-height', `${num * 280}px`);
+                high(output.length);
+
             }
             //取消勾選分類
             else if (sort0.checked == false) {
                 output = output.filter((item) => item.ViewTag != sort0.value);
                 all(output);
-                var num = Math.ceil(output.length / 3);
-                if (num > 4) { num = 4 };
-                // console.log(num);
-                $('.content2').css('min-height', `${num * 280}px`);
+                high(output.length);
             }
             //沒勾
             if (output.length == 0) {
                 all(travel);
                 $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
-                var num = Math.ceil(travel.length / 3);
-                if (num > 4) { num = 4 };
-                // console.log(num);
-                $('.content2').css('min-height', `${num * 280}px`);
+                high(travel.length);
             }
 
         }
@@ -469,7 +478,9 @@
                     }
                 })
             }
+            // console.log(travel);
 
+            // console.log(member_favorite);
         }
     </script>
     <%- include('footer.ejs') %>
