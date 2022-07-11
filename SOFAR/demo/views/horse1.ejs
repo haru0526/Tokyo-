@@ -29,12 +29,8 @@
     <%- include('navbar.ejs') %>
 
 
-        <div id="username" style="display: none">
-            <%= userSeeeionName%>
-        </div>
-        <div id="userid" style="display: none">
-            <%= userId%>
-        </div>
+        <div id="username" style="display: none"><%= userSeeeionName%></div>
+        <div id="userid" style="display: none"><%= userId%></div>
 
         <div class="container">
             <div class="row d-flex">
@@ -256,25 +252,28 @@
                                     this.$refs['input-com'].fouceEvent();
                                 },
                                 handleDelete: function (index) {
-                                    this.list.splice(index, 1); //畫面上的
+                                    
+                                    console.log("this.list[index].No-------" + this.list[index].No)
 
                                     var adno = this.list[index].No
+                                    console.log("adno-------" + adno)
                                     axios.post("http://localhost:3000/onlyMember/DeleteMessage" + "/" + adno,
                                         {
                                             no: this.list[index].No
                                         }
                                     )
+                                    this.list.splice(index, 1); //畫面上的
+                                    window.location.reload();
                                 },
                                 getInfo() {
                                     axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
                                         .then((response) => {
                                             this.list = response.data
-                                            console.log(this.list, 'list')
-                                            console.log("拿到資料庫資料")
-                                            console.log(this.list[0].No + "666")
+                                            // console.log(this.list, 'list')
+                                            // console.log("拿到資料庫資料")
                                         })
                                         .catch((error) => {
-                                            console.log("沒拿到資料")
+                                            // console.log("沒拿到資料")
                                         })
                                 }
                             },
@@ -289,6 +288,7 @@
                         var memLove = [];
                         var userId = $("#userid").text();
                         var userName = $("#username").text();
+                        console.log(userName+"666")
 
                         $.ajax({
                             type: "GET",
