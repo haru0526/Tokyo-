@@ -28,6 +28,7 @@ router.get('/getViewData', function (req, res) {
         "select * from viewdata",
         [],
         function (err, data) {
+            console.log(err);
             res.send(JSON.stringify(data));
         }
     )
@@ -39,6 +40,7 @@ router.get('/getMonthData/:month', function (req, res) {
         "select * from monthdata where month = ?",
         [req.params.month],
         function (err, data) {
+            console.log(err);
             res.send(JSON.stringify(data));
         }
     )
@@ -175,7 +177,7 @@ router.post('/addmemberviewdata/:UserID/:ViewdataID', function (req, res) {
         "INSERT INTO memberview_details VALUES (?,?)",
         [req.params.UserID,req.params.ViewdataID],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
+            console.log(err);
             res.send('Insert OK');
         }
     )
@@ -189,7 +191,7 @@ router.post('/addspmemberviewdata/:UserID/:ViewdataID', function (req, res) {
         "INSERT INTO spmemberview_details VALUES (?,?)",
         [req.params.UserID,req.params.ViewdataID],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
+            console.log(err);
             res.send('Insert OK');
         }
     )
@@ -202,7 +204,7 @@ router.post('/deletememberviewdata/:UserID/:ViewdataID', function (req, res) {
         "DELETE FROM memberview_details WHERE UserID = ? and ViewDataID = ?",
         [req.params.UserID,req.params.ViewdataID],
         function (err, data) {
-            res.set('Access-Control-Allow-Origin', '*');
+            console.log(err);
             res.send('Delete OK');
         }
     )
@@ -215,6 +217,7 @@ router.post('/deletespmemberviewdata/:UserID/:ViewdataID', function (req, res) {
         "DELETE FROM spmemberview_details WHERE UserID = ? and ViewDataID = ?",
         [req.params.UserID,req.params.ViewdataID],
         function (err, data) {
+            console.log(err);
             res.send('Delete OK');
         }
     )
@@ -228,6 +231,7 @@ router.get('/getMessage', function (req, res) {
         "select * from message",
         [],
         function (err, data) {
+            console.log(err);
             res.send(JSON.stringify(data));
         }
     )
@@ -236,12 +240,37 @@ router.get('/getMessage', function (req, res) {
 
 // 取得留言板資料
 ///依照名稱
-router.get('/getMessage/:UserName', function (req, res) {
+router.get('/getMessage/:Name', function (req, res) {
     conn.query(
-        "select * from message where UserName = ?",
-        [req.params.UserName],
+        "select * from message where name = ?",
+        [req.params.Name],
         function (err, data) {
+            console.log(err);
             res.send(JSON.stringify(data));
+        }
+    )
+})
+
+// 新增留言板資料
+router.post('/AddMessage/:Name/:Message/:Date', function (req, res) {
+    conn.query(
+        "INSERT INTO message(name,message,timer) VALUES (?,?,?)",
+        [req.params.Name,req.params.Message,req.params.Date],
+        function (err, data) {
+            console.log(err);
+            res.send("Insert OK");
+        }
+    )
+})
+
+// 刪除留言板資料
+router.post('/DeleteMessage/:No', function (req, res) {
+    conn.query(
+        "Delete from message where No = ?",
+        [req.params.No],
+        function (err, data) {
+            console.log(err);
+            res.send("Delete OK");
         }
     )
 })
