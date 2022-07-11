@@ -248,12 +248,12 @@ input[type=search] {
     background-image: url(../images/index/calender.bg.png);
     height: 500px;
 }
-h3 {
+/* h3 {
     font-size: 2em;
     color: #fff;
     border-bottom: 3px solid #fff;
     display: inline-block;
-}
+} */
 .calendar span {
     font-size: 26px;
     color: #fff;
