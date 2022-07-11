@@ -20,8 +20,9 @@
 </head>
 
 <body>
-    <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
-    <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px">
+    <!-- <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
+    <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px"> -->
+
 
     <div id="username" style="display:none">
         <%= userSeeeionName%>
@@ -336,7 +337,7 @@
                     ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + travel[e.value].ViewID + '" >點擊加入最愛</button>' +
                     ' <img src="../public/images/scenery/' + travel[e.value].ViewImage + '" style="width:60%">' +
                     '<p>' + travel[e.value].ViewText + '</p>' +
-                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    // ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
                     '</div>';
 
             }
@@ -348,7 +349,7 @@
                     ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + output[e.value].ViewID + '" >點擊加入最愛</button>' +
                     ' <img src="../public/images/scenery/' + output[e.value].ViewImage + '" style="width:60%">' +
                     '<p>' + output[e.value].ViewText + '</p>' +
-                    ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + output[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    // ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + output[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
                     '</div>';
             }
 
@@ -473,5 +474,7 @@
     </script>
     <%- include('footer.ejs') %>
 </body>
+
+
 
 </html>

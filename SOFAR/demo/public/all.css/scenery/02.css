@@ -1,3 +1,9 @@
+body {
+    background-image: url("../../images/scenery/pic/12345.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* 卡片樣式 */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -39,7 +45,7 @@
 .content2 {
     width: 1000px;
     margin: 20px auto;
-    min-height:280px;
+    min-height: 280px;
 }
 
 /* 分類 */
@@ -58,7 +64,7 @@
     width: 800px;
     float: right;
     border: 5px solid purple;
-
+    background-color: white;
 }
 
 
@@ -83,7 +89,7 @@
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
-    
+
 }
 
 /* Modal Content/Box */
@@ -130,13 +136,25 @@
 
 /* load more按鈕 */
 .more {
-    width: 630px;
+    width: 790px;
     margin: 10px auto;
     clear: both;
     position: relative;
 
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media only screen and (max-width: 2182px) {
+    .footer {
+        bottom:auto;
+        
+    }
+}
 
 /* rwd */
 @media only screen and (max-width: 425px) {
@@ -192,5 +210,9 @@
 
     .modal-content p {
         font-size: medium;
+    }
+
+    .footer {
+        display: none;
     }
 }
