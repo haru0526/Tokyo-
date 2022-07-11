@@ -251,22 +251,7 @@ input[type=search] {
     background-image: url(../images/index/calender.bg.png);
     height: 500px;
 }
-<<<<<<< HEAD
-/* h3 {
-=======
 
-h3 {
->>>>>>> a37c2ebb0b049d8625381a51827e5220612f1a19
-    font-size: 2em;
-    color: #fff;
-    border-bottom: 3px solid #fff;
-    display: inline-block;
-<<<<<<< HEAD
-} */
-=======
-}
-
->>>>>>> a37c2ebb0b049d8625381a51827e5220612f1a19
 .calendar span {
     font-size: 26px;
     color: #fff;
