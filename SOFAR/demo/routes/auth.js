@@ -483,8 +483,8 @@ router.get("/scenery", (req, res) => {
 
 
 router.get("/memberworks",isLoggedIn, (req, res) => {
-  const userSeeeionName = req.session.user || req.user.displayName;
-  const userEmail = req.session.email || req.user.emails[0].value;
+  const userSeeeionName = req.session.user || req.user.name;
+  const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
   return res.render('memberworks.ejs', { userSeeeionName, userEmail, userId})
 })
