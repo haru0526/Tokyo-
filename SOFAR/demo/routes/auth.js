@@ -490,6 +490,12 @@ router.get("/memberworks",isLoggedIn, (req, res) => {
   const userId = req.session.userId || req.user.id;
   return res.render('memberworks.ejs', { userSeeeionName, userEmail, userId})
 })
+// router.get("/navbar", (req, res) => {
+//   const userSeeeionName = req.session.user || req.user.name;
+//   const userEmail = req.session.email || req.user.email;
+//   const userId = req.session.userId || req.user.id;
+//   return res.render('navbar.ejs', { userSeeeionName, userEmail, userId})
+// })
 
 
 
