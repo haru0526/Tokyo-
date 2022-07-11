@@ -29,8 +29,12 @@
     <%- include('navbar.ejs') %>
 
 
-        <div id="username" style="display: none"><%= userSeeeionName%></div>
-        <div id="userid" style="display: none"><%= userId%></div>
+        <div id="username" style="display: none">
+            <%= userSeeeionName%>
+        </div>
+        <div id="userid" style="display: none">
+            <%= userId%>
+        </div>
 
         <div class="container">
             <div class="row d-flex">
@@ -109,8 +113,6 @@
 
                     <div class="container mx-auto" id="app">
                         <div class="message">
-                            <!--<v-input v-model="username"></v-input>-->
-                            <!-- <v-input v-model="username" ref="input-com"></v-input> -->
                             <v-textarea v-model="message"></v-textarea>
                             <button @click="handleSend">送出</button>
                         </div>
@@ -185,9 +187,7 @@
                                     username: $("#username").text(),
                                     message: "",
                                     ctime: new Date(),
-                                    list: [
-                                        // {No: 1, name: 'ellis', message: '還不錯(燦笑\r\n', timer: '2022-05-20-13:31:20\r\n'}
-                                    ],
+                                    list: [],
                                 }
                             },
 
@@ -195,8 +195,8 @@
                                 getTime: () => {
                                     var date = new Date();
                                     var year = date.getFullYear();
-                                    var month = date.getMonth() + 1;
 
+                                    var month = date.getMonth() + 1;
                                     month = month < 10 ? '0' + month : month;
 
                                     var day = date.getDate()
@@ -210,8 +210,8 @@
 
                                     var s = date.getSeconds()
                                     s = s < 10 ? '0' + s : s;
-                                    let totime = year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + s;
 
+                                    let totime = year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + s;
                                     return totime;
                                 },
                                 handleSend: function () {
@@ -223,11 +223,9 @@
                                     }
 
                                     this.list.push({
-
                                         name: this.username,
                                         message: this.message,
                                         timer: this.getTime()
-
                                     });
                                     // this.message = '';
                                     // this.username = $("#username").text();
@@ -244,16 +242,14 @@
                                             timer: this.getTime()
                                         }
                                     )
-                                      window.location.reload();
+                                    window.location.reload();
                                 },
                                 handleReply: function (index) {
                                     var name = this.list[index].name;
                                     this.message = "回覆@" + name + ": ";
-                                    this.$refs['input-com'].fouceEvent();
+                                    // this.$refs['input-com'].fouceEvent();
                                 },
                                 handleDelete: function (index) {
-                                    
-                                    console.log("this.list[index].No-------" + this.list[index].No)
 
                                     var adno = this.list[index].No
                                     console.log("adno-------" + adno)
@@ -269,11 +265,9 @@
                                     axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
                                         .then((response) => {
                                             this.list = response.data
-                                            // console.log(this.list, 'list')
-                                            // console.log("拿到資料庫資料")
                                         })
                                         .catch((error) => {
-                                            // console.log("沒拿到資料")
+                                            alert("出錯了")
                                         })
                                 }
                             },
@@ -288,7 +282,6 @@
                         var memLove = [];
                         var userId = $("#userid").text();
                         var userName = $("#username").text();
-                        console.log(userName+"666")
 
                         $.ajax({
                             type: "GET",
@@ -317,7 +310,6 @@
                                 name: item[0].ViewName,
                             }
                         });
-
                         $.ajax({
                             //已蒐藏的情況下，點亮我的最愛
                             type: "GET",
@@ -327,14 +319,12 @@
                                 spItem = JSON.parse(data);
                             }
                         });
-
                         spItem.forEach(p => {
                             if (item[0].ViewName == p.ViewName) {
                                 $('i').removeClass("fa-regular fa-heart");
                                 $('i').addClass("fa-solid fa-heart");
                             }
                         })
-
                         $.ajax({
                             //取得所有會員限定景點資料
                             type: "GET",
@@ -344,7 +334,6 @@
                                 memLove = JSON.parse(data);
                             }
                         });
-
                         $("i").on("click", function () {
                             if (this.className === 'fa-regular fa-heart') {
                                 $(this).removeClass('fa-regular fa-heart');
@@ -360,7 +349,6 @@
                                         alert("加入失敗");
                                     }
                                 });
-
                             } else if (this.className === 'fa-solid fa-heart') {
                                 $(this).removeClass('fa-solid fa-heart');
                                 $(this).addClass('fa-regular fa-heart');
@@ -377,7 +365,6 @@
                                 });
                             }
                         });
-
                     </script>
                 </div>
             </div>
