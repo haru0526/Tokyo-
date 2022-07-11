@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/all.css/scenery/_css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="../public/all.css/scenery/_css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="../public/all.css/scenery/02.css">
     <script src="../public/js/scenery/_js/jquery.min.js"></script>
     <script src="../public/js/scenery/_js/popper.min.js"></script>
@@ -15,21 +17,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/js/scenery/_js/leaflet.css" />
     <script src="../public/js/scenery/_js/leaflet.js"></script>
+<<<<<<< HEAD
     <%- include('navbar.ejs') %>
+=======
+>>>>>>> 06a2f8d2bc3446f0bfe3589c1fff8f9a430f1e24
 
 </head>
 
 <body>
+    <%- include('navbar.ejs') %>
     <!-- <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
     <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px"> -->
 
 
-    <div id="username" style="display:none">
-        <%= userSeeeionName%>
-    </div>
-    <div id="userid" style="display:none">
-        <%= userId%>
-    </div>
+
+    <div id="username" style="display: none"><%= userSeeeionName%></div>
+    <div id="userid" style="display: none"><%= userId%></div>
     <!-- 東京23區 -->
     <div class="content1">
         <div class="area">
@@ -405,6 +408,7 @@
                 $(viewID).removeClass('fa fa-heart-o');
                 $(viewID).addClass('fa fa-heart');
                 $(viewID).css('color', 'red');
+                
                 // console.log(viewID.value);
                 $.ajax({
                     type: "post",
