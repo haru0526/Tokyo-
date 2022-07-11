@@ -10,7 +10,7 @@
 }
 
 /* 主題選單 */
-.nav {
+#navEllis_ {
     background-color: #F9C0C0;
     display: flex;
     justify-content: center;

@@ -189,40 +189,47 @@ function(request, accessToken, refreshToken, profile, done) {
       db.exec('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [profile.provider,profile.id],
        function(results, fields) {
         if (!results.length) {
-          console.log("11111111111111111111111111111111111111111111111111111111");
+          // console.log("11111111111111111111111111111111111111111111111111111111");
        
           // The Google account has not logged in to this app before.  Create a
           // new user record and link it to the Google account.
           db.exec(`INSERT INTO users SET ?`,{name: profile.displayName, email: profile.email, googleID: profile.id}, 
           function(results, fields) {
-            console.log("2222222222222222222222222222222222222222222222222222222222222");
-
-            // var id = this.id;
-            // console.log("id = " + id);
+            
+            // var user = {
+            //   id: results[0].id,
+            //   name: results[0].name,
+            //   email: results[0].email,
+            // };
             db.exec(`INSERT INTO federated_credentials SET?`,{provider: profile.provider, subject: profile.id, user_id: profile.id} ,
              function(results, fields) {
-              console.log("33333333333333333333333333333333333333333333333333333333333333333333");
-              console.log("fields = " + fields);
-              console.log("results = " + results);
-              // var user = {
-              //   id: id,
-              //   name: profile.displayName
-              // };
-              return done(null, profile);
+              // console.log("33333333333333333333333333333333333333333333333333333333333333333333");
+              // console.log("fields = " + fields);
+              // console.log("results = " + results);
+
+              db.exec(`SELECT * FROM users WHERE googleID = ?`, [ profile.id ], function(results, fields) {
+                var user = {
+                  id: results[0].id,
+                  name: results[0].name,
+                  email: results[0].email,
+                };
+                return done(null, user);
+              });
+              
             });
           });
 
 
         } else {
-          console.log("4444444444444444444444444444444444444444444444444444444444444444");
+          // console.log("4444444444444444444444444444444444444444444444444444444444444444");
 
           // The Google account has previously logged in to the app.  Get the
           // user record linked to the Google account and log the user in.
           db.exec(`SELECT * FROM users WHERE googleID = ?`, [ profile.id ], function(results, fields) {
-            console.log("555555555555555555555555555555555555555555555555555555");
+            // console.log("555555555555555555555555555555555555555555555555555555");
 
             if (!results.length) {
-              console.log("6666666666666666666666666666666666");
+              // console.log("6666666666666666666666666666666666");
               return done(null, false); 
             }
             console.log(results);

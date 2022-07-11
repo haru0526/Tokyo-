@@ -475,9 +475,11 @@ router.get("/nightclub3",isLoggedIn, (req, res) => {
   const userId = req.session.userId || req.user.id;
   return res.render('nightclub3.ejs', { userSeeeionName, userEmail, userId})
 })
-router.get("/scenery", (req, res) => {
-  
-  return res.render('scenery.ejs',)
+router.get("/scenery",isLoggedIn, (req, res) => {
+  const userSeeeionName = req.session.user || req.user.name;
+  const userEmail = req.session.email || req.user.email;
+  const userId = req.session.userId || req.user.id;
+  return res.render('scenery.ejs',{ userSeeeionName, userEmail, userId})
 })
 
 
