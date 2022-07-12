@@ -10,17 +10,14 @@
     <script src="../public/js/scenery/_js/jquery.min.js"></script>
     <script src="../public/js/scenery/_js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
     <%- include('navbar.ejs') %>
-
 </head>
 
 <body>
     <!-- <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
     <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px"> -->
 
-
-
+    <!-- 取得使用者的資料 -->
     <div id="username" style="display: none">
         <%= userSeeeionName%>
     </div>
@@ -73,11 +70,9 @@
         <div class="index_right" id="index_right">
             <div class="a" id="index_right1"> </div>
             <div class="a" id="index_right2"> </div>
-            <div class="a" id="index_right3"> </div>
-            <div class="a" id="index_right4"> </div>
+
             <div>
                 <button class="more" onclick="more(travel)">load more</button>
-
             </div>
         </div>
     </div>
@@ -86,15 +81,15 @@
     <div class="modal" id="myModal"> </div>
 
     <script>/////////////////////////////////////////////////////
-        var ww = $('#username').text();
-        var www = $('#userid').text();
-
-
-        var area = '足立區', travel = [], member_favorite = [], sss = 4;
-        var UserID = www.trim(), username = ww.trim();
+        //設定參數
+        var username = $('#username').text().trim();
+        var UserID = $('#userid').text().trim();
+        var area = '足立區', travel = [], member_favorite = [], sss = 2;
         // console.log(UserID);
 
+        //取得一般景點資料
         function all_scenery() {
+            //清空
             for (w = 1; w <= sss; w++) {
                 var ect = document.getElementById(`index_right${w}`);
                 ect.innerHTML = '';
@@ -110,16 +105,15 @@
                     console.log('noooo');
                 }
             })
-            console.log(travel);
+            // console.log(travel);
             all(travel);
             high(12);
             $(".more").remove();
-            $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
+            $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
         }
 
-        //取得一般景點資料
+        //取得地區景點資料
         function start() {
-
             $.ajax({
                 type: "GET",
                 url: "http://localhost:3000/onlyMember/getViewData/" + area, ///////////onlyMember  要想
@@ -133,6 +127,7 @@
             })
             all(travel);
         }
+
         //取得會員收藏的一般景點資料
         function favorite() {
             $.ajax({
@@ -153,17 +148,17 @@
             }
         }
 
+        //主頁面高度
         function high(changi) {
-            var num = Math.ceil(changi / 3) + 1;
+            var num = Math.ceil(changi / 6) + 1;
             // if (num > 4) { num = 4 };
-            $('.content2').css('min-height', `${num * 315}px`);
+            $('.content2').css('min-height', `${num * 620 + 300}px`);
         }
 
         //執行
         favorite();
         all_scenery();
 
-        // console.log(member_favorite);
         //選擇地區
         function choose_area(a) {
             travel = [];
@@ -182,9 +177,8 @@
                 $(`#checkbox${a}`).prop("checked", false);
             }
             $(".more").remove();
-            $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
+            $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
             start();
-            //調整葉寬
             high(travel.length);
         };
 
@@ -193,15 +187,15 @@
         function all(select_put) {
             var q = 0, i = 0, count = 0;
             select_put.forEach(function (item) {
-                if (i % 3 == 0) {
+                if (i % 6 == 0) {
                     q++;
                 }
-                if (q >= 5) {
+                if (q >= 3) {
                     return;
                 }
                 var obj = document.getElementById(`index_right${q}`);
                 favorite();
-
+                //區分有無最愛
                 member_favorite.forEach(function (scenery1) {
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
@@ -225,7 +219,6 @@
                 }
                 i++;
                 count = 0;
-
             })
         }
 
@@ -245,23 +238,21 @@
                         output.push(ttt);
                     }
                 })
-
+                //無此分類
                 if (output.length == old) {
                     sort0.checked = false;
                     alert('搜尋無果');
                 }
                 all(output);
                 $(".more").remove();
-                $("#index_right4").after('<div><button class="more" onclick="more(output)">load more</button></div>');
-
-                console.log(output.length);
+                $("#index_right2").after('<div><button class="more" onclick="more(output)">load more</button></div>');
+                // console.log(output.length);
                 if (output.length > 12) {
                     high(12);
                 } else {
                     high(output.length);
                 }
-
-                sss = 4;
+                sss = 2;
             }
             //取消勾選分類
             else if (sort0.checked == false) {
@@ -277,14 +268,13 @@
             if (output.length == 0) {
                 all(travel);
                 $(".more").remove();
-                $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
+                $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
                 if (travel.length > 12) {
                     high(12);
                 } else {
                     high(travel.length);
                 }
             }
-
         }
 
         //彈出式視窗
@@ -306,7 +296,6 @@
                     textcolor = 'style="color:red"'
                 }
             })
-
 
             // Get the modal
             var modal = document.getElementById("myModal");
@@ -352,42 +341,42 @@
 
         //load more按鈕 顯示更多
         function more(motto) {
-            if (motto.length > sss * 3) {
+            if (motto.length > sss * 6) {
                 $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`);
                 var obj = document.getElementById(`index_right${sss + 1}`);
-                let t = motto.length - sss * 3 + 3;
-                for (var ddd = 0; ddd < 3; ddd++) {
-                    if (motto[sss * 3 + ddd] === undefined) {
+                for (var ddd = 0; ddd < 6; ddd++) {
+                    //東西不夠，回傳
+                    if (motto[sss * 6 + ddd] === undefined) {
                         $(".more").remove();
                         sss++;
                         return;
                     }
                     var count = 0;
                     member_favorite.forEach(function (scenery1) {
-                        if (motto[sss * 3 + ddd].ViewName == scenery1.ViewName) {
+                        if (motto[sss * 6 + ddd].ViewName == scenery1.ViewName) {
                             obj.innerHTML += '<div class="card">' +
-                                '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                                '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                                 ' <div class="card-body">' +
-                                ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
-                                ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
-                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 3 + ddd].ViewID + '" >點擊加入最愛</button>'
+                                ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
+                                ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
+                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button>'
                             '</div>';
                             count = 1;
                         }
                     })
                     if (count == 0) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                            '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                             ' <div class="card-body">' +
-                            ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
-                            ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 3 + ddd].ViewID + '" >點擊加入最愛</button>'
+                            ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
+                            ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
+                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button>'
                         '</div>';
                     }
                     count = 0;
-                    high(sss * 3);
+                    high(sss * 6);
                 }
-            } else if (motto.length <= sss * 3) {
+            } else if (motto.length <= sss * 6) {
                 //沒有資料||不夠
                 $(".more").remove();
                 sss--;
@@ -401,7 +390,7 @@
         function love(viewID) {
             // console.log(viewID);
             favorite();
-
+            //重新取得最愛
             member_favorite.forEach(function (scenery1) {
                 if (viewID.value == scenery1.ViewID) {
                     $.ajax({
@@ -416,7 +405,6 @@
                 $(viewID).removeClass('fa fa-heart-o');
                 $(viewID).addClass('fa fa-heart');
                 $(viewID).css('color', 'red');
-
                 // console.log(viewID.value);
                 $.ajax({
                     type: "post",
@@ -446,12 +434,8 @@
                     }
                 })
             }
-            // console.log(travel);
-
-            // console.log(member_favorite);
         }
     </script>
-
     <%- include('footer.ejs') %>
 </body>
 
