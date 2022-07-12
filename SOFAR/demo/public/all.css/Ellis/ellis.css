@@ -10,7 +10,7 @@
 }
 
 /* 主題選單 */
-#navEllis_ {
+#ellisnav {
     background-color: #F9C0C0;
     display: flex;
     justify-content: center;
@@ -21,11 +21,7 @@
 #shibusky{
     display: block;
     width: 100%;
-<<<<<<< HEAD
     height: 920px;
-=======
-    height: 900px;
->>>>>>> c9514eeba3fe7688794dfd55f70d76f83fe6a3f3
     object-fit: cover;
     object-position:center;
     overflow: hidden;
