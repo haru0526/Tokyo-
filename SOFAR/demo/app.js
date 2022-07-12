@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const cookie =require("cookie-parser");
 const session = require('express-session');
+const flash = require("connect-flash");
 const authRouter = require("./routes").auth;
 const pageRoute = require("./routes").pageRoute;
 const onlyMemberRoute = require("./routes").onlyMemberRoute;
@@ -21,13 +22,15 @@ app.use(bp.urlencoded({extended: true}));
 app.use(cors());
 app.use(session({ secret: 'cats',name: 'user', resave: true, saveUninitialized: false }));
 
+app.use(flash());
 app.use((req, res, next ) => {
   res.locals = {
     isLogin: req.session.isLogin,
     userName: req.session.user,
-    userId: req.session.userId,
+    userId: req.session.userId, 
   };
-
+  
+  
   // res.locals.isLogin = req.session.isLogin;
   // res.locals.userName = req.session.user;
   // res.locals.userName = "shawn";

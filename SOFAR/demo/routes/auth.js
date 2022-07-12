@@ -79,21 +79,30 @@ router.use(passport.session());
 
 //----------- register ----------
 router.get("/register", (req, res) => {
-  res.render("register.ejs", {res});
+  var err_msg = req.flash("err_msg");
+  res.render("register.ejs", {res, err_msg});
 })
 
 router.post("/register", (req, res) => {
   const {name, email, password, confirmPassword} = req.body;
   //check enter email or password or not
-  if(!email || !password) return res.json({ status: "error", error: "Please enter your email and password"});
+  if(!email || !password){
+    return res.json({ status: "error", error: "Please enter your email and password"});
+  } 
+
   db.exec(`SELECT email FROM users WHERE email = ?`, [email], (result, fields) => {
 
     
     if(result[0]){
-      return res.json({status: "error", error: "Email has already been registered"})
+      // return res.json({status: "error", error:"Email has already been registered"});
+      // return res.render('register', { err_msg: "Email has already been registered" } );
+      req.flash("err_msg", "信箱已註冊");
+      return res.redirect("/member/register");
 
     } else if(password !== confirmPassword) {
-      return res.json({status: "error", error: "THe password do not match"})
+      req.flash("err_msg", "密碼不一致");
+      return res.redirect("/member/register");
+      // return res.json({status: "error", error: "THe password do not match"})
       
     }else{
       //hash password
@@ -103,6 +112,7 @@ router.post("/register", (req, res) => {
       db.exec(`INSERT INTO users SET ?`,{name: name, email: email, password: hashedPassword}, (results, fields) =>{
         
         if(results) {
+          
           console.log("REGISTER SUCCESSS");
           return  res.redirect("/");
         }
@@ -119,7 +129,8 @@ router.post("/register", (req, res) => {
 
 //----------- login ----------
 router.get("/login", (req, res) => {
-  res.render("login.ejs", {res});
+  var err_msg = req.flash("err_msg");
+  res.render("login.ejs", {res, err_msg});
 })
 
 router.post("/login",  function(req, res) {
@@ -134,7 +145,9 @@ router.post("/login",  function(req, res) {
     
       // 將使用者輸入的密碼和存在資料庫的密碼進行比較
       if( !results[0] || !(await bcrypt.compare(password, results[0].password))){
-        return res.json({status: "error", error: "Incorrect email or password"});
+        req.flash("err_msg", "密碼錯誤");
+        return res.redirect("/member/login");
+        // return res.json({status: "error", error: "Incorrect email or password"});
 
       } else{
         // const payload = {
