@@ -1,8 +1,8 @@
 body {
-    background-image: url("../../images/scenery/pic/try.png");
+    background-image: url("../../images/EllisImages/page03/背景花4.jpeg");
     background-repeat: repeat;
     background-size: contain;
-    width: 100%;
+    
 
 }
 
@@ -152,7 +152,7 @@ body {
 
 }
 
-@media only screen and (max-width: 3000px) {
+@media only screen and (max-width: 4000px) {
     .footer {
         bottom: auto;
     }

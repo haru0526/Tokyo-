@@ -6,33 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="../public/all.css/scenery/_css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="../public/all.css/scenery/02.css">
     <script src="../public/js/scenery/_js/jquery.min.js"></script>
     <script src="../public/js/scenery/_js/popper.min.js"></script>
     <script src="../public/js/scenery/_js/bootstrap.min.js"></script>
     <script src="../public/js/scenery/_js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/js/scenery/_js/leaflet.css" />
-    <script src="../public/js/scenery/_js/leaflet.js"></script>
-<<<<<<< HEAD
+
     <%- include('navbar.ejs') %>
-=======
->>>>>>> 06a2f8d2bc3446f0bfe3589c1fff8f9a430f1e24
 
 </head>
 
 <body>
-    <%- include('navbar.ejs') %>
     <!-- <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
     <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px"> -->
 
 
 
-    <div id="username" style="display: none"><%= userSeeeionName%></div>
-    <div id="userid" style="display: none"><%= userId%></div>
+    <div id="username" style="display: none">
+        <%= userSeeeionName%>
+    </div>
+    <div id="userid" style="display: none">
+        <%= userId%>
+    </div>
     <!-- 東京23區 -->
     <div class="content1">
         <div class="area">
@@ -81,7 +77,8 @@
             <div class="a" id="index_right3"> </div>
             <div class="a" id="index_right4"> </div>
             <div>
-                <button class="more" onclick="more()">load more</button>
+                <button class="more" onclick="more(travel)">load more</button>
+               
             </div>
         </div>
     </div>
@@ -90,12 +87,8 @@
     <div class="modal" id="myModal"> </div>
 
     <script>
-
         var ww = $('#username').text();
         var www = $('#userid').text();
-
-
-        //分辨有無登入，沒有就不佳最愛
 
 
         var area = '足立區', travel = [], member_favorite = [], sss = 4;
@@ -156,11 +149,11 @@
         }
 
         function high(changi) {
-            var num = Math.ceil(changi / 3)+1;
+            var num = Math.ceil(changi / 3) + 1;
             // if (num > 4) { num = 4 };
             $('.content2').css('min-height', `${num * 315}px`);
         }
-        
+
         //執行
         favorite();
         all_scenery();
@@ -171,8 +164,7 @@
             travel = [];
             for (w = 1; w <= sss; w++) {
                 var ect = document.getElementById(`index_right${w}`);
-                 console.log(ect);
-                 console.log(sss);
+                console.log(ect);
                 ect.innerHTML = '';
             }
             area = a.innerHTML;
@@ -185,7 +177,7 @@
                 $(`#checkbox${a}`).prop("checked", false);
             }
             $(".more").remove();
-            $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
+            $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
             start();
             //調整葉寬
             high(travel.length);
@@ -248,26 +240,44 @@
                         output.push(ttt);
                     }
                 })
+
                 if (output.length == old) {
                     sort0.checked = false;
                     alert('搜尋無果');
                 }
                 all(output);
                 $(".more").remove();
-                // console.log(output);
-                high(output.length);
+                $("#index_right4").after('<div><button class="more" onclick="more(output)">load more</button></div>');
+
+                console.log(output.length);
+                if (output.length > 12) {
+                    high(12);
+                } else {
+                    high(output.length);
+                }
+
+                sss = 4;
             }
             //取消勾選分類
             else if (sort0.checked == false) {
                 output = output.filter((item) => item.ViewTag != sort0.value);
                 all(output);
-                high(output.length);
+                if (output.length > 12) {
+                    high(12);
+                } else {
+                    high(output.length);
+                }
             }
             //沒勾
             if (output.length == 0) {
                 all(travel);
-                $("#index_right4").after('<div><button class="more" onclick="more()">load more</button></div>');
-                high(travel.length);
+                $(".more").remove();
+                $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
+                if (travel.length > 12) {
+                    high(12);
+                } else {
+                    high(travel.length);
+                }
             }
 
         }
@@ -336,58 +346,51 @@
         }
 
         //load more按鈕 顯示更多
-        function more() {
-            if (travel.length > sss * 3) {
-                $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`);
-                // 沒勾 
+        function more(motto) {
+            if (motto.length > sss * 3) {
+                $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`); 
                 var obj = document.getElementById(`index_right${sss + 1}`);
-                let t = travel.length - sss * 3 + 3;
-                console.log(obj);
-                for (var  ddd = 0; ddd < 3; ddd++) {
-                    if (travel[sss * 3 + ddd] === undefined) {
+                let t = motto.length - sss * 3 + 3;
+                for (var ddd = 0; ddd < 3; ddd++) {
+                    if (motto[sss * 3 + ddd] === undefined) {
                         $(".more").remove();
+                        sss++;
+                        return;
                     }
-                    obj.innerHTML += '<div class="card">' +
-                        '<img src = "../public/images/scenery/' + travel[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:238px; height:130px">' +
-                        ' <div class="card-body">' +
-                        ' <div class="card-text"><p>' + travel[sss * 3 + ddd].ViewName + '</p></div>' +
-                        ' <button onclick="doit(this)" id="" value="' + (sss * 3 + ddd) +
-                        '">查看更多</button>' +
-                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + travel[sss * 3 + ddd].ViewID + '" >點擊加入最愛</button>' +
+                    var count = 0;
+                    member_favorite.forEach(function (scenery1) {
+                        if (motto[sss * 3 + ddd].ViewName == scenery1.ViewName) {
+                            obj.innerHTML += '<div class="card">' +
+                                '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                                ' <div class="card-body">' +
+                                ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
+                                ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
+                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 3 + ddd].ViewID + '" >點擊加入最愛</button>'
+                            '</div>';
+                            count = 1;
+                        }
+                    })
+                    if (count == 0) {
+                        obj.innerHTML += '<div class="card">' +
+                            '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                            ' <div class="card-body">' +
+                            ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
+                            ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
+                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 3 + ddd].ViewID + '" >點擊加入最愛</button>'
                         '</div>';
-                    // console.log(travel[i]); 
+                    }
+                    count = 0;
+                    high(sss * 3);
                 }
-            } else if (travel.length <= sss * 3) { 
+            } else if (motto.length <= sss * 3) {
                 //沒有資料||不夠
                 $(".more").remove();
                 sss--;
+                // console.log(motto.length);
+                high(motto.length);
             }
-            // else if (travel.length < sss * 3) {
-            // let t = travel.length - sss * 3 + 3;
-            // $(".more").before(`<div class="a" id="index_right${sss}"></div><hr>`);
-            // $(".more").remove();
-            // for (as = 0; as < t; as++) {
-            //     var obj = document.getElementById(`index_right${sss}`);
-            //     obj.innerHTML += '<div class="card">' +
-            //         '<img src = "../public/images/scenery/' + travel[sss * 3 - 3 + as].ViewImage + '" class="card-img" style="width:250px; height:130px">' +
-            //         ' <div class="card-body">' +
-            //         ' <div class="card-text"><p>' + travel[sss * 3 - 3 + as].ViewName + '</p></div>' +
-            //         ' <button onclick="doit(this)" id="" value="' + (sss * 3 - 3 + as) +
-            //         '">查看更多</div></button>' +
-            //         '   <div class="card-footer"><a href="#"><i class="fa fa-heart-o">點擊加入最愛</i></a></div>'
-            //     '</div>';
-            //     // console.log(travel[i]); 
-            //     love();
-            // }
-
-            //}
-            //有勾 直接不顯示
-
-            //調整葉寬
-            high(sss*3);
             sss++;
         };
-
 
         //愛心方程式
         function love(viewID) {
@@ -408,7 +411,7 @@
                 $(viewID).removeClass('fa fa-heart-o');
                 $(viewID).addClass('fa fa-heart');
                 $(viewID).css('color', 'red');
-                
+
                 // console.log(viewID.value);
                 $.ajax({
                     type: "post",
