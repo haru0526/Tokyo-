@@ -62,6 +62,12 @@
         body {
             background-image: url("../public/images/kent/pic/backgroundimage.jpg");
         }
+
+        @media (min-width: 992px) {
+            #cardimg {
+                height: 18rem;
+            }
+        }
     </style>
     <!-- 地圖CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -100,10 +106,7 @@
     <div id="username" style="display:none"><%= userSeeeionName%></div>
     <div class="container">
         <!-- 景點 -->
-        <div class="row" id="views">
-
-        </div>
-
+        <div class="row" id="views"></div>
 
         <!-- 行程規劃 -->
         <div class="bg-warning mt-5" style="height: 30px; width: 100%;">
@@ -115,39 +118,7 @@
                     <button type="button" id="addtravel">+</button>
                     <span>新增景點</span>
                 </div>
-                <!-- <div class="float-right mt-1">新增景點</div> -->
             </div>
-
-            <!-- 行程表單 -->
-            <!-- <div class="row mb-5 mt-2 d-flex align-items-end" id="travelSelect0">
-                <div class="col-md-1 text-center">
-                    <button type="button" onclick="deleteview(event)">-</button>
-                </div>
-                <div class="col-md-2 text-center">
-                    <label for="">到達時間</label>
-                    <input type="time" id="arriveTime">
-                </div>
-                <div class="col-md-2 text-center">
-                    <label for="">休息多久(分鐘)</label>
-                    <input type="text" id="restTime">
-                </div>
-                <div class="col-md-3 ml-5">
-                    <select class="custom-select custom-select-sm">
-                        <option selected>景點類別</option>
-                        <option value="1">美食</option>
-                        <option value="2">神社</option>
-                        <option value="3">景點</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="custom-select custom-select-sm">
-                        <option selected>景點名稱</option>
-                        <option value="1">銀座</option>
-                        <option value="2">東京鐵塔</option>
-                        <option value="3">晴空塔</option>
-                    </select>
-                </div>
-            </div>   -->
         </div>
 
         <!-- 加入地圖按鈕 -->
@@ -157,10 +128,6 @@
 
         <div id="mapdiv"></div>
     </div>
-
-    <!-- <footer class="mt-5">
-        <h1 class="text-center">Footer</h1>
-    </footer> -->
 
     <script>
 
@@ -204,9 +171,9 @@
             subimg = subimg.substring(2);
             tagsetbadge(p.ViewTag);
             content += `
-            <div id="keyBoard" class="col-md-4 mt-5">
+            <div id="keyBoard" class="col-lg-4 mt-5">
               <div class="card">
-                  <img src="../public/images/kent/${subimg}" class="card-img-top img-fluid" alt="keyboard"  style="height: 18rem;">
+                  <img src="../public/images/kent/${subimg}" class="card-img-top img-fluid" alt="keyboard" id="cardimg">
                   <div class="card-body position-relative">
                         <span class="badge bg-secondary position-absolute bottom-0 start-0">${p.Area}</span>`
                         + tagcontent +
@@ -274,7 +241,7 @@
         let selectTagName = '';
         let selectoption = '';
 
-        //景點TAG選項 暫定之後改成 SQL查詢後的資料
+        //景點TAG選項
         membetViewDataTag.forEach(p => {
             selectTag += `
             <option value="${p.ViewTag}">${p.ViewTag}</option>
@@ -294,7 +261,7 @@
                     selectoption = "";
                     memberSelectTagViewData = JSON.parse(data);
                     // console.log(memberSelectTagViewData);
-                    //景點名稱選項 改成SQL查詢後的資料
+                    //景點名稱選項
                     memberSelectTagViewData.forEach(p => {
                         selectoption += `
                         <option value="${p.ViewName},${p.latitude},${p.longitude}">${p.ViewName}</option>
@@ -316,25 +283,25 @@
             $('#travel').append(
                 `
                 <div class="row mb-5 mt-2 d-flex align-items-end" id="travelSelect` + travelSelect + `">
-                <div class="col-md-1 text-center">
+                <div class="col-lg-1 text-center">
                     <button type="button" onclick="deleteview(event)">-</button>
                 </div>
-                <div class="col-md-2 text-center">
+                <div class="col-lg-2 text-center mt-3">
                     <label for="">到達時間</label>
                     <input type="time" id="arriveTime">
                 </div>
-                <div class="col-md-2 text-center">
+                <div class="col-lg-2 text-center mt-3">
                     <label for="">休息多久(分鐘)</label>
                     <input type="text" id="restTime">
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-lg-3 text-center mt-3">
                     <select class="custom-select custom-select-sm" onChange="renew(this.selectedIndex,event);">
                         <option selected>景點類別</option>`
                 + selectTag +
                 `
                     </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 text-center mt-3">
                     <select class="custom-select custom-select-sm">
                         <option selected>景點名稱</option>`
                 + selectoption +

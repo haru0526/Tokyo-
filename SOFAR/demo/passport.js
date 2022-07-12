@@ -171,6 +171,8 @@
 
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const db = require("./db");
+
 
 GOOGLE_CLIENT_ID = '945471780602-lt50iv3vp4f7mgqn5ceoa87d081p143i.apps.googleusercontent.com';
 GOOGLE_CLIENT_SECRET = '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';
@@ -183,8 +185,70 @@ passport.use(new GoogleStrategy({
   
 },
 function(request, accessToken, refreshToken, profile, done) {
-  return done(null, profile);
-}));
+  // return done(null, profile);
+      db.exec('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [profile.provider,profile.id],
+       function(results, fields) {
+        if (!results.length) {
+          // console.log("11111111111111111111111111111111111111111111111111111111");
+       
+          // The Google account has not logged in to this app before.  Create a
+          // new user record and link it to the Google account.
+          db.exec(`INSERT INTO users SET ?`,{name: profile.displayName, email: profile.email, googleID: profile.id}, 
+          function(results, fields) {
+            
+            // var user = {
+            //   id: results[0].id,
+            //   name: results[0].name,
+            //   email: results[0].email,
+            // };
+            db.exec(`INSERT INTO federated_credentials SET?`,{provider: profile.provider, subject: profile.id, user_id: profile.id} ,
+             function(results, fields) {
+              // console.log("33333333333333333333333333333333333333333333333333333333333333333333");
+              // console.log("fields = " + fields);
+              // console.log("results = " + results);
+
+              db.exec(`SELECT * FROM users WHERE googleID = ?`, [ profile.id ], function(results, fields) {
+                var user = {
+                  id: results[0].id,
+                  name: results[0].name,
+                  email: results[0].email,
+                };
+                return done(null, user);
+              });
+              
+            });
+          });
+
+
+        } else {
+          // console.log("4444444444444444444444444444444444444444444444444444444444444444");
+
+          // The Google account has previously logged in to the app.  Get the
+          // user record linked to the Google account and log the user in.
+          db.exec(`SELECT * FROM users WHERE googleID = ?`, [ profile.id ], function(results, fields) {
+            // console.log("555555555555555555555555555555555555555555555555555555");
+
+            if (!results.length) {
+              // console.log("6666666666666666666666666666666666");
+              return done(null, false); 
+            }
+            console.log(results);
+            console.log(results[0].id);
+            var user = {
+              id: results[0].id,
+              name: results[0].name,
+              email: results[0].email,
+            };
+            console.log(user);
+            
+            return done(null, user);
+          });
+        }
+      }
+    )
+
+  }
+));
 
 passport.serializeUser(function(user, done) {
   done(null, user);
