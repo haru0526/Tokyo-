@@ -6,6 +6,8 @@ html,body{
 }
 
 .daybox{
+  position: relative;
+
   max-width: 400px;
   box-shadow: 0px 0px 20px rgba(0,0,0, 0.5);
   border-radius: 5px;
@@ -14,6 +16,7 @@ html,body{
 }
 
 .daybox:hover .bottom{
+  position: relative;
     height: 80px;
     
 }
@@ -31,12 +34,13 @@ html,body{
 }
 
 .night{
+  position: relative;
   background: linear-gradient(20deg,#19283D,#1D678F);
   animation: daylight 5s infinite;
 
 }
 .morning{
-  
+  position: relative;
   background: linear-gradient(20deg,#adc5e6,#2fb6ff);
   animation: daylight 5s infinite;
 }
@@ -101,9 +105,9 @@ html,body{
 .sun{
   width: 500px;
   height: 500px;
-  transform: scale(20%);
+  /* transform: scale(20%); */
   position: absolute;
-  right: 50px;
+  right: -5px;
   bottom: -50px;
   background-image: url("../../images/shawnIMAGES/sun.png");
   animation: circle 50s infinite;
@@ -198,8 +202,9 @@ html,body{
 .fpic{
   position: relative;
   margin-top: -7px;
+  height: 25px;
   
 }
-p {
+.p_under {
   color: #fff;
 }

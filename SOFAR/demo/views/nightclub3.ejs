@@ -139,8 +139,8 @@
                                         <p>{{ item.message }}</p>
                                         <p class="text-right">{{ item.timer}}</p>
                                         <hr>
-                                        <a class="list-reply" @click="handleDelete(index)">&nbsp;&nbsp;&nbsp;&nbsp;刪除</a>
-                                        <a class="list-reply" @click="handleReply(index)">回覆</a>
+                                        <a class="list-reply" @click="handleDelete(index)">&nbsp;&nbsp;刪除&nbsp;<i class="fa-solid fa-trash-can" id="trashicon"></i></a>
+                                        <a class="list-reply" @click="handleReply(index)">回覆&nbsp;<i class="fa-solid fa-reply" id="replayicon"></i></a>
                                     </div>
                                 </div>
                             </div>

@@ -8,9 +8,17 @@
 #lovebtn{
     background-color: #fff;
 }
+#trashicon{
+    color: #777e86;
+    font-size: larger;
+}
+#replayicon{
+    color: #777e86;
+    font-size: larger;
+}
 
 /* 主題選單 */
-#ellisnav {
+#navEllis_ {
     background-color: #F9C0C0;
     display: flex;
     justify-content: center;
