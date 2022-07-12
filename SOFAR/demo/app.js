@@ -22,11 +22,16 @@ app.use(cors());
 app.use(session({ secret: 'cats',name: 'user', resave: true, saveUninitialized: false }));
 
 app.use((req, res, next ) => {
-  res.locals = {};
-  res.locals.isLogin = req.session.isLogin;
-  res.locals.userName = req.session.user;
+  res.locals = {
+    isLogin: req.session.isLogin,
+    userName: req.session.user,
+    userId: req.session.userId,
+  };
+
+  // res.locals.isLogin = req.session.isLogin;
+  // res.locals.userName = req.session.user;
   // res.locals.userName = "shawn";
-  res.locals.userId = req.session.userId;
+  // res.locals.userId = req.session.userId;
   next();
 })
 
@@ -34,35 +39,37 @@ app.use((req, res, next ) => {
 
 
 
+app.get("/", (req, res) => {
+  res.render("index.ejs",{res});
+})
+app.get("/navbar", (req, res) => {
+  res.render("navbar.ejs",{res});
+})
 app.use("/member",authRouter);
 app.use("/allPage",pageRoute);
 app.use("/onlyMember",onlyMemberRoute);
 
 
-app.get("/", (req, res) => {
-  
-  res.render("index.ejs",{res});
-})
 app.get("/monthThree", (req, res) => {
-  res.render("month3.ejs",{});
+  res.render("month3.ejs",{res});
 })
 app.get("/waterpage", (req, res) => {
-  res.render("waterpage.ejs",{});
+  res.render("waterpage.ejs",{res});
 })
 app.get("/area", (req, res) => {
-  res.render("area.ejs",{});
+  res.render("area.ejs",{res});
 })
 app.get("/east", (req, res) => {
-  res.render("east.ejs",{});
+  res.render("east.ejs",{res});
 })
 app.get("/northern", (req, res) => {
-  res.render("northern.ejs",{});
+  res.render("northern.ejs",{res});
 })
 app.get("/shibuya", (req, res) => {
-  res.render("shibuya.ejs",{});
+  res.render("shibuya.ejs",{res});
 })
 app.get("/south", (req, res) => {
-  res.render("south.ejs",{});
+  res.render("south.ejs",{res});
 })
 
 

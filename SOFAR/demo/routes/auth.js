@@ -79,7 +79,7 @@ router.use(passport.session());
 
 //----------- register ----------
 router.get("/register", (req, res) => {
-  res.render("register.ejs", {});
+  res.render("register.ejs", {res});
 })
 
 router.post("/register", (req, res) => {
@@ -119,7 +119,7 @@ router.post("/register", (req, res) => {
 
 //----------- login ----------
 router.get("/login", (req, res) => {
-  res.render("login.ejs", {});
+  res.render("login.ejs", {res});
 })
 
 router.post("/login",  function(req, res) {
@@ -222,7 +222,7 @@ router.get("/mycenter",isLoggedIn, (req, res, next) => {
   // console.log(req.sessionID)
   const userName = req.session.user || req.user.displayName;
   const userEmail = req.session.email || req.user.emails[0].value;
-  return res.render('mycenter', { userName, userEmail})
+  return res.render('mycenter', { userName, userEmail, res})
   // console.log(req.cookies.userRegistered);
 
   //如果抓不到 jwt 就回首頁
@@ -369,7 +369,8 @@ router.post('/reset-password-email', function(req, res, next) {
   router.get("/reset-password/:token", (req, res) => {
     res.render("resetPassword.ejs", {
       title: 'Reset Password Page',
-      token: req.params.token
+      token: req.params.token,
+      res
     });
   })
 
@@ -428,10 +429,10 @@ router.post('/update-password', function(req, res, next) {
 
 //----------- serve and privicy ----------
 router.get("/serve", (req, res) => {
-  res.render("serve.ejs", {});
+  res.render("serve.ejs", {res});
 })
 router.get("/privacy", (req, res) => {
-  res.render("privacy.ejs", {});
+  res.render("privacy.ejs", {res});
 })
 
 
@@ -443,43 +444,43 @@ router.get("/home",isLoggedIn, (req, res) => {
   const userEmail = req.session.email || req.user.email;
 
   const userId = req.session.userId || req.user.id;
-  return res.render('OM_Home.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('OM_Home.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/horse1",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('horse1.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('horse1.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/horse2",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('horse2.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('horse2.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/nightclub1",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('nightclub1.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('nightclub1.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/nightclub2",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('nightclub2.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('nightclub2.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/nightclub3",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('nightclub3.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('nightclub3.ejs', { userSeeeionName, userEmail, userId, res})
 })
 router.get("/scenery",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('scenery.ejs',{ userSeeeionName, userEmail, userId})
+  return res.render('scenery.ejs',{ userSeeeionName, userEmail, userId, res})
 })
 
 
@@ -488,7 +489,7 @@ router.get("/memberworks",isLoggedIn, (req, res) => {
   const userSeeeionName = req.session.user || req.user.name;
   const userEmail = req.session.email || req.user.email;
   const userId = req.session.userId || req.user.id;
-  return res.render('memberworks.ejs', { userSeeeionName, userEmail, userId})
+  return res.render('memberworks.ejs', { userSeeeionName, userEmail, userId, res})
 })
 // router.get("/navbar", (req, res) => {
 //   const userSeeeionName = req.session.user || req.user.name;

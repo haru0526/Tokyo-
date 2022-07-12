@@ -1,6 +1,6 @@
 module.exports = {
   isLoggedIn : function (req, res, next) {
-    if (req.user || req.session.user) {
+    if (req.user.name || req.session.user) {
       console.log('authenticated')
       next()
     } else {
