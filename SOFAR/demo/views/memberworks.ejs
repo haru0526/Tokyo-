@@ -106,11 +106,14 @@
     <div id="username" style="display:none"><%= userSeeeionName%></div>
     <div class="container">
         <!-- 景點 -->
+        <div class="row text-center mt-5" id="nocoll">
+            <h1>目前沒有收藏喔~!!</h1>
+        </div>
         <div class="row" id="views"></div>
 
         <!-- 行程規劃 -->
         <div class="bg-warning mt-5" style="height: 30px; width: 100%;">
-            <p>行程規劃</p>
+            <p>行程路線規劃</p>
         </div>
         <div class="" id="travel">
             <div class="clearfix">
@@ -123,7 +126,7 @@
 
         <!-- 加入地圖按鈕 -->
         <div class="d-flex flex-row-reverse mt-4">
-            <button id="addmap" type="button" class="btn btn-success">加入到地圖顯示</button>
+            <a href="#mapdiv" id="addmap" type="button" class="btn btn-success">加入到地圖顯示</a>
         </div>
 
         <div id="mapdiv"></div>
@@ -144,6 +147,9 @@
             success: function (data) {
                 items = JSON.parse(data);
                 console.log(items);
+                if(items.length > 0) {
+                    $("#nocoll").remove();
+                }
             }
         })
 
@@ -343,7 +349,7 @@
             var map = L.map(
                 'map', {
                 center: [resultarray[0][2], resultarray[0][3]],
-                zoom: 8,
+                zoom: 16,
             });
 
             L.control.scale({

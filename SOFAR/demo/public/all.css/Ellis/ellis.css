@@ -2,6 +2,17 @@
     padding: 0;
     margin: 0;
 }
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
 .fa-solid{
     color: red;
 }
@@ -29,7 +40,7 @@
 #shibusky{
     display: block;
     width: 100%;
-    height: 920px;
+    height: 800px;
     object-fit: cover;
     object-position:center;
     overflow: hidden;
