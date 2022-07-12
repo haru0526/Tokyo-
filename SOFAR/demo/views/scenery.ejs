@@ -95,6 +95,10 @@
         // console.log(UserID);
 
         function all_scenery() {
+            for (w = 1; w <= sss; w++) {
+                var ect = document.getElementById(`index_right${w}`);
+                ect.innerHTML = '';
+            }
             $.ajax({
                 type: "GET",
                 url: "http://localhost:3000/onlyMember/getViewData",
@@ -109,11 +113,13 @@
             console.log(travel);
             all(travel);
             high(12);
-
+            $(".more").remove();
+            $("#index_right4").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
         }
 
         //取得一般景點資料
         function start() {
+
             $.ajax({
                 type: "GET",
                 url: "http://localhost:3000/onlyMember/getViewData/" + area, ///////////onlyMember  要想
