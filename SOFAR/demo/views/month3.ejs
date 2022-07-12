@@ -24,34 +24,6 @@
     <%- include('navbar.ejs') %>
 
     <div class="wrap">
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">最新消息</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">日本文化</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">探索旅程</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">旅行計劃</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">地圖路線</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
         <div class="container-fluid month3-bg ">
             <div class="black"> 
             </div>
@@ -59,84 +31,38 @@
                 <h1 class="fs-1 text-white text-center animate__animated animate__backInDown animate__delay-1s">3月東京的觀光景點與活動推薦</h1>
             </div>
         </div>
-        <div class="container mt-5">
+        <div class="container">
+
             <div class="row">
-                <div class="col-lg-8 gy-3">
-                    <div class="text mb-3">
-                        <h2 class="pb-3 text-danger ">3月的人氣活動與祭典</h2>
-                        <p>非常推薦！在春暖花開的3月，東京的公園與庭園中，到處可見人們一起慶祝春天到來與櫻花盛開的熱鬧景象。此外，包括3月3日「女兒節」在內，傳統祭典活動也相當豐富。</p>
+                <div class="col-8">
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-8 gy-3">
+                                <div class="text mb-3">
+                                <h2 class="pb-3 text-danger ">3月的人氣活動與祭典</h2>
+                                <p>非常推薦！在春暖花開的3月，東京的公園與庭園中，到處可見人們一起慶祝春天到來與櫻花盛開的熱鬧景象。此外，包括3月3日「女兒節」在內，傳統祭典活動也相當豐富。</p>
+                            </div>
+                            <div class="text mb-3">
+                                <h2 class="pb-3 text-danger ">3月的東京天氣如何？</h2>
+                                <p>3月的東京雖仍有涼意，但氣候宜人，平均氣溫9.4度，最高溫14.2度，最低溫則是5度。不需特別加上禦寒衣物，穿件毛衣或加件外套剛剛好。這時期的東京已很少下雪，但仍有可能下雨，月平均降雨量為116毫米。
+                                </p>
+                            </div>
+                            <ul class="ok p-0">
+                                <!-- js動態產生 -->
+                            </ul>
+                        </div>
                     </div>
-                    <div class="text mb-3">
-                        <h2 class="pb-3 text-danger ">3月的東京天氣如何？</h2>
-                        <p>3月的東京雖仍有涼意，但氣候宜人，平均氣溫9.4度，最高溫14.2度，最低溫則是5度。不需特別加上禦寒衣物，穿件毛衣或加件外套剛剛好。這時期的東京已很少下雪，但仍有可能下雨，月平均降雨量為116毫米。
-                        </p>
-                    </div>
-                    <ul class="ok p-0">
-                        <!-- js動態產生 -->
-                    </ul>
                 </div>
+            </div>
+            <div class="col-4">
+                <%- include('weather.ejs') %>
             </div>
         </div>
     </div>
-    <!-- <div class="footer">
-        <div class="container">
-            <div class="footer-info">
-                <ul class="footer-group d-flex">
-                    <li class="logo">
-                        <h1>
-                            <a href="#">LOGO</a>
-                        </h1>
-                    </li>
-                    <li class="info">
-                        <p>SHAWNSTUDIO CO.,LTD.</p>
-                        <p>407 TAICHUNG,</p>
-                        <p>SHAW-SLIN,FULUI-KEN</p>
-                        <p> 04-66661234</p>
-                        <p> TAIWAN</p>
-                        <p>TEL04-1234-5678</p>
-                    </li>
-                    <li class="info">
-                        <p><a href="#">各類資訊</a></p>
-                        <p><a href="#">最新消息</a></p>
-                        <p><a href="#">日本文化</a></p>
-                        <p><a href="#">探索旅程</a></p>
-                        <p><a href="#">旅行計劃</a></p>
-                        <p><a href="#">地圖路線</a></p>
-                    </li>
-                    <li>
-                        <h4>聯絡資訊</h4>
-                        <ul class="contact-info d-flex">
-                            <li>
-                                <a href="#">
-                                    <img src="images/icon/facebook.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/icon/email.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/icon/gmail.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/icon/line.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/icon/phone-call.png" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
+        
+        
+    </div>
+    
     </div>
     <%- include('footer.ejs') %>
 
@@ -171,3 +97,82 @@
     ok.innerHTML = str;
     console.log(item);
 </script>
+
+
+<!-- weather -->
+<!-- <script>
+    // let api = "https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=14573ab9490c34326d2745c2f3a1c2d3";
+
+    let api =
+      'https://api.openweathermap.org/data/2.5/onecall?lat=35.652832&lon=139.839478&appid=14573ab9490c34326d2745c2f3a1c2d3&units=metric'; //7daily
+    // let api = "https://api.openweathermap.org/data/2.5/onecall?q=tokyo&appid=14573ab9490c34326d2745c2f3a1c2d3&units=metric";
+
+
+    let daytranslate = ["七","一","二","三","四","五","六"];
+    let weatherImg = {
+      Clouds: "../images/shawnIMAGES/clouds.png",
+      Rain: "../images/shawnIMAGES/raining.png",
+      Mist: "../images/shawnIMAGES/mist.png",
+      Clear: "../images/shawnIMAGES/sun.png",
+      Fog: "../images/shawnIMAGES/fog.png",
+      Snow: "../images/shawnIMAGES/snow.png",
+      Thunderstorm: "../images/shawnIMAGES/storm.png"
+
+
+    }
+
+    
+    fetch(api)
+    .then((response) => response.json())
+    .then((result) => {
+        console.log(result)
+        
+        
+        //top 現在溫度
+        let d = new Date(result.current.dt * 1000);
+        $('.temperature').append(`${Math.floor(result.current.temp)}℃`);
+        $('.thisDate').append(`${(new Date((result.current.dt * 1000)).toString().substring(4,15))} 星期${daytranslate[d.getDay()]}`);
+        $(".thisDay").append(d.getDay())
+        let tempPic = result.current.weather[0].main;//去JSON拿天氣的名字
+        $(".weatherImg").append(`<img src="${weatherImg[tempPic]}" alt="氣象圖片" />`)
+
+
+      console.log(result.current.weather[0].main);
+        //未來溫度
+        result.daily.shift()//因為daily[0]是現在,但我們要後面一周資料
+        $.each(result.daily, (index, value) => {
+          let futureDay= new Date((result.daily[index].dt * 1000));
+            $(".bottom").append(
+              `<div class="dayweather">
+                <p class="fDay">${daytranslate[futureDay.getDay()]}</p>
+              <p class="fmonth">${`${futureDay.getMonth()+1}/${futureDay.getDate()}`}</p>
+              <img class="fpic" src="${weatherImg[value.weather[0].main]}" alt="氣象圖片" />
+              </div>`
+            )
+
+        });
+
+      });
+
+
+      let mors = new Date();
+      if(mors.getHours() >=0 && mors.getHours() <= 18){
+        $(".top").removeClass("night");
+        $(".top").addClass("morning");
+        
+        $(".sorm").removeClass("moon");
+        $(".sorm").addClass("sun");
+
+        $(".textArea").css("color", "rgb(20, 28, 65)")
+        
+        
+      }else if(mors.getHours() >=18 && mors.getHours() <= 0){
+        $(".top").removeClass("morning");
+        $(".top").addClass("night");
+        
+        $(".sorm").removeClass("sun");
+        $(".sorm").addClass("moon");
+
+        $(".textArea").css("color", "#fff")
+      }
+  </script> -->
