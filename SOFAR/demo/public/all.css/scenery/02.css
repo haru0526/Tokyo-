@@ -1,7 +1,9 @@
 body {
-    background-image: url("../../images/scenery/pic/12345.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../../images/scenery/pic/try.png");
+    background-repeat: repeat;
+    background-size: contain;
+    width: 100%;
+
 }
 
 /* 卡片樣式 */
@@ -45,7 +47,7 @@ body {
 .content2 {
     width: 1000px;
     margin: 20px auto;
-    min-height: 280px;
+    min-height: 300px;
 }
 
 /* 分類 */
@@ -54,7 +56,7 @@ body {
     float: left;
     margin: 10px auto;
     width: 150px;
-    border: 5px solid red;
+
     background-color: #F9C0C0;
 }
 
@@ -63,8 +65,8 @@ body {
     margin: 10px auto;
     width: 800px;
     float: right;
-    border: 5px solid purple;
-    background-color: white;
+    border-radius: 5px;
+    background-color: #F9C0C0;
 }
 
 
@@ -147,17 +149,17 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+
 }
 
-@media only screen and (max-width: 2182px) {
+@media only screen and (max-width: 3000px) {
     .footer {
-        bottom:auto;
-        
+        bottom: auto;
     }
 }
 
 /* rwd */
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width:1000px) {
     body {
         background-color: pink;
     }

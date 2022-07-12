@@ -22,8 +22,10 @@ app.use(cors());
 app.use(session({ secret: 'cats',name: 'user', resave: true, saveUninitialized: false }));
 
 app.use((req, res, next ) => {
+  res.locals = {};
   res.locals.isLogin = req.session.isLogin;
   res.locals.userName = req.session.user;
+  // res.locals.userName = "shawn";
   res.locals.userId = req.session.userId;
   next();
 })
@@ -38,7 +40,8 @@ app.use("/onlyMember",onlyMemberRoute);
 
 
 app.get("/", (req, res) => {
-  res.render("index.ejs",{});
+  
+  res.render("index.ejs",{res});
 })
 app.get("/monthThree", (req, res) => {
   res.render("month3.ejs",{});
