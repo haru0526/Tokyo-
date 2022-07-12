@@ -8,8 +8,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="../public/all.css/scenery/02.css">
     <script src="../public/js/scenery/_js/jquery.min.js"></script>
-    <script src="../public/js/scenery/_js/popper.min.js"></script>
-    <script src="../public/js/scenery/_js/bootstrap.min.js"></script>
     <script src="../public/js/scenery/_js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -78,7 +76,7 @@
             <div class="a" id="index_right4"> </div>
             <div>
                 <button class="more" onclick="more(travel)">load more</button>
-               
+
             </div>
         </div>
     </div>
@@ -200,7 +198,7 @@
                 member_favorite.forEach(function (scenery1) {
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                             ' <div class="card-body">' +
                             ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
@@ -211,7 +209,7 @@
                 })
                 if (count == 0) {
                     obj.innerHTML += '<div class="card">' +
-                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                         ' <div class="card-body">' +
                         ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                         ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
@@ -306,12 +304,12 @@
             // Get the modal
             var modal = document.getElementById("myModal");
             if (output.length == 0) {
-                modal.innerHTML = '<div class="modal-content">' +
+                modal.innerHTML = '<div class="modal-content" width="60%">' +
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + travel[e.value].ViewName + '</h1></div>' +
-                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + travel[e.value].ViewID + '" >點擊加入最愛</button>' +
-                    ' <img src="../public/images/scenery/' + travel[e.value].ViewImage + '" style="width:60%">' +
+                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + travel[e.value].ViewID + '" >點擊加入最愛</button><br>' +
+                    ' <img src="../public/images/scenery/' + travel[e.value].ViewImage + '" style="">' +
                     '<p>' + travel[e.value].ViewText + '</p>' +
                     // ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + travel[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
                     '</div>';
@@ -322,8 +320,8 @@
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + output[e.value].ViewName + '</h1></div>' +
-                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + output[e.value].ViewID + '" >點擊加入最愛</button>' +
-                    ' <img src="../public/images/scenery/' + output[e.value].ViewImage + '" style="width:60%">' +
+                    ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + output[e.value].ViewID + '" >點擊加入最愛</button><br>' +
+                    ' <img src="../public/images/scenery/' + output[e.value].ViewImage + '" style="">' +
                     '<p>' + output[e.value].ViewText + '</p>' +
                     // ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + output[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
                     '</div>';
@@ -348,7 +346,7 @@
         //load more按鈕 顯示更多
         function more(motto) {
             if (motto.length > sss * 3) {
-                $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`); 
+                $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`);
                 var obj = document.getElementById(`index_right${sss + 1}`);
                 let t = motto.length - sss * 3 + 3;
                 for (var ddd = 0; ddd < 3; ddd++) {
@@ -361,7 +359,7 @@
                     member_favorite.forEach(function (scenery1) {
                         if (motto[sss * 3 + ddd].ViewName == scenery1.ViewName) {
                             obj.innerHTML += '<div class="card">' +
-                                '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                                '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                                 ' <div class="card-body">' +
                                 ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
                                 ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
@@ -372,7 +370,7 @@
                     })
                     if (count == 0) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:238px; height:130px">' +
+                            '<img src = "../public/images/scenery/' + motto[sss * 3 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
                             ' <div class="card-body">' +
                             ' <div class="card-text"><p>' + motto[sss * 3 + ddd].ViewName + '</p></div>' +
                             ' <button onclick="doit(this)" value="' + (sss * 3 + ddd) + '">查看更多</button><br>' +
