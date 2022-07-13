@@ -59,6 +59,10 @@
             color:  red;
         }
 
+        #coll {
+            border-radius: 0 10px 0 10px;
+        }
+
         body {
             background-image: url("../public/images/kent/pic/backgroundimage.jpg");
         }
@@ -112,7 +116,7 @@
         <div class="row" id="views"></div>
 
         <!-- 行程規劃 -->
-        <div class="bg-warning mt-5" style="height: 30px; width: 100%;">
+        <div class="bg-warning mt-5" style="height: 30px; width: 100%;border-radius: 10px 10px 0px 0px;">
             <p>行程路線規劃</p>
         </div>
         <div class="" id="travel">
@@ -178,12 +182,12 @@
             tagsetbadge(p.ViewTag);
             content += `
             <div id="keyBoard" class="col-lg-4 mt-5">
-              <div class="card">
-                  <img src="../public/images/kent/${subimg}" class="card-img-top img-fluid" alt="keyboard" id="cardimg">
-                  <div class="card-body position-relative">
+              <div class="card shadow">
+                  <img src="../public/images/kent/${subimg}" class="card-img-top img-fluid mb-1" alt="keyboard" id="cardimg">
+                  <div class="card-body position-relative p-3">
                         <span class="badge bg-secondary position-absolute bottom-0 start-0">${p.Area}</span>`
                         + tagcontent +
-                      `<button class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">收藏</button>
+                      `<button id="coll" class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">收藏</button>
                       <h5 class="card-title text-center mt-2" id="itemName">${p.ViewName}</h5>
                   </div>
               </div>
