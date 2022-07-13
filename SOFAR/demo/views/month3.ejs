@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="all.css/rest.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -23,48 +20,58 @@
 <body>
     <%- include('navbar.ejs') %>
 
-    <div class="wrap">
-        <div class="container-fluid month3-bg ">
-            <div class="black"> 
+        <div class="wrap">
+            <div class="container-fluid month3-bg ">
+                <div class="black">
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <h1 class="fs-1 text-white text-center animate__animated animate__backInDown animate__delay-1s">
+                        3月東京的觀光景點與活動推薦</h1>
+                </div>
             </div>
-            <div class="position-absolute top-50 start-50 translate-middle">
-                <h1 class="fs-1 text-white text-center animate__animated animate__backInDown animate__delay-1s">3月東京的觀光景點與活動推薦</h1>
-            </div>
-        </div>
-        <div class="container">
+            <div class="container ">
+                <div class="row d-flex">
+                    <div class="col-12 col-lg-6">
+                        <div class="container mt-5">
+                            <div class="row d-flex">
+                                <div class="col-lg-8 gy-3 p-0">
+                                    <div class="text mb-3">
+                                        <h2 class="pb-3 text-danger ">3月的人氣活動與祭典</h2>
+                                        <p>非常推薦！在春暖花開的3月，東京的公園與庭園中，到處可見人們一起慶祝春天到來與櫻花盛開的熱鬧景象。此外，包括3月3日「女兒節」在內，傳統祭典活動也相當豐富。
+                                        </p>
+                                    </div>
+                                    <div class="text mb-3">
+                                        <h2 class="pb-3 text-danger ">3月的東京天氣如何？</h2>
+                                        <p>3月的東京雖仍有涼意，但氣候宜人，平均氣溫9.4度，最高溫14.2度，最低溫則是5度。不需特別加上禦寒衣物，穿件毛衣或加件外套剛剛好。這時期的東京已很少下雪，但仍有可能下雨，月平均降雨量為116毫米。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="row">
-                <div class="col-8">
-                    <div class="container mt-5">
-                        <div class="row">
-                            <div class="col-lg-8 gy-3">
-                                <div class="text mb-3">
-                                <h2 class="pb-3 text-danger ">3月的人氣活動與祭典</h2>
-                                <p>非常推薦！在春暖花開的3月，東京的公園與庭園中，到處可見人們一起慶祝春天到來與櫻花盛開的熱鬧景象。此外，包括3月3日「女兒節」在內，傳統祭典活動也相當豐富。</p>
-                            </div>
-                            <div class="text mb-3">
-                                <h2 class="pb-3 text-danger ">3月的東京天氣如何？</h2>
-                                <p>3月的東京雖仍有涼意，但氣候宜人，平均氣溫9.4度，最高溫14.2度，最低溫則是5度。不需特別加上禦寒衣物，穿件毛衣或加件外套剛剛好。這時期的東京已很少下雪，但仍有可能下雨，月平均降雨量為116毫米。
-                                </p>
-                            </div>
-                            <ul class="ok p-0">
-                                <!-- js動態產生 -->
-                            </ul>
+
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 pt-5">
+                        <%- include('weather.ejs') %>
+                    </div>
+
+
+ <div class="container ">
+                    <div class=" mx-auto">
+                        <ul class="ok p-0">
+                            <!-- js動態產生 -->
+                        </ul>
+                    </div>
+                            
                         </div>
                     </div>
                 </div>
+
+                </div>
+
             </div>
-            <div class="col-4 position-relative">
-                <%- include('weather.ejs') %>
-            </div>
-        </div>
-    </div>
-        
-        
-    </div>
-    
-    </div>
-    <%- include('footer.ejs') %>
+            <%- include('footer.ejs') %>
 
 </body>
 
@@ -85,7 +92,7 @@
     let str = '';
     let newImage = '';
     item.forEach(function (item, index) {
-        
+
         newImage = item.image.toString().substring(8)
         let content = `<div class="text mb-3 mt-5 ">
                         <h3 class="text-danger">${item.title}</h3>
