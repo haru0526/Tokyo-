@@ -113,7 +113,7 @@
 
                 </ul>
                 <% if(isLogin){%>
-                    <a class="m-3"> Hello! <%= res.locals.userName %> </a> 
+                    <a class="m-3 text-black text-decoration-none"> Hello! <%= res.locals.userName %> </a> 
                     <a class="btn btn-primary me-2" href="/member/logout">登出</a>
                 <% }else{ %>
                     <a class="bnt-login-s btn btn-primary me-2" href="/member/login" >登入</a>
