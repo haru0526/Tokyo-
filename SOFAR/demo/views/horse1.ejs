@@ -87,15 +87,15 @@
                     </div>
                     <div class="text-right">
                         <hr>
-                        <span id="area" class="reveal">
+                        <span id="area">
                             {{area}}
                         </span>
                         <br>
-                        <span class="reveal">
+                        <span >
                             連絡電話:+81 3-3763-2151
                         </span>
                         <br>
-                        <span class="reveal">
+                        <span >
                             地點:東京都品川区勝島2丁目1-2
                         </span>
                     </div>
@@ -114,7 +114,7 @@
                             <button @click="handleSend">送出</button>
                         </div>
                         <div class="listhight">
-                            <div class="list reveal">
+                            <div class="list">
                                 <v-list :list="list" @reply="handleReply" @delete="handleDelete"></v-list>
                             </div>
                         </div>
@@ -223,9 +223,6 @@
                                         message: this.message,
                                         timer: this.getTime()
                                     });
-                                    // this.message = '';
-                                    // this.username = $("#username").text();
-                                    // this.timer = '';
 
                                     var adname = this.username;
                                     var admessage = this.message;

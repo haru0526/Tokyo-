@@ -7,8 +7,8 @@ html,body{
 
 .daybox{
   position: relative;
-
-  max-width: 400px;
+  width: 350px;
+  max-width: 350px;
   box-shadow: 0px 0px 20px rgba(0,0,0, 0.5);
   border-radius: 5px;
   cursor: pointer;  
@@ -26,10 +26,9 @@ html,body{
 }
 
 .top{
-  position: relative;
+  
   color: aliceblue;
   height: 300px;
-  
   border-radius: 5px 5px 0 0;
 }
 
@@ -40,7 +39,9 @@ html,body{
 
 }
 .morning{
-  position: relative;
+  /* position: relative; */
+  padding: 0;
+  margin: 0;
   background: linear-gradient(20deg,#adc5e6,#2fb6ff);
   animation: daylight 5s infinite;
 }
@@ -80,6 +81,11 @@ html,body{
   }
 }
 
+.sunmoonHigh{
+  height: 30%;
+  position: relative;
+  }
+
 
 .moon{
   width: 50px;
@@ -103,21 +109,24 @@ html,body{
 }
 
 .sun{
-  width: 500px;
+  width: 70px;
+  margin: 1em;
+  /* width: 500px;
   height: 500px;
-  /* transform: scale(20%); */
-  position: absolute;
+  transform: scale(20%);
+  position: relative;
   right: -5px;
+  top: 0;
   bottom: -50px;
-  background-image: url("../../images/shawnIMAGES/sun.png");
-  animation: circle 50s infinite;
+  background-image: url("../../images/shawnIMAGES/sun.png");*/
+  animation: circle 50s infinite; 
 }
 @keyframes circle {
   0% {
-    transform: scale(15%) rotate(0deg)
+    transform:  rotate(0deg)
   }
   100% {
-    transform: scale(15%) rotate(360deg)
+    transform:  rotate(360deg)
   }
 }
 
