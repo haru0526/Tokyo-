@@ -1,15 +1,42 @@
+.trytry {
+    display: none; /* 默认是隐藏的，这样在第一屏才不显示 */
+    position: fixed; /* 位置是固定的 */
+    zoom: 200%;
+    bottom: 20px; /* 显示在页面底部 */
+    left: 30px; /* 显示在页面的右边 */
+    z-index: 99; /* 确保不被其他功能覆盖 */
+    border: 1px solid #5cb85c; /* 显示边框 */
+    outline: none; /* 不显示外框 */
+    background-color: #fff; /* 设置背景背景颜色 */
+    color: #5cb85c; /* 设置文本颜色 */
+    cursor: pointer; /* 鼠标移到按钮上显示手型 */
+    padding: 10px 15px 15px 15px; /* 增加一些内边距 */
+    border-radius: 10px; /* 增加圆角 */
+  }
+  
+  .trytry:hover {
+    background-color: #5cb85c; /* 鼠标移上去时，反转颜色 */
+    color: #fff;
+  }
+
+
+
 body {
     background-image: url("../../images/EllisImages/page03/背景花4.jpeg");
     background-repeat: repeat;
     background-size: contain;
 }
 
+input {
+    zoom: 150%;
+}
+
 /* 卡片樣式 */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 300px;
-    height: 290px;
+    width: 420px;
+    height: 390px;
     margin-right: auto;
     margin-left: auto;
     margin-right: auto;
@@ -17,13 +44,21 @@ body {
     margin: 5px;
     padding: 5px;
     text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card-img {
+    width: 368px;
+    height: 240px;
 }
 
 /* 分區 */
 .content1 .area {
-    font-size: 15px;
+    font-size: 20px;
     margin: 10px auto;
-    width: 500px;
+    width: 600px;
+    font-weight: bold;
     background-color: #F9C0C0;
 }
 
@@ -43,7 +78,7 @@ body {
 
 /* 主頁面 */
 .content2 {
-    width: 1070px;
+    width: 1650px;
     margin: 20px auto;
     min-height: 300px;
 }
@@ -53,18 +88,21 @@ body {
     display: block;
     float: left;
     margin: 10px auto;
-    width: 120px;
-
+    width: 190px;
+    font-size: 30px;
+    font-weight: bold;
     background-color: #F9C0C0;
+    
 }
 
 /* 景點 */
 .index_right {
     margin: 10px auto;
-    width: 930px;
+    width: 1290px;
     float: right;
     border-radius: 5px;
     background-color: #F9C0C0;
+
 }
 
 
@@ -101,7 +139,7 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
-   
+
     /* Could be more or less, depending on screen size */
 }
 
@@ -131,13 +169,13 @@ body {
 .close:hover,
 .close:focus {
     color: blue;
-  
+
     cursor: pointer;
 }
 
 /* load more按鈕 */
 .more {
-    width: 930px;
+    width: 1290px;
     margin: 10px auto;
     clear: both;
     position: relative;
@@ -154,6 +192,36 @@ body {
 @media only screen and (max-width: 4000px) {
     .footer {
         bottom: auto;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .card {
+        width: 32%;
+    }
+
+    .card-img {
+        height: 200px;
+    }
+
+    .content2 {
+        width: 1080px;
+    }
+
+    /* 分類 */
+    .sidebar_left {
+        width: 150px;
+        font-size: 25px;
+    }
+
+    /* 景點 */
+    .index_right {
+        width: 910px;
+        border-radius: 5px;
+    }
+
+    .more {
+        width: 910px;
     }
 }
 
@@ -188,14 +256,14 @@ body {
 
     /* 景點 */
     .index_right {
-        
+
         margin: auto;
         width: 630px;
         border: 5px solid purple;
     }
 
     .card {
-        width:300px;
+        width: 300px;
     }
 
     .more {
@@ -216,5 +284,8 @@ body {
 
     .footer {
         display: none;
+    }
+    .trytry{
+        zoom: 100%;
     }
 }

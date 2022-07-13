@@ -58,13 +58,13 @@
     <div class="content2 ">
         <!-- 分類  checkbox-->
         <div class="sidebar_left">
-            <h5>
+            <p>
                 <p5 id="classification"> 分類 </p5>:<br>
                 <label><input type="checkbox" id="checkbox1" value="美食" onclick="sort(this)">美食</label><br>
                 <label><input type="checkbox" id="checkbox2" value="神社" onclick="sort(this)">神社</label><br>
                 <label><input type="checkbox" id="checkbox3" value="動畫、電影" onclick="sort(this)">動畫、電影</label><br>
                 <label><input type="checkbox" id="checkbox4" value="景點" onclick="sort(this)">景點</label>
-            </h5>
+            </p>
         </div>
         <!-- 景點 -->
         <div class="index_right" id="index_right">
@@ -76,11 +76,37 @@
             </div>
         </div>
     </div>
-
+    <button class="trytry" title="回到头部">︽</button>
     <!-- 彈出式視窗 -->
     <div class="modal" id="myModal"> </div>
 
+
+
     <script>/////////////////////////////////////////////////////
+
+        $(function () {
+            var win = $(window);
+            var trytry = $('.trytry');
+            var sidebar_left = $('.sidebar_left');
+            // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+            win.scroll(function () {
+                if (win.scrollTop() > 100) {
+                    trytry.show();
+                } else {
+                    trytry.hide();
+                }
+
+            });
+            // 当用户点击按钮时，通过动画效果返回头部
+            trytry.click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 200);
+            });
+        });
+
+
+
         //設定參數
         var username = $('#username').text().trim();
         var UserID = $('#userid').text().trim();
@@ -152,7 +178,7 @@
         function high(changi) {
             var num = Math.ceil(changi / 6) + 1;
             // if (num > 4) { num = 4 };
-            $('.content2').css('min-height', `${num * 620 + 300}px`);
+            $('.content2').css('min-height', `${num * 800 + 10}px`);
         }
 
         //執行
@@ -199,7 +225,7 @@
                 member_favorite.forEach(function (scenery1) {
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                            '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img">' +
                             ' <div class="card-body">' +
                             ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
@@ -210,7 +236,7 @@
                 })
                 if (count == 0) {
                     obj.innerHTML += '<div class="card">' +
-                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                        '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img">' +
                         ' <div class="card-body">' +
                         ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                         ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
@@ -355,7 +381,7 @@
                     member_favorite.forEach(function (scenery1) {
                         if (motto[sss * 6 + ddd].ViewName == scenery1.ViewName) {
                             obj.innerHTML += '<div class="card">' +
-                                '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                                '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img">' +
                                 ' <div class="card-body">' +
                                 ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
                                 ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
@@ -366,7 +392,7 @@
                     })
                     if (count == 0) {
                         obj.innerHTML += '<div class="card">' +
-                            '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img" style="width:288px; height:150px">' +
+                            '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img">' +
                             ' <div class="card-body">' +
                             ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
                             ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
