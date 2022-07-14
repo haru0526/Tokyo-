@@ -314,7 +314,7 @@ function sendEmail(email,token) {
         from: 'gemipio1128@gmail.com',
         to: email,
         subject: 'Hello World',
-        html: '<h1>請點擊 <a href="http://localhost:3000/member/reset-password/' + token + '">這裡</a> 重新設定你的密碼</h1>'
+        html: '<h1>請點擊 <a href="http://localhost:3000/reset-password/' + token + '">這裡</a> 重新設定你的密碼</h1>'
     });
   
     console.log("this is my tojen2 :"+token);
