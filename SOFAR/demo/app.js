@@ -74,6 +74,9 @@ app.get("/shibuya", (req, res) => {
 app.get("/south", (req, res) => {
   res.render("south.ejs",{res});
 })
+app.get("/forgotPassword", (req, res) => {
+  res.render("forgotPassword.ejs",{res});
+})
 
 
 
