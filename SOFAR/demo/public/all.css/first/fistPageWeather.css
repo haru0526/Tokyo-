@@ -1,0 +1,49 @@
+svg{
+    height: 100vh;
+    transform:scale(1.2);
+    position: absolute;
+    left: 15%;
+    right: 25%;
+    
+    
+}
+.fwbggg{
+}
+.svgwrap{
+    height: 900px;
+
+}
+
+path{
+    stroke:white;
+    fill:transparent;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+path:hover{
+    fill:#f85a3e;
+    transform: translate(-3px,-3px);
+}
+/* .weekInfo{
+    width: 500px;
+} */
+.weekInfo img{
+    width: 30px;
+    height: 30px;
+}
+#fweastherwww{
+    width: 15%;
+}
+.test{
+    /* position: absolute; */
+    left: 25em;
+}
+.temperature {
+    margin-top: 200px;
+}
+@media(max-width:992px){
+    .temperature {
+        margin-top: 0;
+    }
+
+}
