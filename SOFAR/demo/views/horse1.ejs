@@ -37,7 +37,7 @@
             <div class="row d-flex">
                 <div class="col-12 col-lg-7 col-md-10 col-sm-12 mx-auto">
                     <div class="cardTitle">
-                        <h4 class="p-2 m-2 mx-auto" id="tag">{{name}} &nbsp|| &nbsp {{tag}}</h4>
+                        <h4 class="p-2 m-2 mx-auto tag" id="tag">{{name}} &nbsp|| &nbsp {{tag}}</h4>
                         <div class="like">
                             <a class="btn" id="lovebtn" type="button"><i class="fa-regular fa-heart">最愛</i></a>
                         </div>
@@ -79,13 +79,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cardCont mt-5 p-3" style="background-color: #FFE5E5; font-size:large">
-                        <h4>內容介紹:</h4>
+                    <div class="cardCont mt-5 p-3 m-3" style="background-color: #f9c0c0b0;;font-size:18px;">
+                        <h4 id="underhead">內容介紹:</h4>
                         <span id="const" class="reveal">
                             {{message}}
                         </span>
                     </div>
-                    <div class="text-right">
+                    <div class="text-right mt-4" id="underbody">
                         <hr>
                         <span id="area">
                             {{area}}
@@ -100,15 +100,16 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-12 col-lg-5 col-md-8 col-sm-12 mx-auto mt-5">
+                <div class="col-12 col-lg-5 col-md-8 col-sm-12 mx-auto">
                     <div>
-                        <h4>地圖</h4>
+                        <h4 class="p-2 m-2 mx-auto  tag">地圖</h4>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.4395798295914!2d139.73863095099532!3d35.592221880118004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861c5464d5577%3A0x811ba613aee0e815!2z5aSn5LqV6LO96aas5aC0!5e0!3m2!1szh-TW!2stw!4v1656146262216!5m2!1szh-TW!2stw"
-                            width="98%" height="250"></iframe>
+                            width="100%" height="370"
+                            class="mt-5" id="map"></iframe>
                     </div>
 
-                    <div class="container mx-auto" id="app">
+                    <div class="container mx-auto mt-3 p-2 m-2" id="app">
                         <div class="message">
                             <v-textarea v-model="message"></v-textarea>
                             <button @click="handleSend">送出</button>
@@ -122,7 +123,7 @@
 
                     <script type="text/template" id="v-textarea">
                             <div>
-                                <h4>留言內容 : </h4>
+                                <h4 class="p-2 m-2 mx-auto tag">留言內容:</h4>
                                 <textarea :value="value" @input="$emit('input', $event.target.value)" 
                                 placeholder="請輸入留言內容" type="text"
                                 ></textarea>
@@ -135,7 +136,7 @@
                                     <span>{{ item.name }}</span>
                                     <div class="list-msg">
                                         <p>{{ item.message }}</p>
-                                        <p class="text-right">{{ item.timer}}</p>
+                                        <p class="text-right" style="font-size:18px">{{ item.timer}}</p>
                                         <hr>
                                         <a class="list-reply" @click="handleDelete(index)">&nbsp;&nbsp;刪除&nbsp;<i class="fa-solid fa-trash-can" id="trashicon"></i></a>
                                         <a class="list-reply" @click="handleReply(index)">回覆&nbsp;<i class="fa-solid fa-reply" id="replayicon"></i></a>
