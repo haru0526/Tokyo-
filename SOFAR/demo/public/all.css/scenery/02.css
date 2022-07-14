@@ -83,7 +83,6 @@ input {
 
 /* 彈出式視窗 */
 .modal {
-
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -197,6 +196,8 @@ input {
     /* 增加一些内边距 */
     border-radius: 10px;
     /* 增加圆角 */
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .trytry:hover {
