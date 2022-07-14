@@ -2,26 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美食巡禮</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美食巡禮</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <style>
-        body{
-          background-image: url(../public/images/page_01/背景花4.jpg);
-      }
-        html {
-            height: 100%;
-        }
+  <style>
+    body {
+      background-image: url(../public/images/page_01/背景花4.jpg);
+    }
 
-        /* .TokyoTravelHome {
+    html {
+      height: 100%;
+    }
+
+    /* .TokyoTravelHome {
             background-image: url('../public/images/page_01/美食巡禮橫幅.jpg');
             max-width: 100%;
             max-height: 100%x;
@@ -34,316 +35,450 @@
             border: 1px solid red;
         } */
 
-        .TokyoTravelHomeImg {
-            max-width: 100%;
-            max-height: auto;
-            min-width: 50%;
-            min-height: auto;
-        }
+    .TokyoTravelHomeImg {
+      max-width: 100%;
+      max-height: auto;
+      min-width: 50%;
+      min-height: auto;
+    }
 
-        .row .col-md-6 {
+    .row .col-md-6 {
 
-            /* margin: 0 5px; */
-            /* flex: 1 1 30px; */
-            /* margin-top: 60px; */
-            padding: 10px;
-            color: rgb(8, 8, 8);
-            /* background-image: url(./page01/背景花.jpg); */
-
-
-            /* background: rgb(249, 192, 192); */
-        }
+      /* margin: 0 5px; */
+      /* flex: 1 1 30px; */
+      /* margin-top: 60px; */
+      padding: 10px;
+      color: rgb(8, 8, 8);
+      /* background-image: url(./page01/背景花.jpg); */
 
 
-
-        .row .col-md-6 img{
-            width: 800px;
-            height: 500px;
-
-            max-width: 1000px;
-            max-height: 700px;
-
-            min-width:500px;
-            min-height:350px;
-            
-        }
-
-        .row .col-md-6 h3 {
-            text-align: center;
-            font-size: 50px;
-            flex: 1 1 30px;
+      /* background: rgb(249, 192, 192); */
+    }
 
 
 
-        }
+    .row .col-md-6 img {
+      width: 800px;
+      height: 500px;
+
+      max-width: 1000px;
+      max-height: 700px;
+
+      min-width: 500px;
+      min-height: 350px;
+
+    }
+
+    .row .col-md-6 h3 {
+      text-align: center;
+      font-size: 50px;
+      flex: 1 1 30px;
+
+
+
+    }
 
 
 
 
 
-        /* 文章 */
-        .row .col-md-6 p {
-            font-size: 10px;
-            padding: 5px;
-            /* margin-bottom: 10px; */
-            /* font-weight: bold; */
-            background-color: rgb(241, 221, 221);
-            background:rgba(236, 233, 225, 0.429);
-            
+    /* 文章 */
+    .row .col-md-6 p {
+      font-size: 10px;
+      padding: 5px;
+      /* margin-bottom: 10px; */
+      /* font-weight: bold; */
+      background-color: rgb(241, 221, 221);
+      background: rgba(236, 233, 225, 0.429);
 
-        }
 
-        #menu123 a{
-            font-size: 25px;
-            margin:25px;
-            color: black;
-        }
+    }
 
-        #menu123 a:hover{
-            font-size: 25px;
-            margin:25px ;
-            color: rgb(161, 56, 56);
-        }
-    </style>
+    #menu123 a {
+      font-size: 25px;
+      margin: 25px;
+      color: black;
+    }
+
+    #menu123 a:hover {
+      font-size: 25px;
+      margin: 25px;
+      color: rgb(161, 56, 56);
+    }
+
+
+    .container {
+      padding-right: 30px;
+      padding-left: 30px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .site-content {
+      margin-top: 38px;
+    }
+
+    .col-md-3,
+    .col-sm-6,
+    .col-xs-12 {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .card-img-top {
+      overflow: hidden
+    }
+
+    .card-img-top {
+      height: auto;
+      max-width: 100%;
+      /* transition: all 0.3s;
+      transform: scale(1);
+      width: 100%; */
+    }
+
+    .gggg {
+      padding: 3px 7px 3px 10px;
+      line-height: 25px;
+      font-weight: 400;
+      background: #cac5b5;
+    }
+
+    .gggg a {
+      color: rgb(248, 247, 247);
+      font-size: 13px;
+      font-family: "Nunito Sans", sans-serif;
+    }
+
+
+    .foodtitle2 {
+      padding: 2px 0;
+      font-weight: 700;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 24px;
+      border-left: 5px solid #0f5fa3;
+      position: relative;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      margin-top: 65px;
+      line-height: 26px;
+    }
+
+    .foodtitle2>span {
+      padding-left: 18px;
+      background-color: #FFF;
+      z-index: 1;
+      font-family: "Nunito Sans", sans-serif;
+      position: relative;
+      padding-right: 18px;
+      color: #001936;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .foodtitle2 ::after {
+      content: '';
+      width: 100%;
+      height: 0px;
+      border-bottom: 1px dotted #b7b7b7;
+      position: absolute;
+      display: block;
+      top: 12px;
+      right: 0;
+    }
+
+    ::after {
+      box-sizing: inherit
+    }
+
+    .col-md-4,
+    .col-xs-6 {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .row no-gutters {
+      display: inline-block;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+
+    .smalltitle1 a {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 20px;
+      padding-left: 1px;
+    }
+
+    .smalltitle1 {
+      padding-left: 10px;
+    }
+
+    .small-x-date {
+      line-height: 25px;
+      font-weight: 400;
+      font-size: 12px;
+      font-family: "Nunito Sans", sans-serif;
+      color: #bfbfbf;
+    }
+  </style>
 </head>
 
 <body>
-    <%- include('navbar.ejs') %>
-    <!-- <ul id=menu123>
-        <li><a href="./page_01_food.html">美食巡禮</a>
-        <li><a href="./travel1.html">文化巡禮</a>
-        <li><a href="./travel3.html">風景巡禮</a>
-        <li><a href="./travel2.html">動漫巡禮</a>
-    </ul> -->
+  <%- include('navbar.ejs') %>
     <div class="TokyoTravelHome">
       <img src="../public/images/page_01/美食巡禮橫幅.jpg" alt="" class="TokyoTravelHomeImg">
-        <!-- <img src="./page01/project2.jpg" alt="" class="back1" >   -->
+      <!-- <img src="./page01/project2.jpg" alt="" class="back1" >   -->
     </div>
     <hr>
-    <div style="text-align: center; " id=menu123 >
-        <a href="/allPage/page_01_food">美食巡禮</a>
-        <a href="/allPage/page_01_culture">文化巡禮</a>
-        <a href="/allPage/page_01_scape">風景巡禮</a>
-        <a href="/allPage/page_01_anime">動漫巡禮</a>
+    <div style="text-align: center; " id=menu123>
+      <a href="/allPage/page_01_food">美食巡禮</a>
+      <a href="/allPage/page_01_culture">文化巡禮</a>
+      <a href="/allPage/page_01_scape">風景巡禮</a>
+      <a href="/allPage/page_01_anime">動漫巡禮</a>
     </div>
- 
+
     <hr>
+    <div class="container site-content">
+      <div class="row">
+        <!-- 第一欄倫波 -->
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div id="demo" class="carousel slide" data-bs-ride="carousel1">
 
-    <div class="row">
-        <div class="col-md-6" id="backgrand1">
-            <div class="fs-2" style="font-weight: bold;">鳥椿 鶯谷朝顔通り店</div>
-            <br>
-            
-            <p class="fs-5" id="cj_p">孤獨的美食家店家巡禮，這次是來一家在鶯谷駅的日式居酒屋
-                店名是「鳥椿 鶯谷朝顔通り店」，是在孤獨的美食家第三季第8話的出場店家
-                這家店是隱藏在鶯谷的風化區小巷子裡面的居酒屋。這家店是早上10點就開始營業的居酒屋，號稱讓你早上開始就可以買醉(不喝酒也完全沒問題，但一定要點杯飲料是日本居酒屋的基本禮儀喔)
-                店家很貼心的有準備"五郎's"套餐，只要加點一杯烏龍茶就可以完美重現!
-            </p>
-                <br>
-            <div  class="fs-3" id="backgrand1">本集五郎SET:</div>
-            <p class="fs-5" id="cj_p">
-                ウーロン茶(五郎萬年飲料烏龍茶....)、油淋肝(有一點像我們的炸豬肝)、ハムカツ(炸火腿)、おろしポン酢(加了醋的蘿蔔泥料理)、ライス・(白飯)、アボカドメンチ(炸酪梨肉球)、「鳥鍋めし」(燉煮雞肉飯)
-                <br><br>
-                首推的就是這道炸火腿，如其名就是把火腿沾上薄薄的麵衣後拿去炸，火腿真的非常厚。五郎在日劇裡面有幫大家量過大蓋2.5cm厚，火腿吃起來很軟，不會油膩
-                因為很厚所以很有飽足感，麵衣因為跟火腿比起來真的是超級薄。而醬汁的部分醬油為主，除了雞肉之外，還有蒟蒻以及炸嫩豆腐
-
-                雞肉是一口的大小，非常好入口，而且不會柴，搭配一口飯非常剛好。如果睡太晚沒吃到飯店的早餐的話，不如來這裡喝一杯吧~
-            </p> 
-            
-        </div>
-
-        <div class="col-md-6" style="text-align: center;">
-            <div id="demo" class="carousel slide" data-bs-ride="carousel1">
-
-                <!-- 指示符 -->
-               <div class="carousel-indicators">
-                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-               </div>
-               
-               <!-- 轮播图片 -->
-               <div class="carousel-inner">
-                 <div class="carousel-item active">
-                   <img src="../public/images/page_01/鳥椿1.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/鳥椿2.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/morning.jpg" class="d-block" style="width:100%">
-                 </div>
-               </div>
-               
-               <!-- 左右切换按钮 -->
-               <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon"></span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                 <span class="carousel-control-next-icon"></span>
-               </button>
+            <!-- 指示符 -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
-            <!-- <img class="img-fluid" src="./page01/鳥椿1.jpg" alt="主圖"> -->
-            <p class="fs-6">Tsubaki (鳥椿):東京都 台東区 根岸 1-1-15 渡辺ビル１F(鶯谷車站南口步行3分鐘)，電話: 03-5808-9188 (+81-3-5808-9188)，營業時間:10:00-23:00</p>
-            
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-6" style="text-align: center;">
-            <div id="demo2" class="carousel slide" data-bs-ride="carousel2">
 
-                <!-- 指示符 -->
-               <div class="carousel-indicators">
-                 <button type="button" data-bs-target="#demo2" data-bs-slide-to="0" class="active"></button>
-                 <button type="button" data-bs-target="#demo2" data-bs-slide-to="1"></button>
-                 <button type="button" data-bs-target="#demo2" data-bs-slide-to="2"></button>
-               </div>
-               
-               <!-- 轮播图片 -->
-               <div class="carousel-inner">
-                 <div class="carousel-item active">
-                   <img src="../public/images/page_01/福丸2.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/snake2.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/福丸1.jpg" class="d-block" style="width:100%">
-                 </div>
-               </div>
-               
-               <!-- 左右切换按钮 -->
-               <button class="carousel-control-prev" type="button" data-bs-target="#demo2" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon"></span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#demo2" data-bs-slide="next">
-                 <span class="carousel-control-next-icon"></span>
-               </button>
+            <!-- 轮播图片 -->
+            <div class="carousel-inner" style="width:950px ;height: auto;min-width: 500px">
+              <div class="carousel-item active">
+                <img src="../public/images/page_01/美食輪播1.jpeg" class="d-block"
+                  style="width:100% ;height: auto;min-width: 500px">
+              </div>
+              <div class="carousel-item">
+                <img src="../public/images/page_01/美食輪播2.jpeg" class="d-block"
+                  style="width:100% ;height: auto;min-width: 500px">
+              </div>
+              <div class="carousel-item">
+                <img src="../public/images/page_01/美食輪播4.jpeg" class="d-block"
+                  style="width:100% ;height: auto;min-width: 500px ">
+              </div>
             </div>
-            <!-- <img class="img-fluid" src="./page01/福丸1.jpg" alt="主圖"> -->
-            <p class="fs-6">東京都 台東区 谷中 3-7-8，電話:+81-3-3823-0709，營業時間:10:30～18:00</p>
-            
-        </div>
-        <div class="col-md-6" id="backgrand1">
-            <div class="fs-3" style="font-weight: bold;">福丸饅頭</div>
-            <br>
 
-            <p class="fs-5">谷中銀座是東京出了名的老街，也是貓迷口中的貓街，不過因為近年來觀光客大增，基本上現在要在這看到活生生的貓難度可是越來越高，除非是盡往小巷子裡鑽，另外在老商店街口的石梯，也是日本有名的夕陽階梯。在谷中銀座的散步中心有三種tabelog分數很高的甜點店，除了這篇要介紹的福丸饅頭(孤獨的美食家第一季第11話)外，TABELOG:3.79的ひみつ堂和3.77的和栗や也是谷中銀座附近前兩名人氣的店，至於第三名則是同樣每次去都看到長長人龍的「根津のたいやき」(3,73分)。
-                <br>
-                來到谷中銀座六十多年饅頭老店(創業於昭和30年(1955年))「福丸」。看倌可別被這個節目騙了，怎可能外面一個人也沒有...實際上是常常是人山人海啊。
-            </p>
-            <div  class="fs-3" id="backgrand1">本集五郎SET:</div>
-            <p class="fs-5">除了一般傳統的大福外，福丸真正有名的是用了日本傳統花林糖製作的「炸饅頭」(かりんとうまんじゅう)，節目播出後更成為該店的人氣商品，不曉得是不是問的人太多，店家乾脆把這個饅頭單獨拉出來賣，並給予特別的單獨包裝，單個售價80日幣，當然最多人買的還是整盒的禮盒和其他日本傳統點心當伴手禮。吃起來是酥脆帶有微甜的風味，建議買瓶綠茶搭配解膩喔，店內也有免費的熱茶提供。
-            </p> 
-       
-            
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-6" style="text-align: center;">
-            <div id="demo4" class="carousel slide" data-bs-ride="carousel4">
+            <!-- 左右切换按钮 -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+          <hr>
+          <div class="fs-2">本月活動!孤獨的美食家專欄，跟著五郎一起吃遍東京!</div>
 
-                <!-- 指示符 -->
-               <div class="carousel-indicators">
-                 <button type="button" data-bs-target="#demo4" data-bs-slide-to="0" class="active"></button>
-                 <button type="button" data-bs-target="#demo4" data-bs-slide-to="1"></button>
-                 <button type="button" data-bs-target="#demo4" data-bs-slide-to="2"></button>
-               </div>
-               
-               <!-- 轮播图片 -->
-               <div class="carousel-inner">
-                 <div class="carousel-item active">
-                   <img src="../public/images/page_01/兩國1.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/兩國2.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/snake3.jpg" class="d-block" style="width:100%">
-                 </div>
-               </div>
-               
-               <!-- 左右切换按钮 -->
-               <button class="carousel-control-prev" type="button" data-bs-target="#demo4" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon"></span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#demo4" data-bs-slide="next">
-                 <span class="carousel-control-next-icon"></span>
-               </button>
+        </div>
+        <!-- 第一籃小圖 -->
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="container site-content">
+            <div class="row">
+              <div class="col-sm-5 ">
+                <img src="../public/images/page_01/鰻魚小圖.jpg" alt="" style="max-height: 80px">
+              </div>
+
+              <div class="col-sm-7 ">
+                <div class="smalltitle1">
+                  <a href="">乾燒鰻魚是在不放調料的情況下直接烤鰻魚，能夠品嚐到鰻魚自身的鮮味...</a>
+                </div>
+                <span class="small-x-date">May 10, 2022</span>
+              </div>
             </div>
-            <!-- <img class="img-fluid" src="./page01/福丸1.jpg" alt="主圖"> -->
-            <p class="fs-6">「両国 國技堂」和菓子舖:東京都墨田區両国2-17-3(JR両国駅東口)，電話：03-3631-3856，營業時間：10:00～20:00</p>
-            
-        </div>
-        <div class="col-md-6" id="backgrand1">
-            <div class="fs-3" style="font-weight: bold;">國技堂(日式和果子專賣)</div>
-            <br>
+          </div>
+          <div class="container site-content">
+            <div class="row">
+              <div class="col-sm-5 ">
+                <img src="../public/images/page_01/梅園小圖.jpg" alt="" style="max-height: 80px">
+              </div>
 
-            <p class="fs-5">出了兩國站「東」口後立馬左轉沿著相撲街走約1-2分鐘就會在左側發現這間(食べログ3.43)分數不低的和果子店-「國技堂」。一樓基本上是賣場，賣的都是當地的拌手禮和絕大部份和「相撲」有關的紀念品。樓上是帶點日式的用餐空間，小歸小不過挺有味道的。MENU方面以甜點為主，有冰的也有熱的，紅豆、麻吉和一些日式傳統茶屋都有的甜點。
-                <br>
-            </p>
-            <div  class="fs-3" id="backgrand1">本集五郎SET:</div>
-            <p class="fs-5">這裡的五郎套餐是糰子三兄弟，搭配的是熱抹茶，原味灑上海苔、傳統醬油糰子、艾草糰子上則放了滿滿的紅豆泥(600日幣)。附上的茶杯每個都不一樣，前面是相撲選手的卡通臉，後面是它的生平和戰績，甚至連他的絕招也有寫。真不愧是在日本最有名的相撲聖地
-                
-                醬油糰子甜比鹹多一點，微黏微滑的口感帶點像是化開的乳化效果和糰子耐嚼的Q度其實很搭。而兩技堂的醬油又更黏更纏也更甜，但咀嚼後烤出的香氣和糰子的甜度都非常的正點，超好吃的!草糰子的口感更加Q彈美味，搭上微甜的紅豆泥讓整體的味道像活過來似的，好吃的亂七八糟。
-            </p> 
-       
-            
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-6" id="backgrand1">
-            <div class="fs-3" style="font-weight: bold;">割烹ちゃんこ 大内(相撲鍋)</div>
-            <br>
-            <p class="fs-5">両国国技館為東京著名的運動場館，主要以舉辦相撲比賽聞名，出了兩國站「東」口後立馬左轉，你就會看到一條馬路邊上有相撲銅像的街道，過了國技堂後會來到一個十字路口，往右轉一分鐘的下一個路口左轉後就會看到這個加油站，再右轉進巷內約1分鐘就可以看到「割烹ちゃんこ 大内」。店內旁邊放了許多曾來訪的相撲名士紀念章、照片、簽名板和紀念品等，這在兩國的很多食堂，尤其是相撲鍋店是很常見的。
-               
-
-            </p> <br>
-            <div  class="fs-3" id="backgrand1">本集五郎SET:</div><br>
-            <p class="fs-5">    想跟五郎一樣的話覺選相撲鍋（ちゃんこ鍋）2750日幣。不喜歡雞肉的話也有豬肉或是魚可以替換。
-                
-                相撲鍋是日本鍋料理的一種，原本是為了培養相撲力士的相撲體格而開發出來的料理，現在亦成為大眾飲食之一。特色是份量大、內容豐富。所以食量不大的話兩人點一人份就OK了喔，除了雞肉丸和雞肉外，豆腐、大白菜、大蔥、香菇都是相撲鍋常見的配菜。吃相撲鍋最後一定要加麵或是飯，那是因為以前相撲力士食量大，怕他們吃不飽之舉。五郎劇中選的是烏龍麵，學著五郎加入蔥花和天ガス（天婦羅屑屑)更添美味，尤其是吸了湯汁的天ガス超好吃的。
-            </p> 
-        </div>
-
-        <div class="col-md-6" style="text-align: center;">
-            <div id="demo3" class="carousel slide" data-bs-ride="carousel3">
-
-                <!-- 指示符 -->
-               <div class="carousel-indicators">
-                 <button type="button" data-bs-target="#demo3" data-bs-slide-to="0" class="active"></button>
-                 <button type="button" data-bs-target="#demo3" data-bs-slide-to="1"></button>
-                 <button type="button" data-bs-target="#demo3" data-bs-slide-to="2"></button>
-               </div>
-               
-               <!-- 轮播图片 -->
-               <div class="carousel-inner">
-                 <div class="carousel-item active">
-                   <img src="../public/images/page_01/相撲1.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/相撲2.jpg" class="d-block" style="width:100%">
-                 </div>
-                 <div class="carousel-item">
-                   <img src="../public/images/page_01/相撲3.jpg" class="d-block" style="width:100%">
-                 </div>
-               </div>
-               
-               <!-- 左右切换按钮 -->
-               <button class="carousel-control-prev" type="button" data-bs-target="#demo3" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon"></span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#demo3" data-bs-slide="next">
-                 <span class="carousel-control-next-icon"></span>
-               </button>
+              <div class="col-sm-7 ">
+                <div class="smalltitle1">
+                  <a href="">如果想要品嚐日本的甜點、和菓子，一定要去淺草的「梅園(うめぞの)」吃吃看...</a>
+                </div>
+                <span class="small-x-date">May 10, 2022</span>
+              </div>
             </div>
-            <!-- <img class="img-fluid" src="./page01/相撲2.jpg" alt="主圖"> -->
-            <p class="fs-6">割烹ちゃんこ 大内:東京都 墨田区 両国 2-9-6，電話:03-3635-5349，營業時間:11:30～13:30、7:00～22:00</p>
-            
+          </div>
+          <div class="container site-content">
+            <div class="row">
+              <div class="col-sm-5 ">
+                <img src="../public/images/page_01/天婦羅小圖.jpg" alt="" style="max-height: 80px">
+              </div>
+
+              <div class="col-sm-7 ">
+                <div class="smalltitle1">
+                  <a href="">喜歡“天婦羅”的人應該不少吧。大黑屋天婦羅是用120年傳統醬汁與香油作調料...</a>
+                </div>
+                <span class="small-x-date">May 10, 2022</span>
+              </div>
+            </div>
+          </div>
+          <div class="container site-content">
+            <div class="row">
+              <div class="col-sm-5 ">
+                <img src="../public/images/page_01/梅園小圖.jpg" alt="" style="max-height: 80px">
+              </div>
+
+              <div class="col-sm-7 ">
+                <div class="smalltitle1">
+                  <a href="">谷中銀座是東京出了名的老街，也是貓迷口中的貓街...</a>
+                </div>
+                <span class="small-x-date">May 10, 2022</span>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+
+
+      </div>
+
+
+      <div class="foodtitle2">
+        <span> 孤獨的美食家劇集中出現的店家</span>
+
+
+      </div>
+      <!-- 第一個卡片 -->
+      <div class="container site-content">
+        <div class="row">
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <img width="500" height="360" src="../public/images/page_01/鳥椿小圖.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <span class="gggg">
+                  <a>荒川區</a>
+                </span>
+                <p class="card-text">這家店是隱藏在鶯谷的風化區小巷子裡面的居酒屋。這家店是早上10點就開始營業的居酒屋，號稱讓你早上開始....</p>
+                <a href="https://www.hakonenavi.jp/international/tw/spot/77">查看更多</a>
+              </div>
+            </div>
+          </div>
+          <!-- 小圖 -->
+
+
+
+
+          <!-- 第二個卡片 -->
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <img width="500" height="360" src="../public/images/page_01/福丸小圖.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <span class="gggg">
+                  <a>世田谷區</a>
+
+                </span>
+                <p class="card-text">
+                  福丸有名的是用了日本傳統花林糖製作的「炸饅頭」(かりんとうまんじゅう)，節目播出後更成為該店的人氣商品....
+                </p>
+                <a href="https://www.hakonenavi.jp/international/tw/spot/77">查看更多</a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- 第三個卡片 -->
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <img width="500" height="360" src="../public/images/page_01/相撲2.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <span class="gggg">
+                  <a>中央區</a>
+
+                </span>
+                <p class="card-text">相撲鍋是日本鍋料理的一種，原本是為了培養相撲力士的相撲體格而開發出來的料理，現在亦成為大眾飲食之一...</p>
+                <a href="https://www.hakonenavi.jp/international/tw/spot/77">查看更多</a>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container site-content">
+        <div class="row">
+          <!-- 第一欄倫波 -->
+          <div class="col-md-9 col-sm-8 col-xs-12">
+            <img width="100%" src="../public/images/page_01/food1.jpg" alt="">
+
+          </div>
+          <!-- 第二欄 -->
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="container site-content">
+              <div class="row">
+                <div class="col-sm-5 ">
+                  <img src="../public/images/page_01/兩國1.jpg" alt="" style="max-height: 80px">
+                </div>
+
+                <div class="col-sm-7 ">
+                  <div class="smalltitle1">
+                    <a href="">谷中銀座是東京出了名的老街，也是貓迷口中的貓街...</a>
+                  </div>
+                  <span class="small-x-date">May 10, 2022</span>
+                </div>
+              </div>
+            </div>
+            <div class="container site-content">
+              <div class="row">
+                <div class="col-sm-5 ">
+                  <img src="../public/images/page_01/兩國1.jpg" alt="" style="max-height: 80px">
+                </div>
+
+                <div class="col-sm-7 ">
+                  <div class="smalltitle1">
+                    <a href="">谷中銀座是東京出了名的老街，也是貓迷口中的貓街...</a>
+                  </div>
+                  <span class="small-x-date">May 10, 2022</span>
+                </div>
+              </div>
+            </div>
+            <div class="container site-content">
+              <div class="row">
+                <div class="col-sm-5 ">
+                  <img src="../public/images/page_01/兩國1.jpg" alt="" style="max-height: 80px">
+                </div>
+
+                <div class="col-sm-7 ">
+                  <div class="smalltitle1">
+                    <a href="">谷中銀座是東京出了名的老街，也是貓迷口中的貓街...</a>
+                  </div>
+                  <span class="small-x-date">May 10, 2022</span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
     </div>
     <%- include('footer.ejs') %>
 </body>
