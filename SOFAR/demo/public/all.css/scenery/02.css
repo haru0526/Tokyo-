@@ -1,7 +1,3 @@
-
-
-
-
 body {
     background-image: url("../../images/EllisImages/page03/背景花4.jpeg");
     background-repeat: repeat;
@@ -45,8 +41,8 @@ input {
 
 .aaaaa {
     display: inline-block;
-    margin-left: 10px ;
-    margin-right: 10px ;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .aaaaa:hover {
@@ -75,7 +71,7 @@ input {
     font-size: 30px;
     font-weight: bold;
     background-color: #F9C0C0;
-    
+
 }
 
 /* 景點 */
@@ -119,31 +115,39 @@ input {
     background-color: #fefefe;
     margin: 50px auto;
     /* 15% from the top and centered */
-    padding:0  20px;
+    padding: 0 20px;
     border: 1px solid #888;
 
     /* Could be more or less, depending on screen size */
 }
-#myModal_inner{
-    width: 60%;
 
+#myModal_inner {
+    width: 60%;
 }
 
 /* 彈出式視窗 文字 圖片*/
-.modal-content img,
-.modal-content p {
+.modal-content img {
     float: left;
     display: block;
     margin: auto;
     padding: 0 0 10px 0;
     text-align: center;
-    border: 2px solid green;
+
+}
+
+.modal-content h3 {
+    overflow: visible;
+
 }
 
 .modal-content img {
-    width: 50%;
+    width: 70%;
 }
 
+.modal-content button{
+    height: 50px;
+    font-size: 30px;
+}
 /* The Close Button 叉叉*/
 .close {
     color: black;
@@ -156,7 +160,6 @@ input {
 .close:hover,
 .close:focus {
     color: blue;
-
     cursor: pointer;
 }
 
@@ -166,35 +169,46 @@ input {
     margin: 10px auto;
     clear: both;
     position: relative;
-
 }
 
 .trytry {
-    display: none; /* 默认是隐藏的，这样在第一屏才不显示 */
-    position: fixed; /* 位置是固定的 */
+    display: none;
+    /* 默认是隐藏的，这样在第一屏才不显示 */
+    position: fixed;
+    /* 位置是固定的 */
     zoom: 200%;
-    bottom: 20px; /* 显示在页面底部 */
-    left: 30px; /* 显示在页面的右边 */
-    z-index: 99; /* 确保不被其他功能覆盖 */
-    border: 1px solid #5cb85c; /* 显示边框 */
-    outline: none; /* 不显示外框 */
-    background-color: #fff; /* 设置背景背景颜色 */
-    color: #5cb85c; /* 设置文本颜色 */
-    cursor: pointer; /* 鼠标移到按钮上显示手型 */
-    padding: 10px 15px 15px 15px; /* 增加一些内边距 */
-    border-radius: 10px; /* 增加圆角 */
-  }
-  
-  .trytry:hover {
-    background-color: #5cb85c; /* 鼠标移上去时，反转颜色 */
+    bottom: 20px;
+    /* 显示在页面底部 */
+    left: 30px;
+    /* 显示在页面的右边 */
+    z-index: 99;
+    /* 确保不被其他功能覆盖 */
+    border: 1px solid #5cb85c;
+    /* 显示边框 */
+    outline: none;
+    /* 不显示外框 */
+    background-color: #fff;
+    /* 设置背景背景颜色 */
+    color: #5cb85c;
+    /* 设置文本颜色 */
+    cursor: pointer;
+    /* 鼠标移到按钮上显示手型 */
+    padding: 10px 15px 15px 15px;
+    /* 增加一些内边距 */
+    border-radius: 10px;
+    /* 增加圆角 */
+}
+
+.trytry:hover {
+    background-color: #5cb85c;
+    /* 鼠标移上去时，反转颜色 */
     color: #fff;
-  }
-  
+}
+
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-
 }
 
 @media only screen and (max-width: 4000px) {
@@ -226,6 +240,10 @@ input {
     .index_right {
         width: 910px;
         border-radius: 5px;
+    }
+
+    .modal-content h3 {
+        font-size: 30px !important;
     }
 
     .more {
@@ -279,21 +297,24 @@ input {
         margin: 10px auto;
     }
 
-    .modal-content {
-        margin: 15% auto;
-        /* 15% from the top and centered */
-        width: 80%;
 
+
+    .modal-content h3 {
+        font-size: 20px !important;
     }
 
     .modal-content p {
         font-size: medium;
     }
-
+    .modal-content button{
+        height: 30px;
+        font-size: 20px;
+    }
     .footer {
         display: none;
     }
-    .trytry{
+
+    .trytry {
         zoom: 100%;
     }
 }
