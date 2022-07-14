@@ -13,10 +13,7 @@ input {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 420px;
-    height: 390px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-right: auto;
+    height: 430px;
     float: left;
     margin: 5px;
     padding: 5px;
@@ -143,10 +140,11 @@ input {
     width: 70%;
 }
 
-.modal-content button{
+.modal-content button {
     height: 50px;
     font-size: 30px;
 }
+
 /* The Close Button 叉叉*/
 .close {
     color: black;
@@ -170,6 +168,7 @@ input {
     margin: 10px auto;
     clear: both;
     position: relative;
+    border-radius: 5px;
 }
 
 .trytry {
@@ -221,6 +220,8 @@ input {
 @media only screen and (max-width: 1700px) {
     .card {
         width: 32%;
+        height: 368px;
+        font-size: 17px;
     }
 
     .card-img {
@@ -307,10 +308,12 @@ input {
     .modal-content p {
         font-size: medium;
     }
-    .modal-content button{
+
+    .modal-content button {
         height: 30px;
         font-size: 20px;
     }
+
     .footer {
         display: none;
     }

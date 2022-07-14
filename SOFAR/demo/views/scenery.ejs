@@ -178,7 +178,7 @@
         function high(changi) {
             var num = Math.floor(changi / 6) + 1;
             // if (num > 4) { num = 4 };
-            $('.content2').css('min-height', `${num * 800 + 10}px`);
+            $('.content2').css('min-height', `${num * 880 + 10}px`);
         }
 
         //執行
@@ -226,22 +226,27 @@
                     if (item.ViewName == scenery1.ViewName) {
                         obj.innerHTML += '<div class="card">' +
                             '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img">' +
-                            ' <div class="card-body">' +
-                            ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
+
+                            ' <div class="card-body position-relative"><br>' +
+                            ' <p>' + item.ViewName + '</p>' +
+                            '<span class="badge bg-primary position-absolute top-0 start-0">' + item.ViewTag + '</span>' +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button>'
-                        '</div>';
+                            ' <button class="fa fa-heart fixed" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
+                            '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + item.Area + '</span>' +
+                            '</div></div>';
                         count = 1;
                     }
                 })
                 if (count == 0) {
                     obj.innerHTML += '<div class="card">' +
                         '<img src = "../public/images/scenery/' + item.ViewImage + '" class="card-img">' +
-                        ' <div class="card-body">' +
+                        ' <div class="card-body position-relative"><br>' +
                         ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
+                        '<span class="badge bg-primary position-absolute top-0 start-0">' + item.ViewTag + '</span>' +
                         ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
-                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + item.ViewID + '" >點擊加入最愛</button>'
-                    '</div>';
+                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
+                        '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + item.Area + '</span>' +
+                        '</div></div>';
                 }
                 i++;
                 count = 0;
@@ -381,25 +386,29 @@
                         if (motto[sss * 6 + ddd].ViewName == scenery1.ViewName) {
                             obj.innerHTML += '<div class="card">' +
                                 '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img">' +
-                                ' <div class="card-body">' +
+                                ' <div class="card-body  position-relative"><br>' +
                                 ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
+                                '<span class="badge bg-primary position-absolute top-0 start-0">' + motto[sss * 6 + ddd].ViewTag + '</span>' +
                                 ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
-                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button>'
-                            '</div>';
+                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button><br>' +
+                                '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + motto[sss * 6 + ddd].Area + '</span>' +
+                                '</div>';
                             count = 1;
                         }
                     })
                     if (count == 0) {
                         obj.innerHTML += '<div class="card">' +
                             '<img src = "../public/images/scenery/' + motto[sss * 6 + ddd].ViewImage + '" class="card-img">' +
-                            ' <div class="card-body">' +
+                            ' <div class="card-body  position-relative"><br>' +
                             ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
+                            '<span class="badge bg-primary position-absolute top-0 start-0">' + motto[sss * 6 + ddd].ViewTag + '</span>' +
                             ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button>'
-                        '</div>';
+                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button><br>' +
+                            '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + motto[sss * 6 + ddd].Area + '</span>' +
+                            '</div>';
                     }
                     count = 0;
-                    high(sss * 6 );
+                    high(sss * 6);
                 }
             } else if (motto.length <= sss * 6) {
                 //沒有資料||不夠
