@@ -27,7 +27,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="../public/images/EllisImages/page03/721855.jpeg"
-                        class="d-block w-100 img-fluid backdrop-invert " id="shibusky" alt="...">
+                        class="d-block w-100 img-fluid backdrop-invert " id="shibuyasky" alt="...">
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="container">
                             <div id="cardclub"
-                                class="card col-10 col-md-10 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3 reveal">
+                                class="card col-12 col-md-12 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3 reveal">
                                 <!-- 挖掉寫卡片 -->
                             </div>
                         </div>
@@ -102,9 +102,10 @@
                     </div>
                     <div class="container">
                         <div id="cardhorse"
-                            class="card col-10 col-md-10 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3">
+                            class="card col-12 col-md-12 w-100 border border-danger shadow-lg p-3 mb-5 bg-body rounded mx-auto p-3 m-3 ">
                             <!-- 挖掉寫卡片 -->
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -164,9 +165,9 @@
                         `
             <img src="../public/images/EllisImages/page03/${card[0]}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h4 class="card-title">${card[1]}</h4>
-                                <h5 class="card-text ">${card[2]}</h5>
-                                <a href="/member/${card[3]}" class="btn btn-outline-primary 3" id=${card[4]}>查看更多</a>
+                                <h4 class="card-title p-2 m-2 mx-auto tag">${card[1]}</h4>
+                                <h5 class="card-text" style="font-size:26px">${card[2]}</h5>
+                                <a href="/member/${card[3]}" class="btn btn-outline-primary mx-auto" id=${card[4]}>查看更多</a>
                             </div>
                         </div>
                         <br>
@@ -185,10 +186,10 @@
                     $("#cardhorse").append(
                         `
             <img src="../public/images/EllisImages/page03/${card[0]}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h4 class="card-title ">${card[1]}</h4>
-                                <h5 class="card-text">${card[2]}</h5>
-                                <a href="/member/${card[3]}" class="btn btn-outline-primary -3" id=${card[4]}>查看更多</a>
+                            <div class="card-body ">
+                                <h4 class="card-title p-2 m-2 mx-auto  tag ">${card[1]}</h4>
+                                <h5 class="card-text" style="font-size:26px">${card[2]}</h5>
+                                <a href="/member/${card[3]}" class="btn btn-outline-primary mx-auto" id=${card[4]}>查看更多</a>
                             </div>
                         </div>
                         <br>

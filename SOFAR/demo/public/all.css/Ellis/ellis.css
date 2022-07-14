@@ -1,28 +1,41 @@
 * {
     padding: 0;
     margin: 0;
-    font-weight: 500;
 }
 span{
     font-size: larger;
+}
+.tag{
+    background-color: #F9C0C0;
+    font-size: 25px;
+    font-weight: 550;
+    border: solid #913660;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+#map{
+    border-radius: 10px;
+    border: 2px solid #913660;
 }
 
 /* 動畫特效 */
 .reveal {
     position: relative;
-    transform: translateY(150px);
+    transform: translateX(180px);
     opacity: 0;
     transition: all 1.5s ease;
 }
 
 .reveal.active {
-    transform: translateY(0px);
+    transform: translateY(50px);
     opacity: 1;
 }
 
 .fa-solid {
     color: red;
-    font-size: larger;
+    font-size: 20px;
+  
 }
 
 #lovebtn {
@@ -31,28 +44,46 @@ span{
 
 #trashicon {
     color: #777e86;
-    font-size: larger;
+    font-size: 20px;
 }
 
 #replayicon {
     color: #777e86;
-    font-size: larger;
+    font-size: 20px;
+}
+#underhead{
+    border: 3px solid rgb(223, 122, 147);
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 550;
+    margin: 15px;
+    
+}
+#underbody{
+    background-color: #f9c0c0b0;
+    font-size: 18px;
+    padding: 20px;
+    margin: 10px;
 }
 
 /* 主題選單 */
 #ellisnav {
     background-color: #F9C0C0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
+    border: 3px solid #913660;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    margin: 25px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
 }
 
 /* 澀谷天空 */
-#shibusky {
+#shibuyasky {
     display: block;
     width: 100%;
-    height: 800px;
+    height: 700px;
     object-fit: cover;
     object-position: center;
     overflow: hidden;
@@ -69,19 +100,23 @@ span{
 }
 
 .card-img-top {
-    height: 350px;
+    height: 400px;
     width: auto;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 /* 會員首頁卡片下方色彩 */
 .card-body {
-    background-color: #F9C0C0;
+    background-color: #f9c0c09d;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 /* 留言板設定 */
 #app {
-    height: 650px;
+    height: 700px;
     overflow: scroll;
 }
 
@@ -155,6 +190,7 @@ span{
     font-size: 20px;
     font-weight: 500;
     border-radius: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 
 }
