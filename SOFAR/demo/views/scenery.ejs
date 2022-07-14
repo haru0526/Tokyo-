@@ -133,7 +133,7 @@
             })
             // console.log(travel);
             all(travel);
-            high(6);
+            high(7);
             $(".more").remove();
             $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
         }
@@ -177,6 +177,9 @@
         //主頁面高度
         function high(changi) {
             var num = Math.floor(changi / 6) + 1;
+            if (changi == 6) {
+                num = num - 1;
+            }
             // if (num > 4) { num = 4 };
             $('.content2').css('min-height', `${num * 880 + 10}px`);
         }
@@ -231,7 +234,7 @@
                             ' <p>' + item.ViewName + '</p>' +
                             '<span class="badge bg-primary position-absolute top-0 start-0">' + item.ViewTag + '</span>' +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart fixed" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
+                            ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
                             '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + item.Area + '</span>' +
                             '</div></div>';
                         count = 1;
@@ -279,7 +282,7 @@
                 $("#index_right2").after('<div><button class="more" onclick="more(output)">load more</button></div>');
                 // console.log(output.length);
                 if (output.length >= 12) {
-                    high(6);
+                    high(7);
                 } else {
                     high(output.length);
                 }
@@ -290,7 +293,7 @@
                 output = output.filter((item) => item.ViewTag != sort0.value);
                 all(output);
                 if (output.length >= 12) {
-                    high(6);
+                    high(7);
                 } else {
                     high(output.length);
                 }
@@ -301,7 +304,7 @@
                 $(".more").remove();
                 $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
                 if (travel.length >= 12) {
-                    high(6);
+                    high(7);
                 } else {
                     high(travel.length);
                 }
@@ -422,7 +425,7 @@
 
         //愛心方程式
         function love(viewID) {
-            // console.log(viewID);
+             console.log('viewID');
             favorite();
             //重新取得最愛
             member_favorite.forEach(function (scenery1) {
@@ -434,8 +437,8 @@
                     })
                 }
             })
-
-            if (viewID.className === 'fa fa-heart-o') {
+      
+            if (viewID.className == 'fa fa-heart-o') {
                 $(viewID).removeClass('fa fa-heart-o');
                 $(viewID).addClass('fa fa-heart');
                 $(viewID).css('color', 'red');
@@ -451,7 +454,7 @@
                         alert('新增失敗');
                     }
                 })
-            } else if (viewID.className === 'fa fa-heart') {
+            } else if (viewID.className =='fa fa-heart') {
                 $(viewID).removeClass('fa fa-heart');
                 $(viewID).addClass('fa fa-heart-o');
                 $(viewID).css('color', 'black');
