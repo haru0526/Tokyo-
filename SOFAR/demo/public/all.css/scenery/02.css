@@ -59,7 +59,6 @@ input {
 .content2 {
     width: 1650px;
     margin: 20px auto;
-    min-height: 300px;
 }
 
 /* 分類 */
@@ -166,6 +165,8 @@ input {
 /* load more按鈕 */
 .more {
     width: 1290px;
+    height: 50px;
+    font-size: 30px;
     margin: 10px auto;
     clear: both;
     position: relative;
@@ -183,13 +184,13 @@ input {
     /* 显示在页面的右边 */
     z-index: 99;
     /* 确保不被其他功能覆盖 */
-    border: 1px solid #5cb85c;
+    border: 1px solid #F9C0C0;
     /* 显示边框 */
     outline: none;
     /* 不显示外框 */
     background-color: #fff;
     /* 设置背景背景颜色 */
-    color: #5cb85c;
+    color: #F9C0C0;
     /* 设置文本颜色 */
     cursor: pointer;
     /* 鼠标移到按钮上显示手型 */
@@ -200,7 +201,7 @@ input {
 }
 
 .trytry:hover {
-    background-color: #5cb85c;
+    background-color: #F9C0C0;
     /* 鼠标移上去时，反转颜色 */
     color: #fff;
 }

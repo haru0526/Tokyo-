@@ -133,7 +133,7 @@
             })
             // console.log(travel);
             all(travel);
-            high(12);
+            high(6);
             $(".more").remove();
             $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
         }
@@ -176,7 +176,7 @@
 
         //主頁面高度
         function high(changi) {
-            var num = Math.ceil(changi / 6) + 1;
+            var num = Math.floor(changi / 6) + 1;
             // if (num > 4) { num = 4 };
             $('.content2').css('min-height', `${num * 800 + 10}px`);
         }
@@ -273,8 +273,8 @@
                 $(".more").remove();
                 $("#index_right2").after('<div><button class="more" onclick="more(output)">load more</button></div>');
                 // console.log(output.length);
-                if (output.length > 12) {
-                    high(12);
+                if (output.length >= 12) {
+                    high(6);
                 } else {
                     high(output.length);
                 }
@@ -284,8 +284,8 @@
             else if (sort0.checked == false) {
                 output = output.filter((item) => item.ViewTag != sort0.value);
                 all(output);
-                if (output.length > 12) {
-                    high(12);
+                if (output.length >= 12) {
+                    high(6);
                 } else {
                     high(output.length);
                 }
@@ -295,8 +295,8 @@
                 all(travel);
                 $(".more").remove();
                 $("#index_right2").after('<div><button class="more" onclick="more(travel)">load more</button></div>');
-                if (travel.length > 12) {
-                    high(12);
+                if (travel.length >= 12) {
+                    high(6);
                 } else {
                     high(travel.length);
                 }
@@ -399,7 +399,7 @@
                         '</div>';
                     }
                     count = 0;
-                    high(sss * 6);
+                    high(sss * 6 );
                 }
             } else if (motto.length <= sss * 6) {
                 //沒有資料||不夠
