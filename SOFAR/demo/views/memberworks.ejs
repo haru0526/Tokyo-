@@ -39,6 +39,7 @@
 
         .card {
             border: 1px solid;
+            font-size: 22px;
         }
 
         #addmap {
@@ -69,7 +70,11 @@
 
         @media (min-width: 992px) {
             #cardimg {
-                height: 18rem;
+                height: 20rem;
+            }
+
+            .card-body {
+                height: 8rem;
             }
         }
 
@@ -79,7 +84,7 @@
 
         .tag{
             background-color: #F9C0C0;
-            font-size: 25px;
+            font-size: 30px;
             font-weight: 550;
             border: solid #913660;
             border-radius: 20px;
@@ -136,10 +141,10 @@
         <div class="row" id="views"></div>
 
         <!-- 行程規劃 -->
-        <div class="tag mt-5" style="height: 40px; width: 100%;">
+        <div class="tag mt-5" style="height: 45px; width: 100%;">
             <p>行程路線規劃</p>
         </div>
-        <div class="mt-3" id="travel">
+        <div class="mt-3" id="travel" style="font-size: 26px;">
             <div class="clearfix">
                 <div class="float-right mt-1 p-3">
                     <button type="button" id="addtravel">+</button>
@@ -150,7 +155,7 @@
 
         <!-- 加入地圖按鈕 -->
         <div class="d-flex flex-row-reverse mt-4">
-            <a href="#mapdiv" id="addmap" type="button" class="btn">加入到地圖顯示</a>
+            <a href="#mapdiv" id="addmap" type="button" class="btn btn-lg">加入到地圖顯示</a>
         </div>
 
         <div id="mapdiv"></div>
@@ -208,7 +213,7 @@
                         <span class="badge bg-secondary position-absolute bottom-0 start-0">${p.Area}</span>`
                         + tagcontent +
                       `<button id="coll" class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">收藏</button>
-                      <h5 class="card-title text-center mt-2" id="itemName">${p.ViewName}</h5>
+                      <h3 class="card-title text-center mt-4" id="itemName">${p.ViewName}</h3>
                   </div>
               </div>
             </div>
@@ -312,7 +317,7 @@
             // console.log(travelSelect);
             $('#travel').append(
                 `
-                <div class="row mb-5 mt-2 d-flex align-items-end" id="travelSelect` + travelSelect + `">
+                <div class="row mb-5 mt-2 align-items-end" id="travelSelect` + travelSelect + `">
                 <div class="col-lg-1 text-center">
                     <button type="button" onclick="deleteview(event)">-</button>
                 </div>
@@ -321,10 +326,12 @@
                     <input type="time" id="arriveTime">
                 </div>
                 <div class="col-lg-2 text-center mt-3">
+                    <div class="row">
                     <label for="">休息多久(分鐘)</label>
                     <input type="text" id="restTime">
+                    </div>
                 </div>
-                <div class="col-lg-3 text-center mt-3">
+                <div class="col-lg-2 text-center mt-3">
                     <select class="custom-select custom-select-sm" onChange="renew(this.selectedIndex,event);">
                         <option selected>景點類別</option>`
                 + selectTag +
@@ -332,7 +339,7 @@
                     </select>
                 </div>
                 <div class="col-lg-3 text-center mt-3">
-                    <select class="custom-select custom-select-sm">
+                    <select class="custom-select custom-select-sm" style="width:450px;">
                         <option selected>景點名稱</option>`
                 + selectoption +
                 `
