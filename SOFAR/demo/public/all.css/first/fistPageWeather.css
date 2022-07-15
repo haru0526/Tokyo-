@@ -21,7 +21,7 @@ path{
     cursor: pointer;
   }
 path:hover{
-    fill:#f85a3e;
+    fill:goldenrod;
     transform: translate(-3px,-3px);
 }
 /* .weekInfo{

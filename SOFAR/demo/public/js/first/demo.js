@@ -166,21 +166,21 @@ list.innerHTML= str;
 
 
 //玩樂東京
-const playlist = document.querySelector('.play-list');
-let listStr = "";
-playdata.forEach(function(item,index){
-    let content = `<li>
-    <a href="">
-        <div class="area-pic">
-            <img src="../public/images/index/bg/${item.img}" alt="">
-            <div class="mask">
-            </div>
-            <div class="list-title">
-                <h1>${item.title}</h1>
-            </div>
-        </div>
-    </a>
-</li>`
-listStr+=content
-})
-playlist.innerHTML = listStr
+// const playlist = document.querySelector('.play-list');
+// let listStr = "";
+// playdata.forEach(function(item,index){
+//     let content = `<li>
+//     <a href="">
+//         <div class="area-pic">
+//             <img src="../public/images/index/bg/${item.img}" alt="">
+//             <div class="mask">
+//             </div>
+//             <div class="list-title">
+//                 <h1>${item.title}</h1>
+//             </div>
+//         </div>
+//     </a>
+// </li>`
+// listStr+=content
+// })
+// playlist.innerHTML = listStr
