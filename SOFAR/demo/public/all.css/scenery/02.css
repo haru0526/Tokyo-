@@ -290,7 +290,6 @@ input {
 
     /* 景點 */
     .index_right {
-
         margin: auto;
         width: 630px;
         border: 5px solid purple;
@@ -328,3 +327,35 @@ input {
         zoom: 100%;
     }
 }
+
+@media only screen and (max-width:420px) {
+    .content2 {
+        width: 400px;
+        margin: 20px auto;
+    }
+
+
+    /* 分區 */
+    .content1 .area {
+        font-size: 20px;
+        margin: 10px auto;
+        width: 400px;
+    }
+
+    /* 景點 */
+    .index_right {
+        width: 400px;
+    }
+
+    .card {
+        width: 380px;
+    }
+
+    .more {
+        width: 390px;
+    }
+
+    #myModal_inner {
+        width: 100%;
+    }
+   }
