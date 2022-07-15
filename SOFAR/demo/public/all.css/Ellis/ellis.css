@@ -6,7 +6,7 @@ span{
     font-size: larger;
 }
 .tag{
-    background-color: #F9C0C0;
+    background-color: #EEA9A9;
     font-size: 25px;
     font-weight: 550;
     border: solid #913660;
@@ -28,12 +28,12 @@ span{
 }
 
 .reveal.active {
-    transform: translateY(50px);
+    transform: translateY(0px);
     opacity: 1;
 }
 
 .fa-solid {
-    color: red;
+    color: #E87A90;
     font-size: 20px;
   
 }
@@ -55,7 +55,7 @@ span{
     font-size: 20px;
 }
 #underhead{
-    border: 3px solid rgb(223, 122, 147);
+    border: 3px solid #DC9FB4;
     border-radius: 15px;
     font-size: 23px;
     font-weight: 550;
@@ -72,7 +72,7 @@ span{
 
 /* 主題選單 */
 #ellisnav {
-    background-color: #F9C0C0;
+    background-color: #EEA9A9;
     border: 3px solid #913660;
     border-radius: 5px;
     height: auto;
@@ -120,13 +120,13 @@ span{
 
 /* 留言板設定 */
 #app {
-    height: 900px;
+    height: 950px;
     overflow: scroll;
 }
 
 .message {
     text-align: center;
-    background-color: #F9C0C0;
+    background-color: #f9c0c09d;
     border-radius: 15px;
     font-size: large;
 
@@ -144,7 +144,7 @@ span{
     margin-top: 20px;
     font-size: larger;
     font-weight: 500;
-    background-color: #F9C0C0;
+    background-color: #f9c0c09d;
 }
 
 .message input,
@@ -188,7 +188,7 @@ span{
 
 /* 下方列表 */
 .list {
-    background-color: #F9C0C0;
+    background-color: #f9c0c09d;
     margin-top: 50px;
     color: rgb(2, 2, 2);
     font-size: 20px;
