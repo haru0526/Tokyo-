@@ -7,8 +7,6 @@ svg{
     
     
 }
-.fwbggg{
-}
 .svgwrap{
     height: 900px;
 
@@ -21,7 +19,7 @@ path{
     cursor: pointer;
   }
 path:hover{
-    fill:goldenrod;
+    fill:#EEA9A9;
     transform: translate(-3px,-3px);
 }
 /* .weekInfo{
