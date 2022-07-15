@@ -37,6 +37,9 @@ span{
     font-size: 20px;
   
 }
+#cardCont{
+    height: 600px;
+}
 
 #lovebtn {
     background-color: transparent;
@@ -53,18 +56,19 @@ span{
 }
 #underhead{
     border: 3px solid rgb(223, 122, 147);
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 23px;
     font-weight: 550;
     margin: 15px;
-    
 }
-#underbody{
+/* #underbody{
     background-color: #f9c0c0b0;
+    border-radius: 15px;
     font-size: 18px;
-    padding: 20px;
+    padding: 50px;
     margin: 10px;
-}
+    height: 250px;
+} */
 
 /* 主題選單 */
 #ellisnav {
@@ -116,7 +120,7 @@ span{
 
 /* 留言板設定 */
 #app {
-    height: 700px;
+    height: 900px;
     overflow: scroll;
 }
 
