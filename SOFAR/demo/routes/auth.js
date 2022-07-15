@@ -313,8 +313,8 @@ function sendEmail(email,token) {
     const result = await transporter.sendMail({
         from: 'tokyo@gmail.com',
         to: email,
-        subject: '重新設定Tokyo密碼',
-        html: '<h5>我們已收到你的請求</h5><h5>你現在可以重設密碼！</h5><h1>請點擊 <a href="http://localhost:3000/reset-password/' + token + '">這裡</a> 重新設定你的密碼</h1><h5>並未要求新密碼？請忽略這封電子郵件。</h5>'
+        subject: 'tokyo 重新設定密碼',
+        html: '<h5>我們已收到你的請求</h5><h5>你現在可以重設密碼！</h5><h1>請點擊 <a href="http://localhost:3000/member/reset-password/' + token + '">這裡</a> 重新設定你的密碼</h1><h5>若未要求新密碼？請忽略這封電子郵件。</h5>'
     });
   
     console.log("this is my tojen2 :"+token);
