@@ -311,7 +311,7 @@ function sendEmail(email,token) {
 
   async function send(token) {
     const result = await transporter.sendMail({
-        from: 'tokyo@gmail.com',
+        from: 'gemipio1128@gmail.com',
         to: email,
         subject: 'tokyo 重新設定密碼',
         html: '<h5>我們已收到你的請求</h5><h5>你現在可以重設密碼！</h5><h1>請點擊 <a href="http://localhost:3000/member/reset-password/' + token + '">這裡</a> 重新設定你的密碼</h1><h5>若未要求新密碼？請忽略這封電子郵件。</h5>'
