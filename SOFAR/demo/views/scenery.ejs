@@ -19,8 +19,8 @@
 </head>
 
 <body>
-    <!-- <p style="color: white; font-size: 50px; position: absolute; margin-left: 100px; margin-top: 50px;">分區景點 </p>
-    <img src="../public/images/scenery/pic/55555.jpg" width="50%" height="200px"> -->
+
+    <h1 class="tag mt-4">景點一覽</h1>
 
     <!-- 取得使用者的資料 -->
     <div id="username" style="display: none">
@@ -241,7 +241,7 @@
                             ' <p>' + item.ViewName + '</p>' +
                             tagcontent +
                             ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
+                            ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + item.ViewID + '" >取消最愛</button><br>' +
                             '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + item.Area + '</span>' +
                             '</div></div>';
                         count = 1;
@@ -254,7 +254,7 @@
                         ' <div class="card-text"><p>' + item.ViewName + '</p></div>' +
                         tagcontent +
                         ' <button onclick="doit(this)" value="' + i + '">查看更多</button><br>' +
-                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + item.ViewID + '" >點擊加入最愛</button><br>' +
+                        ' <button class="fa fa-heart-o" onclick="love(this)" value="' + item.ViewID + '" >加入最愛</button><br>' +
                         '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + item.Area + '</span>' +
                         '</div></div>';
                 }
@@ -427,7 +427,7 @@
                                 ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
                                 tagcontent +
                                 ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
-                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button><br>' +
+                                ' <button class="fa fa-heart" onclick="love(this)" style="color:red" value="' + motto[sss * 6 + ddd].ViewID + '" >取消最愛</button><br>' +
                                 '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + motto[sss * 6 + ddd].Area + '</span>' +
                                 '</div>';
                             count = 1;
@@ -440,7 +440,7 @@
                             ' <div class="card-text"><p>' + motto[sss * 6 + ddd].ViewName + '</p></div>' +
                             tagcontent +
                             ' <button onclick="doit(this)" value="' + (sss * 6 + ddd) + '">查看更多</button><br>' +
-                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 6 + ddd].ViewID + '" >點擊加入最愛</button><br>' +
+                            ' <button class="fa fa-heart-o" onclick="love(this)" value="' + motto[sss * 6 + ddd].ViewID + '" >加入最愛</button><br>' +
                             '<span class="badge bg-secondary position-absolute buttom-0 start-0">' + motto[sss * 6 + ddd].Area + '</span>' +
                             '</div>';
                     }
@@ -459,7 +459,7 @@
 
         //愛心方程式
         function love(viewID) {
-            console.log('viewID');
+
             favorite();
             //重新取得最愛
             member_favorite.forEach(function (scenery1) {
@@ -482,10 +482,13 @@
                     url: "http://localhost:3000/onlyMember/addmemberviewdata/" + UserID + "/" + viewID.value,
                     async: false,
                     success: function (data) {
-                        alert('新增成功');
+                        alert('已加入最愛');
+                        // console.log('14645');
+                        // console.log(viewID.innerHTML);
+                        viewID.innerHTML = '取消最愛';
                     },
                     error: function () {
-                        alert('新增失敗');
+                        alert('加入失敗');
                     }
                 })
             } else if (viewID.className == 'fa fa-heart') {
@@ -498,10 +501,11 @@
                     async: false,
 
                     success: function (data) {
-                        alert('刪除成功');
+                        alert('以取消最愛');
+                        viewID.innerHTML = '加入最愛';
                     },
                     error: function () {
-                        alert('刪除失敗');
+                        alert('取消失敗');
                     }
                 })
             }

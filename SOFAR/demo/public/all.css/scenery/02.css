@@ -1,3 +1,15 @@
+.tag {
+    background-color: #F9C0C0;
+    font-size: 30px;
+    font-weight: 550;
+    width: 80%;
+    margin: auto;
+    border: solid #913660;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
 body {
     background-image: url("../../images/EllisImages/page03/背景花4.jpeg");
     background-repeat: repeat;
@@ -226,6 +238,7 @@ input {
         height: 368px;
         font-size: 16px;
     }
+
     .content1 .area {
         width: 1000px;
         font-size: 21px;
@@ -355,4 +368,4 @@ input {
     #myModal_inner {
         width: 100%;
     }
-   }
+}
