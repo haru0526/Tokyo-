@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : tokyo
+ Source Server         : demo
  Source Server Type    : MySQL
  Source Server Version : 100424
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 06/07/2022 10:28:41
+ Date: 15/07/2022 15:42:36
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `federated_credentials`  (
   `subject` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of federated_credentials
@@ -39,17 +39,46 @@ DROP TABLE IF EXISTS `memberview_details`;
 CREATE TABLE `memberview_details`  (
   `UserID` tinyint(2) UNSIGNED ZEROFILL NOT NULL,
   `ViewDataID` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of memberview_details
 -- ----------------------------
-INSERT INTO `memberview_details` VALUES (01, '1');
-INSERT INTO `memberview_details` VALUES (01, '2');
-INSERT INTO `memberview_details` VALUES (02, '4');
-INSERT INTO `memberview_details` VALUES (02, '5');
-INSERT INTO `memberview_details` VALUES (01, '23');
-INSERT INTO `memberview_details` VALUES (01, '55');
+INSERT INTO `memberview_details` VALUES (255, '13');
+INSERT INTO `memberview_details` VALUES (255, '30');
+INSERT INTO `memberview_details` VALUES (255, '32');
+INSERT INTO `memberview_details` VALUES (255, '59');
+INSERT INTO `memberview_details` VALUES (03, '2');
+INSERT INTO `memberview_details` VALUES (03, '13');
+INSERT INTO `memberview_details` VALUES (03, '1');
+INSERT INTO `memberview_details` VALUES (03, '3');
+INSERT INTO `memberview_details` VALUES (03, '17');
+INSERT INTO `memberview_details` VALUES (03, '4');
+INSERT INTO `memberview_details` VALUES (03, '39');
+INSERT INTO `memberview_details` VALUES (03, '9');
+INSERT INTO `memberview_details` VALUES (03, '33');
+INSERT INTO `memberview_details` VALUES (03, '19');
+INSERT INTO `memberview_details` VALUES (03, '20');
+INSERT INTO `memberview_details` VALUES (03, '74');
+INSERT INTO `memberview_details` VALUES (08, '67');
+INSERT INTO `memberview_details` VALUES (08, '74');
+
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message`  (
+  `No` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `message` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `timer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`No`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of message
+-- ----------------------------
+INSERT INTO `message` VALUES (8, 'ellisbao', '這裡很適合情侶!!賽馬超刺激ㄉ!!!', '2022-07-14-16:04:46');
 
 -- ----------------------------
 -- Table structure for monthdata
@@ -62,7 +91,7 @@ CREATE TABLE `monthdata`  (
   `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '圖片',
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '敘述',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of monthdata
@@ -90,7 +119,7 @@ CREATE TABLE `special_viewdata`  (
   `latitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '緯度',
   `longitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '經度',
   PRIMARY KEY (`ViewID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of special_viewdata
@@ -108,14 +137,14 @@ DROP TABLE IF EXISTS `spmemberview_details`;
 CREATE TABLE `spmemberview_details`  (
   `UserID` tinyint(2) UNSIGNED ZEROFILL NOT NULL,
   `ViewDataID` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of spmemberview_details
 -- ----------------------------
-INSERT INTO `spmemberview_details` VALUES (01, '1');
-INSERT INTO `spmemberview_details` VALUES (01, '2');
-INSERT INTO `spmemberview_details` VALUES (02, '1');
+INSERT INTO `spmemberview_details` VALUES (03, '1');
+INSERT INTO `spmemberview_details` VALUES (07, '1');
+INSERT INTO `spmemberview_details` VALUES (08, '1');
 
 -- ----------------------------
 -- Table structure for users
@@ -123,23 +152,23 @@ INSERT INTO `spmemberview_details` VALUES (02, '1');
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `id` tinyint(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `birthday` date NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `googleID` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `googleID` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (01, 'ccc', '2021-12-30', 'ccc123@gmail.com', '$2b$10$13xBpTMVgj0qrLFNj3WAFu3bubnzq/CGhUeXxYjRBdU0Ep/N3Tjvi', NULL);
-INSERT INTO `users` VALUES (39, 'xxx', '2022-04-07', 'xxx123@gmail.com', '$2b$10$hwBetspxKIiClLPjb6kmR.lwYps6HmpS.PzrhFp5Nh1InNqDuhLoC', NULL);
-INSERT INTO `users` VALUES (41, 'vvvv', '2022-03-10', 'vvv123@gmail.com', '$2b$10$YOYjMbt3tj2IJCl03MYW0OIrDHWzcfdl6WktcNT3qU0eaFayKDUXu', NULL);
-INSERT INTO `users` VALUES (42, 'bbb', '2021-09-02', 'bbb123@gmail.com', '$2b$10$A.yX49ZJ0K12BbpDbc3z4.7xTpFdETrZDMVW24vCt38c/2JeoggGS', NULL);
-INSERT INTO `users` VALUES (43, 'nnn', '2021-12-03', 'nnn123@gmail.com', '$2b$10$FnrSXmqKGgYBz8rv/ZUKPuqLm4n6.4/KysQ825/5KwvIzYPpzd9cy', NULL);
-INSERT INTO `users` VALUES (44, 'YOUYU', '2022-06-02', 'SFSF@223665.GMAIL', '$2b$10$TWRrOl/61oT9wk6OKxkDju2NkHmb2ahBlIFokSqS2IYCJ8s0csLt2', NULL);
+INSERT INTO `users` VALUES (03, 'admin', '2022-07-01', 'admin@gmail.com', '$2b$10$WFuhDpOOgyGFDmrDqNZuIe2/5xpk4ytumcSKBFX4kdlrdv/79gjoW', NULL, '');
+INSERT INTO `users` VALUES (05, 'ellis', '0000-00-00', 'ellis123@gmail.com', '$2b$10$EF1MwmgnFHkP3bZyr9qHOetn2ILXo25Bgf1RyV7Eu2qZOZUwYAJJa', NULL, '');
+INSERT INTO `users` VALUES (06, 'ellisbao', '0000-00-00', '123@gmail.com', '$2b$10$N3Ge6O8iLB6lo0tRFERp6ObrpbTggTt7nTDaLINnnOylR/ANZsuqS', NULL, '');
+INSERT INTO `users` VALUES (07, 'chiayu', '0000-00-00', '12@gmail.com', '$2b$10$DPyDE3aFrWNjBDURgC/FuOf7FebwKtKaRoyTgC4Kjk2HSwTIVEPty', NULL, '');
+INSERT INTO `users` VALUES (08, '小花', '0000-00-00', 'flower@gmail.com', '$2b$10$li0ZuQVn79SHpVHhilEs4uD5/7VWgKNx3hc.Rm6zj3g.07ENxeweu', NULL, '');
 
 -- ----------------------------
 -- Table structure for viewdata
@@ -155,17 +184,17 @@ CREATE TABLE `viewdata`  (
   `latitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '緯度',
   `longitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '經度',
   PRIMARY KEY (`ViewID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 87 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of viewdata
 -- ----------------------------
 INSERT INTO `viewdata` VALUES (1, '元渕江公園', '足立區', '景點', '足立區元淵江公園是公園內有足立生物公園的公園。 您可以在池塘里釣魚，孩子們在多功能廣場和玩具廣場自由玩耍。', './pic/元渕江公園.jpg\r\n', '35.7926759', '139.7899791');
 INSERT INTO `viewdata` VALUES (2, '三ノ輪橋－三ノ輪商店街\r\n', '荒川區', '景點', '都電荒川線的起迄站，經過保留和整修過的車站被入選為「関東の駅百選」，是個具有歷史意義的車站，其商店街也保存了昭和時代東京老城區的復古風格，獨具下町風情的街區，讓你體會有別於東京市區的寧靜。', './pic/三芝輪.jpg', '35.7330819', '139.7885275');
-INSERT INTO `viewdata` VALUES (3, '町屋二丁目－餃子は一龍 町屋店\r\n\r\n\r\n', '荒川區', '餐廳', '特色：餡料豐富的特大餃子\n', './pic/餃子館.jpg', '35.7439832', '139.7789689');
-INSERT INTO `viewdata` VALUES (4, '東京大學', '文京區\n', '景點', '東京23區位於中央偏北的「文京區」，顧名思義為「文之京都」之意。為東京最主要的文教區，歷代文人如夏目漱石、森鷗外、宮澤賢治都曾經住在文京區，現今亦有許多作家、政治家、學者居住於此。', './pic/東京大學.jpg', '35.7146265', '139.7592053');
-INSERT INTO `viewdata` VALUES (5, '小石川後樂園', '文京區\n', '景點', '「小石川後樂園」（小石川後楽園）建造於江戶時代初期（1669年完工），被視為東京最古老的庭園。是水戶德川家水戶藩家的庭園，因二代藩主與中國思想家朱舜水有私交，採用許多他的意見，也因此在設計上小石川後樂園融入許多儒學的元素，在園內景點的命名上亦可看到深受朱舜水之影響，像是「小廬山」等。', './pic/小石川後樂園.jpg', '35.7055327', '139.7471006');
-INSERT INTO `viewdata` VALUES (6, '蜂蜜吐司咖啡屋（秋?原店）', '千代田區', '美食', '評論:蜂蜜吐司太棒了，包括黑巧克力。鮮奶油味道很好。牛奶麵包的味道很完美，外面烤的麵包皮恰到好處。裏面的麵包也很好吃。包裝精緻。如果你在日本秋葉原，我強烈推薦這個地方。', './pic/蜂蜜吐司咖啡屋.jpg', '35.69761', '139.7685162');
+INSERT INTO `viewdata` VALUES (3, '町屋二丁目－餃子は一龍 町屋店\r\n\r\n\r\n', '荒川區', '美食', '特色：餡料豐富的特大餃子\n', './pic/餃子館.jpg', '35.7439832', '139.7789689');
+INSERT INTO `viewdata` VALUES (4, '東京大學', '文京區', '景點', '東京23區位於中央偏北的「文京區」，顧名思義為「文之京都」之意。為東京最主要的文教區，歷代文人如夏目漱石、森鷗外、宮澤賢治都曾經住在文京區，現今亦有許多作家、政治家、學者居住於此。', './pic/東京大學.jpg', '35.7146265', '139.7592053');
+INSERT INTO `viewdata` VALUES (5, '小石川後樂園', '文京區', '景點', '「小石川後樂園」（小石川後楽園）建造於江戶時代初期（1669年完工），被視為東京最古老的庭園。是水戶德川家水戶藩家的庭園，因二代藩主與中國思想家朱舜水有私交，採用許多他的意見，也因此在設計上小石川後樂園融入許多儒學的元素，在園內景點的命名上亦可看到深受朱舜水之影響，像是「小廬山」等。', './pic/小石川後樂園.jpg', '35.7055327', '139.7471006');
+INSERT INTO `viewdata` VALUES (6, '蜂蜜吐司咖啡屋（秋叶原店）', '千代田區', '美食', '蜂蜜吐司太棒了，包括黑巧克力。鮮奶油味道很好。牛奶麵包的味道很完美，外面烤的麵包皮恰到好處。裏面的麵包也很好吃。包裝精緻。如果你在日本秋葉原，強烈推薦這個地方。', './pic/蜂蜜吐司咖啡屋.jpg', '35.69761', '139.7685162');
 INSERT INTO `viewdata` VALUES (7, '東京皇居', '千代田區', '景點', '皇居顧名思義就是給天皇居住的地方，自古以來，皇居不斷在搬遷，但自從明治天皇上位後，皇居就一直位於東京千代田區，直到現在都沒改變', './pic/東京皇居.jpg', '35.685175', '139.7198405');
 INSERT INTO `viewdata` VALUES (8, '水天宮', '中央區', '神社', '從江戶時代以來，作為安產、求子之神受到人們深厚的信仰，有許多孕婦、求子或平安順產的夫婦前來參拜', './pic/水天宮.jpg', '35.718476', '139.586162');
 INSERT INTO `viewdata` VALUES (9, '江戶川區自然動物園', '江戶川區', '景點', '江戶川區自然動物園於昭和58年（1983年）成立了34年，是東京第1間區立動物園。', './pic/江戶川區自然動物園.jpg', '35.6710531', '139.8562134');
@@ -215,7 +244,7 @@ INSERT INTO `viewdata` VALUES (52, '神田明神', '千代田區', '神社', '�
 INSERT INTO `viewdata` VALUES (53, '淺草鷲神社', '台東區', '神社', '淺草鷲神社位於東京都台東區，是「酉之市」（酉の市）的起源發祥神社，因此大為知名。「酉之市」是一項感謝神明，祈求生意興隆、幸運及除厄的祭典。神社也販售多種獨特的御守。而難得來到東京保有傳統街景的「淺草地區」，不妨換上傳統的日本和服，在街頭或是漫步，或是搭乘人力車，感受彷彿穿越時空般的浪漫情懷', './pic/00022.jpg', '35.72280221', '139.7919293');
 INSERT INTO `viewdata` VALUES (54, '芝大神宮', '港區', '神社', '芝大神宮位於東京都港區，是一間歷史悠久的神社。神社祭祀「天照大御神」，除健康以外，還被認為能保佑許多事情。最厲害的就是這裡的「強運」御守非常有名，據說日本藝人北川景子、DAIGO先生也曾來這裡求過「強運」御守而造成話題唷！', './pic/00023.jpg', '35.65776279', '139.7531449');
 INSERT INTO `viewdata` VALUES (55, '五條天神社', '台東區', '神社', '五條天神社位於台東區上野，離東京都內知名觀光名勝的上野動物園及不忍池相當近。這裡每月10日會舉辦「醫藥祭」，可接受疾病痊癒的祈禱。', './pic/00024.jpg', '35.71372471', '139.7722341');
-INSERT INTO `viewdata` VALUES (56, '湯島天滿宮', '文京區\n', '神社', '湯島天滿宮（湯島天神）位於文京區，主祭神是被神格化為學問之神的學者菅原道真，可保佑學業有成。推薦即將考試的學生，或想取得執照的社會人士前來參拜。', './pic/00025.jpg', '35.70788868', '139.7682944');
+INSERT INTO `viewdata` VALUES (56, '湯島天滿宮', '文京區', '神社', '湯島天滿宮（湯島天神）位於文京區，主祭神是被神格化為學問之神的學者菅原道真，可保佑學業有成。推薦即將考試的學生，或想取得執照的社會人士前來參拜。', './pic/00025.jpg', '35.70788868', '139.7682944');
 INSERT INTO `viewdata` VALUES (57, '龜戶天神社', '江東區', '神社', '「龜戶天神社」是位於東京都江東區的神社，也是九州太宰府天滿宮的關東分社，古時也被稱為東宰府天滿宮、龜戶宰府天滿宮、龜戶天滿宮，直到了1936年才正名為龜戶天神社。因主祭神為掌管學問的菅原道真，神社境內各處能看到象徵性的梅花徽紋、祈求學業順利的御守繪馬，以及多達300株的梅樹，內有50株以上紫藤，例年會在4月下旬起開始綻放，神社將配合花期，舉辦「紫藤祭」。這裡花朵四季變換，全年還會舉辦梅花祭、例大祭等各項祭典。', './pic/00026.jpg', '35.7031856', '139.8206296');
 INSERT INTO `viewdata` VALUES (58, '明治神宮', '澀谷區', '神社', '號稱東京綠洲的明治神宮，在繁華的都市中心裡，擁有70萬平方公尺的超大綠地面積，明治神宮的主祭神就是第122代天皇「明治天皇」與其妻子「昭憲皇太后」，天皇在日人心中有非常崇高的地位，因此明治神宮可以說是神聖的能量之地，常有人在此舉行神社結婚式。其中求姻緣的人氣處就在正殿左方的兩株神木「夫婦楠」，傳說除了能夠祈求夫婦圓滿、全家平安外，對提升戀愛運也很有幫助！據說繫著繩子的神木都是「神明的居住處」，因此不建議用手觸摸，用心靈來吸收神社的神聖精華吧!', './pic/00027.jpg', '35.67685079', '139.6993259');
 INSERT INTO `viewdata` VALUES (59, '石神井公園', '練馬區', '景點', '難以置信的大池塘，是野生鳥類的家園。喜歡在周末去参觀這個寧靜的公園。好的停車場(收費)非常方便。不到一個小時就可以沿着池塘進行一次往返旅行。強烈推薦!', './pic/00028.jpg', '35.74003925', '139.598587');
@@ -229,9 +258,22 @@ INSERT INTO `viewdata` VALUES (66, '東京都寫真美術館', '目黑區', '景
 INSERT INTO `viewdata` VALUES (67, '林試森林公園', '品川區', '景點', '公園曾經是一個喬木研究實驗室，你會看到這麼多不同種類的樹木和植物。公園內有一個漂亮的池塘有海龜和鳥類，孩子的遊樂區，運動場，小橋，非常優美的小路穿過公園。我很幸運地在二月中旬櫻花盛開的季節找到這裏。', './pic/00036.jpg', '35.62507914', '139.7032255');
 INSERT INTO `viewdata` VALUES (68, '城南島海濱公園', '大田區', '景點', '這是一個在東京大田的社區公園。它有一個大型露營地和沙灘，有小狗在那裡跑來跑去。還有專門野餐和燒烤的地方。人們可以看到從羽田機場起飛的飛機。還能看到各種船隻駛入東京的港口。從JR大森東出口或東京單軌鐵路流通中心乘坐京濱急行巴士Mori32（Jonanjima環線），在JR大森4丁目巴士站下車。從車站步行3分鐘即到公園。在晚上，這裏景色很美。', './pic/00037.jpg', '35.58058222', '139.7854423');
 INSERT INTO `viewdata` VALUES (69, 'Sunshine Aquarium', '豐島區', '景點', '陽光水族館的約70種水族箱裡，棲息著多達550種共23,000隻生物。展場內可以欣賞裝有約240噸海水的大水槽「陽光岩礁水槽」、誕生於2020年的水母區「水母空間」，還有海獅及企鵝等其他眾多生物，驚喜不斷。\n還可以見到大型虎鯊及曼波魚、裸海蝶等大大小小各式各樣的生物，以及綠鬣蜥這種不住在海洋裡的生物。陽光水族館會舉辦培訓及餵養解說等活動，也有咖啡廳及禮品店。\n', './pic/00038.jpg', '35.72923021', '139.7202324');
-INSERT INTO `viewdata` VALUES (70, '東京大學', '文京區\n', '景點', '有別於東京街頭並排於道路兩旁的銀杏，本鄉校區內除了銀杏大道外還有一顆獨立的大銀杏，許多人會慕名而來。不過由於東京大學並非觀光設施，不論平日或假日，皆都有許多校內師生在此上課讀書，前往欣賞銀杏時可別忘了留意音量及禮儀。', './pic/00039.jpg', '35.71284509', '139.7619626');
+INSERT INTO `viewdata` VALUES (70, '東京大學', '文京區', '景點', '有別於東京街頭並排於道路兩旁的銀杏，本鄉校區內除了銀杏大道外還有一顆獨立的大銀杏，許多人會慕名而來。不過由於東京大學並非觀光設施，不論平日或假日，皆都有許多校內師生在此上課讀書，前往欣賞銀杏時可別忘了留意音量及禮儀。', './pic/00039.jpg', '35.71284509', '139.7619626');
 INSERT INTO `viewdata` VALUES (71, '葛西臨海水族園', '江戶川區', '景點', '葛西臨海公園是座面對東京都江戶川區東京灣的公園。面積高達810,000平方公尺，為東京都內最寬廣的公園，當初東京都是以為了保護東京灣岸環境而建造而成。在園內有水族館跟各種不同鳥類棲息的鳥類園等等設施，是家庭、情侶假日休閒的好場所。而且，它就位在前往距離東京迪士尼的JR京葉線1站的距離。', './pic/00040.jpg', '35.64015004', '139.8621952');
 INSERT INTO `viewdata` VALUES (72, '荒川遊樂園', '荒川區', '景點', '荒川遊樂園(あらかわ遊園)位於日本東京，佔地約5公頃，是一個政府開辦的綜合性主題樂園，裡面有大型的遊樂園設施外，還有釣魚場、玩水區、方便野餐的大片草地等。\r\n遊樂設施總共有6項，4歲以上就所有設施都可以玩了，裡面有摩天輪、遊園小火車、旋轉木馬、旋轉咖啡杯、空中腳踏車跟3歲以上就能玩的兒童版雲霄飛車。另外園區內還有大型的氣墊溜滑弟、或者一般的公園溜滑梯可以免費給小小朋友玩。', './pic/00041.jpg', '35.75396207', '139.7584212');
 INSERT INTO `viewdata` VALUES (73, '柴又帝釋天', '葛飾區', '景點', '正式名稱是經榮山題經寺。「柴又帝釋天」是「題經寺」的俗稱。自古以來作為東京的觀光名勝出現在各種作品中。現在則作為與電影《寅次郎的故事》的主人公寅次郎有淵源的寺院而聞名，古色古香。', './pic/00042.jpg', '35.75865853', '139.8784332');
+INSERT INTO `viewdata` VALUES (74, '品川王子大飯店', '品川區', '景點', '矗立於品川車站前，是個結合飯店以及各種娛樂場館的大型複合設施。除了大型飯店大多會設有的泳池、美容沙龍服務之外，值得矚目的還有室內水族館「Maxell Aqua Park」，不僅可以看到夢幻美麗的水母魚缸，還有海豚秀以及可愛的企鵝可以親近，', './pic/ouji.jpg', '35.6280892', '139.7339935');
+INSERT INTO `viewdata` VALUES (75, 'アトレ品川', '品川區', '景點', '一座具有紐約時尚風格的車站內商業設施。在大樓的2層至4層內進駐有許多商店和餐廳。商廈距離東海道新幹線入口非常近，交通相當方便', './pic/atore.jpg', '35.6290233', '139.7362194');
+INSERT INTO `viewdata` VALUES (76, 'Homemade Ramen麥苗', '品川區', '美食', '湯頭以山形縣的整隻地雞和雞骨架熬成的高湯作基底，再加上本枯鰹節、魚乾、真昆布等高級食材一起精心熬製的醬油清湯，麵條是使用北海道產小麥粉的自家製中細麵條。', './pic/shinakawaramen.jpg', '35.5908248', '139.7305812');
+INSERT INTO `viewdata` VALUES (77, '帶廣豚丼 炭火燒TONTAN', '品川區', '美食', '位於戶越銀座商店街中央街區的「帶廣豚丼 炭火燒TONTAN」 ，提供北海道帶廣道地口味的鄉土料理「豚丼」。招牌菜單是「豚丼 竹」（710日圓），豬肉沾附了為搭配白飯的特製獨門醬汁，以炭火細細反覆燒烤後再盛放在白飯上的絕品美食。', './pic/tontan.jpg', '35.6144353', '139.5789728');
+INSERT INTO `viewdata` VALUES (78, '飛行模擬器Skyart JAPAN', '品川區', '景點', 'Skyart JAPAN是一個在設有大型航空機「波音777-300ER」、「波音737MAX」的駕駛艙的「飛行模擬艙」中，能體驗駕駛飛機的體驗設施。', './pic/fly.jpg', '35.6239175', '139.7312087');
+INSERT INTO `viewdata` VALUES (79, 'T.Y.Harbor Brewery Restaurant', '品川區', '美食', '這間在品川天王洲運河旁的景觀咖啡廳，以自製精釀啤酒自製為招牌，不同於大量生產的啤酒，以無過濾的方式精製，少量冷藏直送至店舖，讓顧客能品嚐到最新鮮狀態的精釀啤酒，一面享受寬闊水岸風情，一面品嚐美酒與美式風味餐。', './pic/ty.jpg', '35.6229831', '139.7451532');
+INSERT INTO `viewdata` VALUES (80, '天王洲島車站旁的河岸公園', '品川區', '動畫、電影', '曆物語第3集 阿良良木遇到八九寺，在聊八九寺看到的怪事。', './pic/mono.jpg', '35.6192472', '139.7482846');
+INSERT INTO `viewdata` VALUES (81, '天王州島站周邊-罪惡王冠', '品川區', '動畫、電影', '主人公們上的學校位於天王州島站附近', './pic/guilty.jpg', '35.6205004', '139.7495301');
+INSERT INTO `viewdata` VALUES (82, '戶越銀座溫泉', '品川區', '景點', '隱身在戶越銀座商店街中央街區往南的巷弄中，設有黑湯溫泉的錢湯。所謂的「黑湯」是關東地區較為常見，湯色呈現黑色或黑褐色的溫泉，除了能改善神經痛、關節炎及消除疲勞之外，還具有保溫、保溼的效果，泡湯後肌膚水潤細滑而大受好評。', './pic/togoshi.jpg', '35.614772', '139.7164143');
+INSERT INTO `viewdata` VALUES (83, '戶越銀座商店街', '品川區', '美食', '戶越銀座商店街是東京地區最長的一條商店街，之所以被命名為「戶越銀座」，是由於在1923年的關東大地震後，在修建戶越商店街時再利用了當時「銀座通」的瓦礫，同時也寄託著希望商店街能像繁華街「銀座」一樣繁榮昌盛的願望。\n「戶越銀座可樂餅」是商店街的名物，許多店鋪都在販售帶有自家特色的可樂餅。可以在充滿下町懷舊風情的商店街上，一邊逛街一邊品嚐不同風味的可樂餅。', './pic/demo01.jpg', '35.61532403', '139.7169025');
+INSERT INTO `viewdata` VALUES (84, '戶高食堂（食堂とだか）', '品川區', '美食', '《孤獨的美食家》第六季中，五郎吃過的位於五反田站附近的超・級・名・店「戶高食堂（食堂とだか）」，據說《航海王》的作者尾田榮一郎也曾造訪過，是一家出了名的「預約困難店」。以創作日本料理為主，有一人一萬或一萬二日圓的套餐，也可以單點。', './pic/demo02.jpg', '35.62501361', '139.7242807');
+INSERT INTO `viewdata` VALUES (85, '西班牙食堂 石井', '品川區', '美食', '《孤獨的美食家》第六季中登場的餐廳——西班牙食堂 石井。老闆本身是飯店主廚出身，在位於東急池上線上的「旗之台」站附近，開了這家蠻溫馨的小餐館，提供各式各樣本格派的西班牙料理，無論是陸上的還是海鮮食材，都可以大快朵頤。特別的是，據說這家店除了肉料理外，是真的和劇中一樣，可以選擇半份點餐，所以即便是一個人也不用擔心。', './pic/demo03.jpg', '35.60834399', '139.7047755');
+INSERT INTO `viewdata` VALUES (86, '沙丁魚居酒屋 だるまや', '品川區', '美食', '這家だるまや是出現在孤獨的美食家第3季第12集。大井町駅離家不遠所以自己騎腳踏車去吃，這家是沙丁魚料理的居酒屋，店家在大井町駅的鐵道旁邊，只有晚上才有營業。另外在日劇中五郎有點了沙丁魚壽司，但是店家是沒有這道菜的，日劇最後面老闆也跟久住桑說希望大家來的時候不要點', './pic/demo04.jpg', '35.60956575', '139.7357021');
 
 SET FOREIGN_KEY_CHECKS = 1;

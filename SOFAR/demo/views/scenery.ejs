@@ -151,6 +151,7 @@
                 async: false,
                 success: function (data) {
                     travel = JSON.parse(data);
+                    // console.log(travel);
                 },
                 error: function (data) {
                     console.log('noooo');
@@ -198,11 +199,11 @@
             travel = [];
             for (w = 1; w <= sss; w++) {
                 var ect = document.getElementById(`index_right${w}`);
-                console.log(ect);
+                // console.log(ect);
                 ect.innerHTML = '';
             }
             area = a.innerHTML;
-
+            sss = 2;
             //分類欄改變
             var classification = document.getElementById('classification');
             classification.innerHTML = area;
@@ -368,7 +369,7 @@
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + travel[e.value].ViewName + '</h1></div>' +
-                    ' <div><img src="../public/images/scenery/' + travel[e.value].ViewImage + '" >' +
+                    ' <div><img src="../public/images/kent/' + travel[e.value].ViewImage + '" >' +
                     '<h3>' + travel[e.value].ViewText + '</h3></div>' +
                     ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + travel[e.value].ViewID + ' " >點擊加入最愛</button><br>' +
                     '</div>';
@@ -379,7 +380,7 @@
                     '<div class="modal-header">' +
                     '<span class="close">&times;</span>' +
                     '<h1 id="ti">' + output[e.value].ViewName + '</h1></div>' +
-                    ' <div><img src="../public/images/scenery/' + output[e.value].ViewImage + '" >' +
+                    ' <div><img src="../public/images/kent/' + output[e.value].ViewImage + '" >' +
                     '<h3>' + output[e.value].ViewText + '</h3></div>' +
                     ' <button class="' + comeon + '" onclick="love(this)"' + textcolor + ' value="' + output[e.value].ViewID + ' " >點擊加入最愛</button><br>' +
                     // ' <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + output[e.value].ViewMap + '!5e0!3m2!1szh-TW!2stw!4v1656984387857!5m2!1szh-TW!2stw" width="100%" height="300px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
@@ -404,7 +405,9 @@
 
         //load more按鈕 顯示更多
         function more(motto) {
+
             if (motto.length > sss * 6) {
+
                 $(".more").before(`<div class="a" id="index_right${sss + 1}"></div>`);
                 var obj = document.getElementById(`index_right${sss + 1}`);
                 for (var ddd = 0; ddd < 6; ddd++) {
