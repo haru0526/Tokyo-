@@ -132,11 +132,11 @@
 
     <div id="username" style="display:none"><%= userSeeeionName%></div>
     <div class="container">
-        <h1 class="tag mt-4">我的收藏</h1>
+        <h1 class="tag mt-4">我的最愛</h1>
 
         <!-- 景點 -->
         <div class="row text-center mt-5" id="nocoll">
-            <h1>目前沒有收藏喔~!!</h1>
+            <h1>目前沒有加入景點喔~!!</h1>
         </div>
         <div class="row" id="views"></div>
 
@@ -212,7 +212,7 @@
                   <div class="card-body position-relative p-3">
                         <span class="badge bg-secondary position-absolute bottom-0 start-0">${p.Area}</span>`
                         + tagcontent +
-                      `<button id="coll" class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">收藏</button>
+                      `<button id="coll" class="fa-solid fa-heart position-absolute top-0 end-0" onClick="canclecollection('${p.UserID}','${p.ViewDataID}','${p.ViewTag}')">取消最愛</button>
                       <h3 class="card-title text-center mt-4" id="itemName">${p.ViewName}</h3>
                   </div>
               </div>
@@ -222,7 +222,7 @@
 
         // 刪除收藏
         function canclecollection(userid,viewdataid,viewtag) {
-            if(confirm("確定要取消收藏嗎")) {
+            if(confirm("確定要取消我的最愛嗎")) {
                 if(viewtag == "賽馬" | viewtag == "夜店") {
                     userid = "0" + userid;
                     $.ajax({
