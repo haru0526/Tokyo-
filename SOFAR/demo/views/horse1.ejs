@@ -198,7 +198,7 @@
                                 getInfo() {
                                     axios.get("http://localhost:3000/onlyMember/getMessage")//發出取得請求
                                         .then((response) => {
-                                            this.list = response.data
+                                            this.list = response.data.reverse();
                                         })
                                         .catch((error) => {
                                             alert("出錯了")
