@@ -13,12 +13,14 @@ console.log('ok')
 axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=37.917533140946865&lon=138.99889301744824&units=metric&appid=5f2d120e67801aa941cd3433d83eef5c&lang=zh_Tw&exclude=minutely,hourly')
     .then((res) => {
         let Tokyo = res.data
-        $('.currentTemp').text(`${Tokyo.current.temp}`);
+        console.log(Math.round(Tokyo.current.temp))
+        Math.floor(Math.round(Tokyo.current.temp))
+        $('.currentTemp').text(`${Math.round(Tokyo.current.temp)}°C`);
         $('#title').text(`日本東京都`);
         Tokyo.daily.shift();
         for (var i = 0; i < 7; i++) {
             // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-            $('.range' + (i + 1)).text(`${Math.floor(Tokyo.daily[i].temp.max)} ${Math.floor(Tokyo.daily[i].temp.min)}`);
+            $('.range' + (i + 1)).text(`${Math.round(Tokyo.daily[i].temp.max)} ${Math.round(Tokyo.daily[i].temp.min)}`);
 
             $('.week' + (i + 1)).text(`${daytranslate[new Date((Tokyo.daily[i].dt) * 1000).getDay()]}`);
 
@@ -34,7 +36,7 @@ Tokyosvg.addEventListener('click', function (e) {
     axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=37.917533140946865&lon=138.99889301744824&units=metric&appid=5f2d120e67801aa941cd3433d83eef5c&lang=zh_Tw&exclude=minutely,hourly')
         .then((res) => {
             let Tokyo = res.data
-            $('.currentTemp').text(`${Tokyo.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Tokyo.current.temp)}°C`);
             $('#title').text(`日本東京都`);
             Tokyo.daily.shift();
             // $('.range1').text(`${Math.floor(Tokyo.daily[0].temp.max)} ${Math.floor(Tokyo.daily[0].temp.min)}`);
@@ -63,7 +65,7 @@ Tokyosvg.addEventListener('click', function (e) {
             // })
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Tokyo.daily[i].temp.max)} ${Math.floor(Tokyo.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Tokyo.daily[i].temp.max)} ${Math.round(Tokyo.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Tokyo.daily[i].dt) * 1000).getDay()]}`);
 
@@ -95,7 +97,7 @@ Hokkaidosvg.addEventListener('click', function (e) {
             console.log(api, '北海道')
             Hokkaido = res.data
             console.log(Hokkaido.current.temp);
-            $('.currentTemp').text(`${Hokkaido.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Hokkaido.current.temp)}°C`);
             $('#title').text(`北海道`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
 
@@ -103,7 +105,7 @@ Hokkaidosvg.addEventListener('click', function (e) {
 
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Hokkaido.daily[i].temp.max)} ${Math.floor(Hokkaido.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Hokkaido.daily[i].temp.max)} ${Math.round(Hokkaido.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Hokkaido.daily[i].dt) * 1000).getDay()]}`);
 
@@ -127,7 +129,7 @@ northeast.addEventListener('click', function (e) {
         .then((res) => {
             northeast = res.data
             console.log(northeast.current.temp);
-            $('.currentTemp').text(`${northeast.current.temp}`);
+            $('.currentTemp').text(`${Math.round(northeast.current.temp)}°C`);
             $('#title').text(`東北地區`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
 
@@ -135,7 +137,7 @@ northeast.addEventListener('click', function (e) {
 
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(northeast.daily[i].temp.max)} ${Math.floor(northeast.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(northeast.daily[i].temp.max)} ${Math.round(northeast.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((northeast.daily[i].dt) * 1000).getDay()]}`);
 
@@ -154,12 +156,12 @@ EastSea.addEventListener('click', function (e) {
         .then((res) => {
             EastSea = res.data
             console.log(EastSea.current.temp);
-            $('.currentTemp').text(`${EastSea.current.temp}`);
+            $('.currentTemp').text(`${Math.round(EastSea.current.temp)}°C`);
             $('#title').text(`東海`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(EastSea.daily[i].temp.max)} ${Math.floor(EastSea.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(EastSea.daily[i].temp.max)} ${Math.round(EastSea.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((EastSea.daily[i].dt) * 1000).getDay()]}`);
 
@@ -178,12 +180,12 @@ Kansai.addEventListener('click', function (e) {
         .then((res) => {
             Kansai = res.data
             console.log(Kansai.current.temp);
-            $('.currentTemp').text(`${Kansai.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Kansai.current.temp)}°C`);
             $('#title').text(`關西`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Kansai.daily[i].temp.max)} ${Math.floor(Kansai.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Kansai.daily[i].temp.max)} ${Math.round(Kansai.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Kansai.daily[i].dt) * 1000).getDay()]}`);
 
@@ -202,12 +204,12 @@ Hiroshima.addEventListener('click', function (e) {
         .then((res) => {
             Hiroshima = res.data
             console.log(Hiroshima.current.temp);
-            $('.currentTemp').text(`${Hiroshima.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Hiroshima.current.temp)}°C`);
             $('#title').text(`中國`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Hiroshima.daily[i].temp.max)} ${Math.floor(Hiroshima.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Hiroshima.daily[i].temp.max)} ${Math.round(Hiroshima.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Hiroshima.daily[i].dt) * 1000).getDay()]}`);
 
@@ -226,12 +228,12 @@ Shikoku.addEventListener('click', function (e) {
         .then((res) => {
             Shikoku = res.data
             console.log(Shikoku.current.temp);
-            $('.currentTemp').text(`${Shikoku.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Shikoku.current.temp)}°C`);
             $('#title').text(`四國`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Shikoku.daily[i].temp.max)} ${Math.floor(Shikoku.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Shikoku.daily[i].temp.max)} ${Math.round(Shikoku.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Shikoku.daily[i].dt) * 1000).getDay()]}`);
 
@@ -250,12 +252,12 @@ Kyushu.addEventListener('click', function (e) {
         .then((res) => {
             Kyushu = res.data
             console.log(Kyushu.current.temp);
-            $('.currentTemp').text(`${Kyushu.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Kyushu.current.temp)}°C`);
             $('#title').text(`九州`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Kyushu.daily[i].temp.max)} ${Math.floor(Kyushu.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Kyushu.daily[i].temp.max)} ${Math.round(Kyushu.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Kyushu.daily[i].dt) * 1000).getDay()]}`);
 
@@ -273,12 +275,12 @@ Nagano.addEventListener('click', function (e) {
         .then((res) => {
             Nagano = res.data
             console.log(Nagano.current.temp);
-            $('.currentTemp').text(`${Nagano.current.temp}`);
+            $('.currentTemp').text(`${Math.round(Nagano.current.temp)}°C`);
             $('#title').text(`北陸信越`);
             // $('.currentTemp').append(`${Tokyo.current.temp}`);
             for (var i = 0; i < 7; i++) {
                 // console.log(weatherImg[Tokyo.daily[i].weather[i].main]);
-                $('.range' + (i + 1)).text(`${Math.floor(Nagano.daily[i].temp.max)} ${Math.floor(Nagano.daily[i].temp.min)}`);
+                $('.range' + (i + 1)).text(`${Math.round(Nagano.daily[i].temp.max)} ${Math.round(Nagano.daily[i].temp.min)}`);
 
                 $('.week' + (i + 1)).text(`${daytranslate[new Date((Nagano.daily[i].dt) * 1000).getDay()]}`);
 
