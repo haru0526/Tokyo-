@@ -268,9 +268,13 @@ input[type=search] {
 }
 
 .month img {
-    width: 202px;
+    width: 100%;
 }
-
+/* @media(max-width:500px){
+    .month img {
+        width: 70px;
+    }
+} */
 .calendar_left {
     position: absolute;
     top: 45%;
