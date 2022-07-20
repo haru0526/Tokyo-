@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="cardCont  p-4 mt-5"
-                        style="background-color: #f9c0c0b0;height: 350px;font-size:18px;border-radius: 15px;">
+                        style="background-color: #f9c0c0b0;height: 450px;font-size:18px;border-radius: 15px;">
                         <h4 id="underhead">內容介紹:</h4>
                         <br><br>
                         <span id="const" class="reveal">
@@ -201,7 +201,7 @@
                                             this.list = response.data.reverse();
                                         })
                                         .catch((error) => {
-                                            alert("出錯了")
+                                            alert("留言板資料庫沒撈到")
                                         })
                                 },
                                 getTime: () => {
@@ -251,7 +251,7 @@
                                             timer: this.getTime()
                                         }
                                     )
-                                    window.location=location
+                                    window.location = location
                                 },
                                 handleReply: function (index) {
                                     var name = this.list[index].name;
@@ -260,12 +260,28 @@
                                 },
                                 handleDelete: function (index) {
                                     var adno = this.list[index].No
-                                    axios.post("http://localhost:3000/onlyMember/DeleteMessage" + "/" + adno,
-                                        {
-                                            no: this.list[index].No
-                                        }
-                                    )
-                                    this.list.splice(index, 1); //畫面上的
+                                    var adname = this.list[index].name
+
+                                    // console.log("1" + this.list[index].No);
+                                    // console.log(adno);
+                                    // console.log("2" + this.list[index].name);
+                                    console.log(adname);
+                                    console.log(userName);
+                                    if (adname === userName) {
+                                        axios.post("http://localhost:3000/onlyMember/DeleteMessage" + "/" + adno,
+                                            {
+                                                no: this.list[index].No
+                                            }
+                                        )
+                                        alert("刪除留言成功")
+                                        window.location = location
+                                    } else {
+                                        alert("還想偷刪別人留言阿")
+                                        window.location = location
+                                    }
+
+
+
                                 },
                             },
                             created() {
